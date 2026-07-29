@@ -1061,12 +1061,36 @@ document.getElementById('ghClearSaved').addEventListener('click', ()=>{
   document.getElementById('ghDeployStatus').textContent = '이 브라우저에 저장된 GitHub 정보를 지웠습니다.';
 });
 
+function sanitizeAscii(s){
+  // keep only printable ASCII (0x20-0x7E); strips smart quotes, zero-width spaces,
+  // stray Korean IME characters, non-breaking spaces, line breaks, etc.
+  return s.replace(/[^\x20-\x7E]/g, '').trim();
+}
+
 document.getElementById('ghDeployBtn').addEventListener('click', async ()=>{
-  const token = document.getElementById('ghToken').value.trim();
-  const owner = document.getElementById('ghOwner').value.trim();
-  const repo = document.getElementById('ghRepo').value.trim();
-  const branch = document.getElementById('ghBranch').value.trim() || 'main';
+  const rawToken = document.getElementById('ghToken').value;
+  const rawOwner = document.getElementById('ghOwner').value;
+  const rawRepo = document.getElementById('ghRepo').value;
+  const rawBranch = document.getElementById('ghBranch').value;
+  const token = sanitizeAscii(rawToken);
+  const owner = sanitizeAscii(rawOwner);
+  const repo = sanitizeAscii(rawRepo);
+  const branch = sanitizeAscii(rawBranch) || 'main';
   const statusEl = document.getElementById('ghDeployStatus');
+
+  const dirty = [];
+  if(token !== rawToken.trim()) dirty.push('토큰');
+  if(owner !== rawOwner.trim()) dirty.push('사용자명');
+  if(repo !== rawRepo.trim()) dirty.push('저장소 이름');
+  if(branch !== (rawBranch.trim()||'main')) dirty.push('브랜치');
+  if(dirty.length>0){
+    // reflect the cleaned values back into the fields so the person can see what was removed
+    document.getElementById('ghToken').value = token;
+    document.getElementById('ghOwner').value = owner;
+    document.getElementById('ghRepo').value = repo;
+    document.getElementById('ghBranch').value = branch;
+  }
+
   if(!token || !owner || !repo){
     statusEl.className = 'raw-log show error';
     statusEl.textContent = 'GitHub 사용자명 / 저장소 / 토큰을 모두 입력해주세요.';
@@ -1080,6 +1104,7 @@ document.getElementById('ghDeployBtn').addEventListener('click', async ()=>{
   const btn = document.getElementById('ghDeployBtn');
   btn.disabled = true; btn.textContent = '배포 중...';
   statusEl.className = 'raw-log show';
+  const cleanedNote = dirty.length>0 ? `\n\n(참고: ${dirty.join(', ')} 입력값에서 눈에 보이지 않는 특수문자를 자동으로 제거했습니다. 위 입력창 값이 정상인지 한 번 확인해주세요.)` : '';
   statusEl.textContent = 'data.json 저장 중...';
   try{
     const dataStr = JSON.stringify(DATA);
@@ -1088,11 +1113,11 @@ document.getElementById('ghDeployBtn').addEventListener('click', async ()=>{
     const buf = await uploadedFileBlob.arrayBuffer();
     await githubPutFile(token, owner, repo, branch, 'source.xlsx', arrayBufferToBase64(buf), '원본 파일 갱신: '+uploadedFileName);
     saveGhCredsIfRequested();
-    statusEl.textContent = '✅ 배포 완료! 1~2분 후 사이트에 자동으로 반영됩니다. (data.json, source.xlsx 저장됨)';
+    statusEl.textContent = '✅ 배포 완료! 1~2분 후 사이트에 자동으로 반영됩니다. (data.json, source.xlsx 저장됨)'+cleanedNote;
     btn.textContent = 'GitHub에 배포하기';
   }catch(err){
     statusEl.className = 'raw-log show error';
-    statusEl.textContent = '❌ 배포 실패: '+err.message+'\\n\\n토큰 권한(Contents: Read and write)과 저장소/브랜치 이름을 확인해주세요.';
+    statusEl.textContent = '❌ 배포 실패: '+err.message+'\\n\\n토큰 권한(Contents: Read and write)과 저장소/브랜치 이름을 확인해주세요.'+cleanedNote;
     btn.textContent = 'GitHub에 배포하기';
   }finally{
     btn.disabled = false;
