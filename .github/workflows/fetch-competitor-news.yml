@@ -1,16 +1,12 @@
 # .github/workflows/fetch-competitor-news.yml
 #
-# 매일 자동으로 경쟁사 뉴스를 수집해서 competitor-news.json을 저장소에 커밋합니다.
-# 이 파일을 저장소의 .github/workflows/ 폴더 안에 업로드하세요.
-# (경로가 정확해야 GitHub이 워크플로우로 인식합니다: .github/workflows/fetch-competitor-news.yml)
+# 자동 스케줄 없이, "Run workflow" 버튼을 눌렀을 때만 실행됩니다.
+# 이 파일을 저장소의 .github/workflows/fetch-competitor-news.yml 에 그대로 덮어쓰세요.
 
 name: Fetch Competitor News
 
 on:
-  schedule:
-    # 매일 한국시간 오전 8시 (UTC 기준 전날 23:00) 자동 실행
-    - cron: '0 23 * * *'
-  workflow_dispatch: {}  # Actions 탭에서 수동으로도 실행 가능
+  workflow_dispatch: {}  # Actions 탭에서 수동으로 눌러야만 실행됨 (자동 스케줄 없음)
 
 permissions:
   contents: write
@@ -38,5 +34,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add competitor-news.json
-          git diff --staged --quiet || git commit -m "chore: 경쟁사 뉴스 자동 업데이트 ($(date -u +'%Y-%m-%d'))"
+          git diff --staged --quiet || git commit -m "chore: 경쟁사 뉴스 수동 업데이트 ($(date -u +'%Y-%m-%d'))"
           git push
