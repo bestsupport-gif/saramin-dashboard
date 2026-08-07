@@ -24,8 +24,9 @@ const BRANDS = [
 ];
 
 const OUTPUT_PATH = path.join(__dirname, 'competitor-news.json');
-const DISPLAY_PER_BRAND = 20;
-const MAX_AGE_DAYS = 120;
+const DISPLAY_PER_BRAND = 100; // 네이버 API 1회 호출 최대 100건
+const EARLIEST_DATE = '2026-01-01'; // 이 날짜 이전 기사는 수집/보관하지 않음
+const MAX_PAGES_PER_BRAND = 10; // 네이버 API는 start+display <= 1000 까지만 조회 가능 (100*10)
 
 function naverDateToISO(pubDate) {
   const d = new Date(pubDate);
@@ -131,8 +132,8 @@ function passesBrandFilter(title, description, brand) {
   return true;
 }
 
-async function fetchBrandNews(brand) {
-  const url = `https://naverapihub.apigw.ntruss.com/search/v1/news?query=${encodeURIComponent(brand)}&display=${DISPLAY_PER_BRAND}&sort=date&format=json`;
+async function fetchNewsPage(brand, start) {
+  const url = `https://naverapihub.apigw.ntruss.com/search/v1/news?query=${encodeURIComponent(brand)}&display=${DISPLAY_PER_BRAND}&start=${start}&sort=date&format=json`;
   const res = await fetch(url, {
     headers: {
       'X-NCP-APIGW-API-KEY-ID': CLIENT_ID,
@@ -141,14 +142,35 @@ async function fetchBrandNews(brand) {
   });
   if (!res.ok) {
     const bodyText = await res.text().catch(() => '(응답 본문을 읽을 수 없음)');
-    console.error(`[${brand}] API 요청 실패: HTTP ${res.status}`);
+    console.error(`[${brand}] API 요청 실패(start=${start}): HTTP ${res.status}`);
     console.error(`  응답 내용: ${bodyText}`);
-    return [];
+    return null;
   }
-  const json = await res.json();
-  console.log(`  [${brand}] 원본 응답 total=${json.total}, 반환된 item 수=${(json.items || []).length}`);
+  return res.json();
+}
 
-  const all = (json.items || []).map((item) => {
+async function fetchBrandNews(brand) {
+  let rawItems = [];
+  let start = 1;
+  for (let page = 0; page < MAX_PAGES_PER_BRAND; page++) {
+    const json = await fetchNewsPage(brand, start);
+    if (!json) break;
+    const items = json.items || [];
+    if (page === 0) {
+      console.log(`  [${brand}] 원본 응답 total=${json.total}`);
+    }
+    if (items.length === 0) break;
+    rawItems = rawItems.concat(items);
+
+    const lastDate = naverDateToISO(items[items.length - 1].pubDate);
+    start += DISPLAY_PER_BRAND;
+    if (lastDate && lastDate < EARLIEST_DATE) break;
+    if (start > 1000) break;
+    await new Promise((r) => setTimeout(r, 150));
+  }
+  console.log(`  [${brand}] 총 ${rawItems.length}건 수집(페이지네이션 포함)`);
+
+  const all = rawItems.map((item) => {
     const date = naverDateToISO(item.pubDate);
     if (!date) return null;
     const title = stripTags(item.title);
@@ -164,7 +186,7 @@ async function fetchBrandNews(brand) {
         catch { return ''; }
       })(),
     };
-  }).filter(Boolean);
+  }).filter(Boolean).filter((it) => it.date >= EARLIEST_DATE);
 
   const before = all.length;
   const filtered = all.filter((it) => passesBrandFilter(it.title, it.description, it.brand));
@@ -188,9 +210,11 @@ function loadExisting() {
     const raw = fs.readFileSync(OUTPUT_PATH, 'utf-8');
     const json = JSON.parse(raw);
     const items = Array.isArray(json) ? json : (json.items || []);
-    const cleaned = items.filter((it) => passesBrandFilter(it.title, '', it.brand));
+    const cleaned = items
+      .filter((it) => passesBrandFilter(it.title, '', it.brand))
+      .filter((it) => it.date >= EARLIEST_DATE);
     if (cleaned.length !== items.length) {
-      console.log(`기존 파일 정리: 브랜드/맥락 필터 재검사로 ${items.length - cleaned.length}건 제거`);
+      console.log(`기존 파일 정리: 브랜드/맥락 필터 + 2026년 이전 기사 제거로 ${items.length - cleaned.length}건 제거`);
     }
     cleaned.forEach((it) => {
       if (it.sentiment === undefined) it.sentiment = classifySentiment(it.title);
@@ -225,10 +249,7 @@ async function main() {
   const newItems = collected.filter((it) => !existingKeys.has(dedupeKey(it)));
   const merged = existing.concat(newItems);
 
-  const cutoff = new Date();
-  cutoff.setDate(cutoff.getDate() - MAX_AGE_DAYS);
-  const cutoffStr = cutoff.toISOString().slice(0, 10);
-  const pruned = merged.filter((it) => it.date >= cutoffStr);
+  const pruned = merged.filter((it) => it.date >= EARLIEST_DATE);
 
   const beforeDedupe = pruned.length;
   const deduped = dedupeSimilarTitles(pruned);
