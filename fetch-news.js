@@ -17,6 +17,7 @@ if (!CLIENT_ID || !CLIENT_SECRET) {
 }
 console.log(`Client ID 길이: ${CLIENT_ID.length}자 / Client Secret 길이: ${CLIENT_SECRET.length}자 (값 자체는 보안상 출력하지 않습니다)`);
 
+// 추적할 브랜드 목록
 const BRANDS = [
   '사람인', '잡코리아', '원티드', '인크루트', '리멤버',
   '알바몬', '알바천국', '동네알바', '급구', '잡플래닛',
@@ -49,44 +50,85 @@ const MAJOR_OUTLETS = [
   'ytn.co.kr', 'sbs.co.kr', 'kbs.co.kr', 'jtbc.co.kr', 'imbc.com',
 ];
 
-function normalizeTitleForCompare(title) {
-  return String(title || '')
-    .replace(/\[[^\]]*\]/g, '')
-    .replace(/\([^)]*\)/g, '')
-    .replace(/[^가-힣a-zA-Z0-9]/g, '')
-    .toLowerCase();
+function charBigrams(text) {
+  const s = String(text || '').replace(/\s+/g, '');
+  const grams = new Set();
+  for (let i = 0; i < s.length - 1; i++) grams.add(s.slice(i, i + 2));
+  return grams;
 }
+function bigramJaccard(a, b) {
+  let inter = 0;
+  for (const x of a) if (b.has(x)) inter++;
+  const uni = a.size + b.size - inter;
+  return uni ? inter / uni : 0;
+}
+const SIMILARITY_THRESHOLD = 0.3;
+const SIMILARITY_MAX_DAY_GAP = 5;
 
 function dedupeSimilarTitles(items) {
-  const groups = [];
-  items.forEach((it) => {
-    const norm = normalizeTitleForCompare(it.title);
-    let matched = null;
-    for (const g of groups) {
-      if (g.brand !== it.brand) continue;
-      if (norm && (g.norm === norm || g.norm.includes(norm) || norm.includes(g.norm))) {
-        matched = g;
-        break;
-      }
-    }
-    if (matched) {
-      matched.items.push(it);
-      if (norm.length > matched.norm.length) matched.norm = norm;
-    } else {
-      groups.push({ brand: it.brand, norm, items: [it] });
-    }
-  });
+  const n = items.length;
+  const grams = items.map((it) => charBigrams(it.title));
+  const parent = Array.from({ length: n }, (_, i) => i);
+  function find(x) { while (parent[x] !== x) { parent[x] = parent[parent[x]]; x = parent[x]; } return x; }
+  function union(x, y) { const rx = find(x), ry = find(y); if (rx !== ry) parent[rx] = ry; }
 
-  return groups.map((g) => {
-    if (g.items.length === 1) return g.items[0];
-    const sorted = g.items.slice().sort((a, b) => {
+  for (let i = 0; i < n; i++) {
+    for (let j = i + 1; j < n; j++) {
+      if (items[i].brand !== items[j].brand) continue;
+      const gap = Math.abs((new Date(items[i].date) - new Date(items[j].date)) / 86400000);
+      if (gap > SIMILARITY_MAX_DAY_GAP) continue;
+      if (bigramJaccard(grams[i], grams[j]) >= SIMILARITY_THRESHOLD) union(i, j);
+    }
+  }
+
+  const clusters = new Map();
+  for (let i = 0; i < n; i++) {
+    const root = find(i);
+    if (!clusters.has(root)) clusters.set(root, []);
+    clusters.get(root).push(items[i]);
+  }
+
+  const result = [];
+  for (const group of clusters.values()) {
+    if (group.length === 1) { result.push(group[0]); continue; }
+    const sorted = group.slice().sort((a, b) => {
       const aMajor = MAJOR_OUTLETS.some((d) => a.source.includes(d)) ? 1 : 0;
       const bMajor = MAJOR_OUTLETS.some((d) => b.source.includes(d)) ? 1 : 0;
       if (aMajor !== bMajor) return bMajor - aMajor;
       return b.date.localeCompare(a.date);
     });
-    return sorted[0];
-  });
+    result.push(sorted[0]);
+  }
+  return result;
+}
+
+const POSITIVE_KEYWORDS = [
+  '1위', '최대', '신기록', '반등', '역대', '성장', '확대', '호조', '수상', '협력',
+  '출시', '증가', '흑자', '최고', '인기', '호평', '투자 유치', '상승', '개선', '달성',
+  '오픈', '앞장', '우수', '선정', '돌파', '강화', '주목', '기대',
+];
+const NEGATIVE_KEYWORDS = [
+  '논란', '하락', '감소', '위기', '소송', '해킹', '유출', '사고', '사망', '파산',
+  '철수', '중단', '불만', '항의', '적자', '부진', '징계', '고발', '피소', '비판',
+  '우려', '갑질', '불법', '벌금', '제재', '먹튀', '해지', '탈퇴', '먹통', '장애',
+];
+function classifySentiment(text) {
+  const t = String(text || '');
+  const pos = POSITIVE_KEYWORDS.some((k) => t.includes(k));
+  const neg = NEGATIVE_KEYWORDS.some((k) => t.includes(k));
+  if (pos && !neg) return 'positive';
+  if (neg && !pos) return 'negative';
+  return null;
+}
+
+function passesBrandFilter(title, description, brand) {
+  if (!title || !title.includes(brand)) return false;
+  const kws = AMBIGUOUS_BRANDS[brand];
+  if (kws) {
+    const combined = title + ' ' + (description || '');
+    if (!kws.some((kw) => combined.includes(kw))) return false;
+  }
+  return true;
 }
 
 async function fetchBrandNews(brand) {
@@ -104,15 +146,18 @@ async function fetchBrandNews(brand) {
     return [];
   }
   const json = await res.json();
-  console.log(`  [${brand}] 원본 응답 total=${json.total}, 반환된 item 수=${(json.items||[]).length}`);
+  console.log(`  [${brand}] 원본 응답 total=${json.total}, 반환된 item 수=${(json.items || []).length}`);
+
   const all = (json.items || []).map((item) => {
     const date = naverDateToISO(item.pubDate);
     if (!date) return null;
+    const title = stripTags(item.title);
+    const description = stripTags(item.description);
     return {
       date,
       brand,
-      title: stripTags(item.title),
-      description: stripTags(item.description),
+      title,
+      description,
       url: item.originallink || item.link,
       source: (() => {
         try { return new URL(item.originallink || item.link).hostname.replace(/^www\./, ''); }
@@ -121,20 +166,20 @@ async function fetchBrandNews(brand) {
     };
   }).filter(Boolean);
 
-  let filtered = all.filter((it) => it.title.includes(brand));
-
-  const contextKeywords = AMBIGUOUS_BRANDS[brand];
-  if (contextKeywords) {
-    const before = filtered.length;
-    filtered = filtered.filter((it) => {
-      const combined = it.title + ' ' + it.description;
-      return contextKeywords.some((kw) => combined.includes(kw));
-    });
-    console.log(`  [${brand}] 일반 단어 브랜드 — 채용/구직 맥락 없는 기사 추가 제외: ${before}건 → ${filtered.length}건`);
+  const before = all.length;
+  const filtered = all.filter((it) => passesBrandFilter(it.title, it.description, it.brand));
+  if (before !== filtered.length) {
+    console.log(`  [${brand}] 브랜드/맥락 필터링: ${before}건 → ${filtered.length}건`);
   }
 
-  const result = filtered.map(({ description, ...rest }) => rest);
-  console.log(`  [${brand}] 제목에 브랜드명 포함된 기사만 필터링: ${all.length}건 → ${result.length}건`);
+  const result = filtered.map((it) => ({
+    date: it.date,
+    brand: it.brand,
+    title: it.title,
+    url: it.url,
+    source: it.source,
+    sentiment: classifySentiment(it.title + ' ' + it.description),
+  }));
   return result;
 }
 
@@ -143,10 +188,13 @@ function loadExisting() {
     const raw = fs.readFileSync(OUTPUT_PATH, 'utf-8');
     const json = JSON.parse(raw);
     const items = Array.isArray(json) ? json : (json.items || []);
-    const cleaned = items.filter((it) => it.title && it.brand && it.title.includes(it.brand));
+    const cleaned = items.filter((it) => passesBrandFilter(it.title, '', it.brand));
     if (cleaned.length !== items.length) {
-      console.log(`기존 파일 정리: 제목에 브랜드명 없는 기존 항목 ${items.length - cleaned.length}건 제거`);
+      console.log(`기존 파일 정리: 브랜드/맥락 필터 재검사로 ${items.length - cleaned.length}건 제거`);
     }
+    cleaned.forEach((it) => {
+      if (it.sentiment === undefined) it.sentiment = classifySentiment(it.title);
+    });
     return cleaned;
   } catch (e) {
     return [];
@@ -184,7 +232,7 @@ async function main() {
 
   const beforeDedupe = pruned.length;
   const deduped = dedupeSimilarTitles(pruned);
-  console.log(`유사 제목 중복 제거: ${beforeDedupe}건 → ${deduped.length}건`);
+  console.log(`유사 기사 중복 제거: ${beforeDedupe}건 → ${deduped.length}건`);
 
   deduped.sort((a, b) => b.date.localeCompare(a.date));
 
