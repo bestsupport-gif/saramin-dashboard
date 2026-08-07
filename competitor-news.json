@@ -1,226 +1,66 @@
 [
   {
     "date": "2026-08-07",
-    "brand": "사람인",
-    "title": "'뼈말라 된' 효린, 화장까지 싹 지우니 몰라보겠네..딴 사람인 줄 [핫피...",
-    "url": "http://www.osen.co.kr/article/G1112853599",
-    "source": "osen.co.kr"
-  },
-  {
-    "date": "2026-08-07",
     "brand": "알바천국",
     "title": "알바천국, 올해 상반기 아르바이트 채용공고 수 3년 만에 반등",
     "url": "https://edu.donga.com/news/articleView.html?idxno=110690",
-    "source": "edu.donga.com"
-  },
-  {
-    "date": "2026-08-07",
-    "brand": "알바천국",
-    "title": "알바천국 \"상반기 채용공고 2.3%↑, 3년만에 반등\"",
-    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=855153",
-    "source": "hansbiz.co.kr"
-  },
-  {
-    "date": "2026-08-07",
-    "brand": "알바천국",
-    "title": "알바천국, 올해 상반기 알바 채용공고수 3년만에 반등",
-    "url": "https://www.slist.kr/news/articleView.html?idxno=757180",
-    "source": "slist.kr"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "인크루트",
-    "title": "인크루트, SK하이닉스·CJ올리브영·한국전력공사 참여 채용설명회 개최",
-    "url": "http://www.lawissue.co.kr/view.php?ud=202608061832077345204ead0791_12",
-    "source": "lawissue.co.kr"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "인크루트",
-    "title": "인크루트, 하반기 채용설명회 개최... SK하이닉스·CJ올리브영 등 참여",
-    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=205491",
-    "source": "thefirstmedia.net"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "인크루트",
-    "title": "[HR 뉴스브리핑] 인크루트, 2026 채용설명회 사전 신청 오픈",
-    "url": "https://www.asiatime.co.kr/article/20260806500307",
-    "source": "asiatime.co.kr"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "인크루트",
-    "title": "인크루트, SK하이닉스·CJ올리브영·한전 참여하는 채용설명회 연다",
-    "url": "http://www.worktoday.co.kr/news/articleView.html?idxno=87633",
-    "source": "worktoday.co.kr"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "인크루트",
-    "title": "인크루트, '2026 채용설명회' 개최...하반기 채용계획 공개",
-    "url": "https://www.slist.kr/news/articleView.html?idxno=756955",
-    "source": "slist.kr"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "인크루트",
-    "title": "인크루트, 제24회 채용설명회 사전신청 시작",
-    "url": "https://www.sedaily.com/article/20076351?ref=naver",
-    "source": "sedaily.com"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "인크루트",
-    "title": "\"SK하이닉스·올영·한전 참여\"…인크루트, 채용설명회 연다",
-    "url": "https://www.ddaily.co.kr/page/view/2026080609573437226",
-    "source": "ddaily.co.kr"
+    "source": "edu.donga.com",
+    "sentiment": "positive"
   },
   {
     "date": "2026-08-06",
     "brand": "인크루트",
     "title": "인크루트, 2026 채용설명회 개최…'SK하닉·CJ올리브영·한전' 참여",
     "url": "https://www.newsis.com/view/NISX20260806_0003738372",
-    "source": "newsis.com"
+    "source": "newsis.com",
+    "sentiment": null
   },
   {
     "date": "2026-08-06",
     "brand": "인크루트",
-    "title": "인크루트, 27일 채용설명회…SK하이닉스·CJ올리브영·한전 참여",
-    "url": "https://www.etoday.co.kr/news/view/2611579",
-    "source": "etoday.co.kr"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "인크루트",
-    "title": "SK하이닉스·CJ올리브영 인사담당자 한자리에… 인크루트, 2026 채용설명...",
-    "url": "https://www.m-i.kr/news/articleView.html?idxno=1399387",
-    "source": "m-i.kr"
+    "title": "[HR 뉴스브리핑] 인크루트, 2026 채용설명회 사전 신청 오픈",
+    "url": "https://www.asiatime.co.kr/article/20260806500307",
+    "source": "asiatime.co.kr",
+    "sentiment": "positive"
   },
   {
     "date": "2026-08-06",
     "brand": "인크루트",
     "title": "\"하반기 공채 방향 잡는다\"…인크루트, 대학생 선호 기업 참여 '2026 채용...",
     "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=84255",
-    "source": "thefairnews.co.kr"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "리멤버",
-    "title": "레드랩게임즈 '롬: 리멤버 오브 마제스티', 코스튬 및 가디언 소환 개편...",
-    "url": "https://gamefocus.co.kr/detail.php?number=178041",
-    "source": "gamefocus.co.kr"
-  },
-  {
-    "date": "2026-08-06",
-    "brand": "급구",
-    "title": "“0.1% 초희귀 혈액형 급구” 韓 SOS에 日적십자 응답했다",
-    "url": "https://www.donga.com/news/Society/article/all/20260806/134430950/1",
-    "source": "donga.com"
+    "source": "thefairnews.co.kr",
+    "sentiment": null
   },
   {
     "date": "2026-08-05",
     "brand": "원티드",
     "title": "원티드랩, 소수계좌 거래집중으로 투자주의종목 지정",
     "url": "https://www.topstarnews.net/news/articleView.html?idxno=16155796",
-    "source": "topstarnews.net"
+    "source": "topstarnews.net",
+    "sentiment": null
   },
   {
     "date": "2026-08-04",
     "brand": "잡플래닛",
     "title": "잡플래닛, 대학생에 '기업리뷰 열람권' 제공…구직 탐색 지원 강화",
     "url": "https://news.tf.co.kr/read/economy/2348409.htm",
-    "source": "news.tf.co.kr"
+    "source": "news.tf.co.kr",
+    "sentiment": "positive"
   },
   {
     "date": "2026-08-03",
     "brand": "알바천국",
     "title": "알바천국 K-HIRE, 외국인 비자 정보 서비스 출시…취업 가능 비자 한눈에...",
     "url": "https://www.venturesquare.net/1103168/",
-    "source": "venturesquare.net"
-  },
-  {
-    "date": "2026-08-03",
-    "brand": "알바천국",
-    "title": "알바천국 외국인 일자리 플랫폼 'K-HIRE', 비자 정보 서비스 오픈",
-    "url": "https://edu.donga.com/news/articleView.html?idxno=110490",
-    "source": "edu.donga.com"
-  },
-  {
-    "date": "2026-08-03",
-    "brand": "알바천국",
-    "title": "알바천국 K-HIRE, 외국인 비자 정보 서비스 운영",
-    "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=205928",
-    "source": "lcnews.co.kr"
-  },
-  {
-    "date": "2026-08-03",
-    "brand": "알바천국",
-    "title": "알바천국, K-HIRE '비자 정보 서비스' 선봬",
-    "url": "https://www.asiatime.co.kr/article/20260803500004",
-    "source": "asiatime.co.kr"
-  },
-  {
-    "date": "2026-08-03",
-    "brand": "알바천국",
-    "title": "알바천국 K-HIRE, 외국인 비자 정보 서비스 오픈",
-    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=853993",
-    "source": "hansbiz.co.kr"
-  },
-  {
-    "date": "2026-08-03",
-    "brand": "알바천국",
-    "title": "알바천국, 외국인 구직자 위한 '비자 정보 서비스' 오픈",
-    "url": "https://www.slist.kr/news/articleView.html?idxno=756079",
-    "source": "slist.kr"
-  },
-  {
-    "date": "2026-07-27",
-    "brand": "급구",
-    "title": "니더 '급구', 상반기 매출 2배 성장…운송·물류 임금 거래액 11배↑",
-    "url": "https://www.etnews.com/20260727000207",
-    "source": "etnews.com"
+    "source": "venturesquare.net",
+    "sentiment": "positive"
   },
   {
     "date": "2026-07-27",
     "brand": "급구",
     "title": "니더 ‘급구’ 상반기 매출 2배…물류 임금 거래액 11배 급증",
     "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02748646645518784",
-    "source": "edaily.co.kr"
-  },
-  {
-    "date": "2026-07-27",
-    "brand": "급구",
-    "title": "물류가 키운 초단기 일자리…급구, 상반기 매출 2배·물류 임금 거래액...",
-    "url": "https://www.venturesquare.net/1101186/",
-    "source": "venturesquare.net"
-  },
-  {
-    "date": "2026-07-15",
-    "brand": "급구",
-    "title": "'후라도 6주 이탈' 1위 삼성 날벼락, 대체 외국인 투수 '급구'",
-    "url": "https://isplus.com/article/view/isp202607150037",
-    "source": "isplus.com"
-  },
-  {
-    "date": "2026-07-13",
-    "brand": "급구",
-    "title": "최태원 “고객사 메모리 급구…수요·공급 갭 무지 커”",
-    "url": "https://biz.heraldcorp.com/article/10806810?ref=naver",
-    "source": "biz.heraldcorp.com"
-  },
-  {
-    "date": "2026-07-13",
-    "brand": "급구",
-    "title": "최태원 “고객사들 하나같이 메모리 급구 요청…반도체 수요·공급 갭 무...",
-    "url": "https://biz.heraldcorp.com/article/10806561?ref=naver",
-    "source": "biz.heraldcorp.com"
-  },
-  {
-    "date": "2026-07-09",
-    "brand": "급구",
-    "title": "이강인 아틀레티코 마드리드 가고, 바르콜라는 '살라 대체자 급구' 리버...",
-    "url": "https://www.interfootball.co.kr/news/articleView.html?idxno=690189",
-    "source": "interfootball.co.kr"
+    "source": "edaily.co.kr",
+    "sentiment": null
   }
 ]
