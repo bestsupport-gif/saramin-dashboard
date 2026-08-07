@@ -312,6 +312,35 @@ body{transition:background .3s ease,color .3s ease;}
 .rank-val{font-variant-numeric:tabular-nums;}
 
 .side-ctrl{display:flex;gap:6px;padding:0 10px 12px;}
+
+/* Competitor news calendar */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;}
+.cal-weekday{text-align:center;font-size:11px;font-weight:800;color:var(--text-faint);padding:4px 0;text-transform:uppercase;}
+.cal-day{
+  min-height:76px;border-radius:10px;background:var(--bg);border:1px solid transparent;
+  padding:6px;cursor:pointer;transition:.15s;display:flex;flex-direction:column;gap:4px;
+}
+.cal-day:hover{border-color:var(--border);background:var(--surface);}
+.cal-day.today{border-color:var(--primary);box-shadow:0 0 0 1px var(--primary) inset;}
+.cal-day.selected{background:var(--primary-tint);}
+.cal-day.empty{background:transparent;cursor:default;}
+.cal-day.empty:hover{border-color:transparent;background:transparent;}
+.cal-day-num{font-size:11.5px;font-weight:700;color:var(--text-sub);}
+.cal-day.today .cal-day-num{color:var(--primary);}
+.cal-dots{display:flex;flex-wrap:wrap;gap:3px;}
+.cal-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.cal-day-more{font-size:9.5px;color:var(--text-faint);font-weight:700;}
+
+.news-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.news-item:last-child{border-bottom:none;}
+.news-item-tag{
+  flex-shrink:0;font-size:10.5px;font-weight:800;color:#fff;padding:3px 9px;border-radius:100px;
+  white-space:nowrap;margin-top:2px;
+}
+.news-item-body{flex:1;min-width:0;}
+.news-item-title{font-size:13px;font-weight:700;color:var(--text);text-decoration:none;line-height:1.4;}
+.news-item-title:hover{text-decoration:underline;}
+.news-item-meta{font-size:11px;color:var(--text-faint);margin-top:4px;}
 .ctrl-btn{
   flex:1;display:flex;align-items:center;justify-content:center;gap:6px;height:34px;border-radius:10px;
   border:1px solid var(--border);background:var(--surface);color:var(--text-sub);cursor:pointer;
@@ -371,6 +400,8 @@ a{color:var(--primary);} a:hover{color:var(--primary-dark);}
       <div class="nav-label src-tag mi">모바일인덱스</div>
       <li class="nav-item" data-section="appmau"><span class="nav-icon">▤</span><span class="label">어플 활성 사용자 추이</span><span class="dot"></span></li>
       <li class="nav-item" data-section="appinstall"><span class="nav-icon">▤</span><span class="label">앱 신규 설치 추이</span><span class="dot"></span></li>
+      <div class="nav-label">경쟁사 동향</div>
+      <li class="nav-item" data-section="compnews"><span class="nav-icon">📅</span><span class="label">경쟁사 이슈</span><span class="dot"></span></li>
       <div class="nav-label">데이터 관리</div>
       <li class="nav-item" data-section="raw"><span class="nav-icon">⇄</span><span class="label">RAW 데이터</span><span class="dot"></span></li>
     </ul>
@@ -537,6 +568,42 @@ a{color:var(--primary);} a:hover{color:var(--primary-dark);}
 
       <div class="section-row"><h3>선택 기간 데이터</h3><span class="hint">단위: 명</span></div>
       <div class="card table-scroll"><table class="data-table" id="installTable"></table></div>
+    </section>
+
+    <!-- COMPETITOR NEWS -->
+    <section class="section" id="sec-compnews">
+      <div class="topbar">
+        <div>
+          <div class="page-title">경쟁사 이슈 <span class="src-badge" style="background:#B5222F;">NEWS</span></div>
+          <div class="page-desc">네이버 뉴스 기준, 브랜드별 언급 기사를 마케팅 캘린더 형태로 확인하세요</div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:16px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <button class="upload-btn secondary" id="calPrevBtn" style="padding:7px 12px;">‹</button>
+            <div class="card-title" id="calMonthLabel" style="min-width:110px;text-align:center;">2026년 8월</div>
+            <button class="upload-btn secondary" id="calNextBtn" style="padding:7px 12px;">›</button>
+            <button class="upload-btn secondary" id="calTodayBtn" style="padding:7px 12px;">이번 달</button>
+          </div>
+          <span class="status-pill" id="newsStatusPill">뉴스 데이터 불러오는 중...</span>
+        </div>
+        <div class="legend-chips" id="newsBrandLegend" style="margin-top:12px;"></div>
+      </div>
+
+      <div class="card">
+        <div class="cal-grid" id="calWeekdayRow">
+          <div class="cal-weekday">일</div><div class="cal-weekday">월</div><div class="cal-weekday">화</div>
+          <div class="cal-weekday">수</div><div class="cal-weekday">목</div><div class="cal-weekday">금</div><div class="cal-weekday">토</div>
+        </div>
+        <div class="cal-grid" id="calDaysGrid"></div>
+      </div>
+
+      <div class="section-row" id="newsListHeader" style="margin-top:24px;"><h3 id="newsListTitle">최근 기사</h3><span class="hint" id="newsListHint"></span></div>
+      <div class="card" id="newsListCard">
+        <div id="newsList"></div>
+      </div>
     </section>
 
     <!-- RAW -->
@@ -1753,6 +1820,148 @@ document.getElementById('adminToggle').addEventListener('click', ()=>{
   setAdminVisible(!isVisible);
 });
 
+/* ============ COMPETITOR NEWS CALENDAR ============ */
+const SAMPLE_NEWS = [
+  {date:'2026-08-05', brand:'사람인', title:'(예시) 사람인, AI 채용 매칭 서비스 신규 출시', url:'#', source:'예시기사 · 실제 데이터 연동 전 샘플입니다'},
+  {date:'2026-08-03', brand:'잡코리아', title:'(예시) 잡코리아, 하반기 채용 트렌드 보고서 발표', url:'#', source:'예시기사'},
+  {date:'2026-07-28', brand:'원티드', title:'(예시) 원티드랩, 신규 투자 유치 소식', url:'#', source:'예시기사'},
+];
+
+const newsState = {year:new Date().getFullYear(), month:new Date().getMonth(), items:[], activeBrands:new Set(), selectedDate:null};
+
+function newsColorOf(brand){
+  const known = colorOf(brand);
+  if(known && known !== resolveColor('#9AA1B2')) return known;
+  // fallback: stable hash-based color for brands outside the known palette
+  let h = 0; for(let i=0;i<brand.length;i++) h = (h*31 + brand.charCodeAt(i)) % 360;
+  return `hsl(${h}, 60%, 45%)`;
+}
+
+async function loadCompetitorNews(){
+  const pill = document.getElementById('newsStatusPill');
+  try{
+    const res = await fetch('./competitor-news.json', {cache:'no-store'});
+    if(res.ok){
+      const json = await res.json();
+      newsState.items = Array.isArray(json) ? json : (json.items || []);
+      pill.textContent = `최신 뉴스 데이터 표시 중 · ${newsState.items.length}건`;
+      pill.classList.add('ok');
+    } else {
+      throw new Error('not found');
+    }
+  }catch(e){
+    newsState.items = SAMPLE_NEWS;
+    pill.textContent = '⚠ 아직 자동 수집 데이터가 없어 샘플로 표시 중입니다';
+  }
+  const brands = [...new Set(newsState.items.map(i=>i.brand))];
+  brands.forEach(b=>newsState.activeBrands.add(b));
+  renderNewsBrandLegend(brands);
+  renderCalendar();
+}
+
+function renderNewsBrandLegend(brands){
+  const el = document.getElementById('newsBrandLegend');
+  el.innerHTML = brands.map(b=>{
+    const active = newsState.activeBrands.has(b);
+    return `<span class="chip ${active?'active':''}" data-brand="${b}" style="--c:${newsColorOf(b)}"><span class="sw"></span>${b}</span>`;
+  }).join('');
+  el.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      const b = chip.dataset.brand;
+      if(newsState.activeBrands.has(b)) newsState.activeBrands.delete(b); else newsState.activeBrands.add(b);
+      renderNewsBrandLegend(brands);
+      renderCalendar();
+    });
+  });
+}
+
+function filteredNewsItems(){
+  return newsState.items.filter(i=>newsState.activeBrands.has(i.brand));
+}
+
+function renderCalendar(){
+  const {year, month} = newsState;
+  document.getElementById('calMonthLabel').textContent = `${year}년 ${month+1}월`;
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  const todayStr = new Date().toISOString().slice(0,10);
+
+  const itemsByDate = {};
+  filteredNewsItems().forEach(it=>{
+    (itemsByDate[it.date] = itemsByDate[it.date] || []).push(it);
+  });
+
+  let html = '';
+  for(let i=0;i<firstDay;i++) html += '<div class="cal-day empty"></div>';
+  for(let d=1; d<=daysInMonth; d++){
+    const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dayItems = itemsByDate[dateStr] || [];
+    const isToday = dateStr === todayStr;
+    const isSelected = dateStr === newsState.selectedDate;
+    const dots = dayItems.slice(0,4).map(it=>`<span class="cal-dot" style="background:${newsColorOf(it.brand)};" title="${it.brand}"></span>`).join('');
+    const more = dayItems.length>4 ? `<span class="cal-day-more">+${dayItems.length-4}</span>` : '';
+    html += `<div class="cal-day ${isToday?'today':''} ${isSelected?'selected':''}" data-date="${dateStr}">
+      <div class="cal-day-num">${d}</div>
+      <div class="cal-dots">${dots}${more}</div>
+    </div>`;
+  }
+  document.getElementById('calDaysGrid').innerHTML = html;
+  document.querySelectorAll('#calDaysGrid .cal-day:not(.empty)').forEach(cell=>{
+    cell.addEventListener('click', ()=>{
+      const d = cell.dataset.date;
+      newsState.selectedDate = (newsState.selectedDate===d) ? null : d;
+      renderCalendar();
+      renderNewsList();
+    });
+  });
+  renderNewsList();
+}
+
+function renderNewsList(){
+  const listEl = document.getElementById('newsList');
+  const titleEl = document.getElementById('newsListTitle');
+  const hintEl = document.getElementById('newsListHint');
+  let items = filteredNewsItems();
+  if(newsState.selectedDate){
+    items = items.filter(i=>i.date===newsState.selectedDate);
+    titleEl.textContent = `${newsState.selectedDate} 기사`;
+    hintEl.textContent = `${items.length}건 · 다시 클릭하면 전체 보기`;
+  } else {
+    items = items.slice().sort((a,b)=> b.date.localeCompare(a.date)).slice(0,20);
+    titleEl.textContent = '최근 기사';
+    hintEl.textContent = '최신순 20건';
+  }
+  if(items.length===0){
+    listEl.innerHTML = '<div class="note" style="padding:16px 0;">해당 조건의 기사가 없습니다.</div>';
+    return;
+  }
+  listEl.innerHTML = items.map(it=>`
+    <div class="news-item">
+      <span class="news-item-tag" style="background:${newsColorOf(it.brand)};">${it.brand}</span>
+      <div class="news-item-body">
+        <a class="news-item-title" href="${it.url}" target="_blank" rel="noopener">${it.title}</a>
+        <div class="news-item-meta">${it.date} · ${it.source||''}</div>
+      </div>
+    </div>`).join('');
+}
+
+document.getElementById('calPrevBtn').addEventListener('click', ()=>{
+  newsState.month--; if(newsState.month<0){ newsState.month=11; newsState.year--; }
+  newsState.selectedDate = null;
+  renderCalendar();
+});
+document.getElementById('calNextBtn').addEventListener('click', ()=>{
+  newsState.month++; if(newsState.month>11){ newsState.month=0; newsState.year++; }
+  newsState.selectedDate = null;
+  renderCalendar();
+});
+document.getElementById('calTodayBtn').addEventListener('click', ()=>{
+  const now = new Date();
+  newsState.year = now.getFullYear(); newsState.month = now.getMonth();
+  newsState.selectedDate = null;
+  renderCalendar();
+});
+
 async function initDashboard(){
   loadSavedGhCreds();
   // GitHub 배포 카드는 기본적으로 숨김. ?admin=1 로 접속했거나,
@@ -1794,6 +2003,7 @@ async function initDashboard(){
     deviceLabels: {aos:'Android (AOS)', ios:'iOS'},
     titleWord: '신규 설치수',
   });
+  loadCompetitorNews();
 }
 initDashboard();
 
