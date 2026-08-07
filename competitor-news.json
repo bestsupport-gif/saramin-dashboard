@@ -40,12 +40,52 @@
     "sentiment": null
   },
   {
+    "date": "2026-08-05",
+    "brand": "잡코리아",
+    "title": "‘잡코리아’ 운영사 웍스피어, 비핵심 사업·인력 구조조정",
+    "url": "https://zdnet.co.kr/view/?no=20260805142819",
+    "source": "zdnet.co.kr",
+    "sentiment": "negative"
+  },
+  {
     "date": "2026-08-04",
     "brand": "잡플래닛",
     "title": "잡플래닛, 대학생에 '기업리뷰 열람권' 제공…구직 탐색 지원 강화",
     "url": "https://news.tf.co.kr/read/economy/2348409.htm",
     "source": "news.tf.co.kr",
     "sentiment": "positive"
+  },
+  {
+    "date": "2026-08-04",
+    "brand": "잡코리아",
+    "title": "잡코리아, 27일 HR 컨퍼런스 ‘HReka 26’ 개최",
+    "url": "https://edu.chosun.com/site/data/html_dir/2026/08/04/2026080480032.html",
+    "source": "edu.chosun.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-08-04",
+    "brand": "인크루트",
+    "title": "인크루트 \"대학생이 가장 일하고 싶은 공기업 1위는 인천국제공항공사...",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=205266",
+    "source": "thefirstmedia.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-08-04",
+    "brand": "알바몬",
+    "title": "알바생 평판 공유한 알바몬…'블랙리스트 악용' 논란에 기능 중단",
+    "url": "https://www.thepublic.kr/news/articleView.html?idxno=313675",
+    "source": "thepublic.kr",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-08-04",
+    "brand": "알바몬",
+    "title": "[이슈talk] 알바몬 '추천하기' 갑론을박, 알바생 인권이냐 자영업자 생존...",
+    "url": "http://www.dailypop.kr/news/articleView.html?idxno=101198",
+    "source": "dailypop.kr",
+    "sentiment": null
   },
   {
     "date": "2026-08-03",
@@ -56,11 +96,4339 @@
     "sentiment": "positive"
   },
   {
+    "date": "2026-08-03",
+    "brand": "잡코리아",
+    "title": "웍스피어, AI 지원 조직 신설…\"잡코리아·알바몬 AX 뒷받침\"",
+    "url": "https://www.ddaily.co.kr/page/view/2026080314462397466",
+    "source": "ddaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "잡코리아",
+    "title": "이용자 늘린 잡코리아…AI 고도화로 수익 성장 잇는다",
+    "url": "https://www.ngetnews.com/news/articleView.html?idxno=552033",
+    "source": "ngetnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "알바몬, 누적 이용자 2000만명 돌파…\"54개월 연속 1위\"",
+    "url": "https://www.hankyung.com/article/202608031865g",
+    "source": "hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "알바몬 누적 MAU 2,000만 돌파, 4년 만 MAU 43% 성장",
+    "url": "http://www.technoa.co.kr/news/articleView.html?idxno=101238",
+    "source": "technoa.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "[JOB현장에선] 알바몬 추천하기 프라이버시 침해 논란...웍스피어, \"사업...",
+    "url": "https://www.news2day.co.kr/article/20260803500067",
+    "source": "news2day.co.kr",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "[이슈] 알바몬, MAU 54개월 연속 1위...AI 추천·안심 공고 통했다",
+    "url": "https://www.startuptoday.co.kr/news/articleView.html?idxno=808578",
+    "source": "startuptoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "\"알고 보니 알바생 뒷담화 게시판?\"…알바몬 '추천하기' 블랙리스트 논...",
+    "url": "http://weekly.chosun.com/news/articleView.html?idxno=53982",
+    "source": "weekly.chosun.com",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "웍스피어, AI 지원 조직 신설…\"잡코리아·알바몬 AX 뒷받침\"",
+    "url": "https://www.ddaily.co.kr/page/view/2026080314462397466",
+    "source": "ddaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "한국은 알바의 나라로 변화 중?... 알바몬이 국민앱 등극, 4년 새 이용자...",
+    "url": "https://www.news2day.co.kr/article/20260803500099",
+    "source": "news2day.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "알바몬, 누적 이용자 증가로 아르바이트 플랫폼 경쟁력 강화",
+    "url": "http://www.lawissue.co.kr/view.php?ud=20260803121458939204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "구직자 몰래 사업주끼리 채용 평가 공유...알바몬 구직자 평가 시스템 ...",
+    "url": "http://www.newsworker.co.kr/news/articleView.html?idxno=439416",
+    "source": "newsworker.co.kr",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "누적 MAU 2000만 넘었다…알바몬, 구인·구직 시장서 독주 체제 강화",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=83921",
+    "source": "thefairnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-08-03",
+    "brand": "알바몬",
+    "title": "[소셜＋] \"구직자 추천용이라더니\"…알바몬 '일방적 평판 공유' 논란",
+    "url": "https://www.yna.co.kr/view/AKR20260730166000505?input=1195m",
+    "source": "yna.co.kr",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-07-31",
+    "brand": "사람인",
+    "title": "잡코리아 vs 사람인, 'AI 후불형 채용' 승부…차별점은",
+    "url": "https://zdnet.co.kr/view/?no=20260731162923",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-31",
+    "brand": "잡코리아",
+    "title": "잡코리아 vs 사람인, 'AI 후불형 채용' 승부…차별점은",
+    "url": "https://zdnet.co.kr/view/?no=20260731162923",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-31",
+    "brand": "알바천국",
+    "title": "알바천국, ‘AI 공고 비교 분석 서비스’ 오픈",
+    "url": "https://edu.chosun.com/site/data/html_dir/2026/07/31/2026073180133.html",
+    "source": "edu.chosun.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-31",
+    "brand": "알바천국",
+    "title": "알바천국, 맞춤형 채용 정보 비교 기능 선보여",
+    "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=205857",
+    "source": "lcnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-31",
+    "brand": "알바천국",
+    "title": "알바천국, 나에게 딱 맞는 알바 한눈에 고른다",
+    "url": "http://www.technoa.co.kr/news/articleView.html?idxno=101222",
+    "source": "technoa.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "사람인",
+    "title": "대전시, 취업포털 '사람인'에 대전기업 온라인 채용관 운영",
+    "url": "https://www.newsis.com/view/NISX20260730_0003729694",
+    "source": "newsis.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "사람인",
+    "title": "대전시, '사람인'과 손잡고 지역 우수기업 취업문 넓힌다",
+    "url": "https://www.ccdn.co.kr/news/articleView.html?idxno=1091207",
+    "source": "ccdn.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "사람인",
+    "title": "‘사람인’과 손잡고 ‘대전기업’ 알리고 인재 유치",
+    "url": "https://www.seoul.co.kr/news/society/2026/07/30/20260730500064?wlog_tag3=naver",
+    "source": "seoul.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "사람인",
+    "title": "대전시-사람인 맞손 AI 채용관으로 청년 취업·기업 구인 '두 마리 토끼...",
+    "url": "https://www.etnews.com/20260730000100",
+    "source": "etnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "사람인",
+    "title": "[HR 뉴스브리핑] 사람인 \"구직자 10명 중 6명은 쉬었음 상태 생각\"",
+    "url": "https://www.asiatime.co.kr/article/20260730500067",
+    "source": "asiatime.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "잡코리아",
+    "title": "잡코리아 스마트픽 10개월…실제 채용 성과는 관찰 단계",
+    "url": "https://www.ngetnews.com/news/articleView.html?idxno=551989",
+    "source": "ngetnews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "원티드",
+    "title": "원티드랩, 대한상의와 ‘AI 실무형 청년’ 키운다",
+    "url": "https://www.sedaily.com/article/20074017?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "인크루트",
+    "title": "인크루트 \"토스뱅크, 대학생 선호 금융기업 3년 연속 1위\"…미래 성장 가...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202607301628373782204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "알바천국",
+    "title": "알바천국, Z세대 2명 중 1명 \"엄마와 친구 같은 관계\"",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=110430",
+    "source": "edu.donga.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "알바천국",
+    "title": "[카드] 알바천국, Z세대 '엄마와의 관계' 설문조사 진행",
+    "url": "http://www.newsprime.co.kr/news/article.html?no=742040",
+    "source": "newsprime.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-30",
+    "brand": "알바천국",
+    "title": "알바천국 \"Z세대 절반, 엄마와 친구처럼 지낸다\"",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=853345",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-29",
+    "brand": "사람인",
+    "title": "\"채용, AI에게 맡겨라\" 사람인, 에이전트핏 출시",
+    "url": "https://www.wolyo.co.kr/news/articleView.html?idxno=315742",
+    "source": "wolyo.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-29",
+    "brand": "잡코리아",
+    "title": "잡코리아, AI 타겟팅으로 '하이핏' 인재 매칭",
+    "url": "https://www.businesskorea.co.kr/news/articleView.html?idxno=273788",
+    "source": "businesskorea.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-29",
+    "brand": "잡코리아",
+    "title": "잡코리아에 이력서 올리면 '잡플래닛 열람권' 준다",
+    "url": "https://zdnet.co.kr/view/?no=20260729113929",
+    "source": "zdnet.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-29",
+    "brand": "잡플래닛",
+    "title": "잡코리아에 이력서 올리면 '잡플래닛 열람권' 준다",
+    "url": "https://zdnet.co.kr/view/?no=20260729113929",
+    "source": "zdnet.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-29",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, 대학생에 기업리뷰 열람권 제공",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=853104",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-29",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, 리뷰에서 지원까지…구직 탐색 여정 강화",
+    "url": "http://www.kdfnews.com/news/articleView.html?idxno=185832",
+    "source": "kdfnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-29",
+    "brand": "잡플래닛",
+    "title": "구직자 10명 중 6명은 '저연차'…잡플래닛, 구직 경험 공유",
+    "url": "https://www.news1.kr/industry/general-industry/6242184",
+    "source": "news1.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-28",
+    "brand": "잡코리아",
+    "title": "잡코리아·알바몬, 국제 보안·개인정보 인증 동시 획득",
+    "url": "https://www.m-i.kr/news/articleView.html?idxno=1396308",
+    "source": "m-i.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-28",
+    "brand": "원티드",
+    "title": "원티드랩, 투자주의종목 지정",
+    "url": "https://www.topstarnews.net/news/articleView.html?idxno=16148027",
+    "source": "topstarnews.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-28",
+    "brand": "알바몬",
+    "title": "잡코리아·알바몬, 국제 보안·개인정보 인증 동시 획득",
+    "url": "https://www.m-i.kr/news/articleView.html?idxno=1396308",
+    "source": "m-i.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-28",
+    "brand": "알바천국",
+    "title": "알바천국, 고3 대상 '천국이 드립니다' 진행",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=852834",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-28",
+    "brand": "알바천국",
+    "title": "알바천국, 수능 D-100 맞아 고3 응원 이벤트…1,250명에 네이버페이 포인...",
+    "url": "https://www.job-post.co.kr/news/articleView.html?idxno=222353",
+    "source": "job-post.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-27",
+    "brand": "원티드",
+    "title": "원티드랩, 글로벌 리크루팅 카니발 개최",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=852598",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-27",
+    "brand": "원티드",
+    "title": "원티드랩, '2개국어 인재' 연결 행사 개최…아모레퍼시픽·삼양식품 등...",
+    "url": "https://www.etnews.com/20260727000039",
+    "source": "etnews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-27",
+    "brand": "인크루트",
+    "title": "인크루트 \"대학생 취업 선호도, 반도체 기업 강세\"... SK하이닉스 2년 연...",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=204647",
+    "source": "thefirstmedia.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-27",
+    "brand": "알바천국",
+    "title": "오예주, 알바천국 러닝 포즈로 밝은 에너지…'각성' 주연 기대감",
+    "url": "https://www.topstarnews.net/news/articleView.html?idxno=16147139",
+    "source": "topstarnews.net",
+    "sentiment": "positive"
+  },
+  {
     "date": "2026-07-27",
     "brand": "급구",
     "title": "니더 ‘급구’ 상반기 매출 2배…물류 임금 거래액 11배 급증",
     "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02748646645518784",
     "source": "edaily.co.kr",
     "sentiment": null
+  },
+  {
+    "date": "2026-07-24",
+    "brand": "리멤버",
+    "title": "\"가짜 팀장한테 먼저 혼났습니다\"…요즘 직장인 '씁쓸한 현실' [리멤버 ...",
+    "url": "https://www.hankyung.com/article/202607243821g",
+    "source": "hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-24",
+    "brand": "알바천국",
+    "title": "알바천국 \"알바 평균 시급, 최저임금보다 8.8%↑\"",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=852188",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-24",
+    "brand": "알바천국",
+    "title": "알바천국, 올해 상반기 아르바이트 실제 시급 평균 1만1233원",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=110244",
+    "source": "edu.donga.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-24",
+    "brand": "알바천국",
+    "title": "알바천국, 상반기 평균 시급 공개→당근알바, 운수자격정보 연계",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=753852",
+    "source": "slist.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-24",
+    "brand": "잡플래닛",
+    "title": "해고했더니 잡플래닛에 악성 리뷰…매출까지 급감했다면, 해당 직원 처...",
+    "url": "https://lawtalknews.co.kr/article/1WE5ENN2IF9G",
+    "source": "lawtalknews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-23",
+    "brand": "사람인",
+    "title": "“중장년도 구직앱 쓴다”...사람인 '원더풀시니어' 폭풍 성장",
+    "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=04267286645517472",
+    "source": "edaily.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-23",
+    "brand": "사람인",
+    "title": "사람인베트남 \"하반기 채용 11~12월 집중\"…채용 예정 기업들, \"인재 채...",
+    "url": "https://www.insidevina.com/news/articleView.html?idxno=43653",
+    "source": "insidevina.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-23",
+    "brand": "사람인",
+    "title": "\"다시 취업 나서는 50대\"… 사람인 원더풀시니어, 신규회원 3배 가까이 ...",
+    "url": "https://www.m-i.kr/news/articleView.html?idxno=1394350",
+    "source": "m-i.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-23",
+    "brand": "잡코리아",
+    "title": "잡코리아X잡플래닛, '굿 JOB 페스타' 개최…대학생 공채 준비 지원",
+    "url": "https://www.thedailypost.kr/news/articleView.html?idxno=114771",
+    "source": "thedailypost.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-23",
+    "brand": "잡코리아",
+    "title": "\"AI 채용 데이터와 재직자 리뷰의 만남\"…잡코리아·잡플래닛이 그리는...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=82917",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-23",
+    "brand": "인크루트",
+    "title": "\"취업 준비 막막하다면\"…인크루트, AI 맞춤형 '신입나비' 론칭",
+    "url": "https://magazine.hankyung.com/business/article/202607231133b",
+    "source": "magazine.hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-23",
+    "brand": "잡플래닛",
+    "title": "잡코리아X잡플래닛, '굿 JOB 페스타' 개최…대학생 공채 준비 지원",
+    "url": "https://www.thedailypost.kr/news/articleView.html?idxno=114771",
+    "source": "thedailypost.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-23",
+    "brand": "잡플래닛",
+    "title": "\"AI 채용 데이터와 재직자 리뷰의 만남\"…잡코리아·잡플래닛이 그리는...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=82917",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-22",
+    "brand": "알바몬",
+    "title": "알바몬, 광동제약 비타500 손잡고 '일급 100만 원' 이색 알바 모집",
+    "url": "https://www.thedailypost.kr/news/articleView.html?idxno=114762",
+    "source": "thedailypost.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-22",
+    "brand": "알바몬",
+    "title": "알바몬·광동제약, 라벨 알바 이벤트 진행",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=851724",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-22",
+    "brand": "잡플래닛",
+    "title": "[포커스] 잡플래닛, 익명·신뢰 동시 겨냥...메인 전면 개편",
+    "url": "https://www.startuptoday.co.kr/news/articleView.html?idxno=807287",
+    "source": "startuptoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-21",
+    "brand": "원티드",
+    "title": "[HR기업 AX 열전] AI 매칭 고도화…일본 공략 가속 I 원티드랩②",
+    "url": "https://www.bloter.net/news/articleView.html?idxno=668380",
+    "source": "bloter.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-21",
+    "brand": "알바몬",
+    "title": "광동제약, 알바몬 협업 소통형 패키지와 대규모 이벤트로 젊음 입는다",
+    "url": "https://www.ngetnews.com/news/articleView.html?idxno=551669",
+    "source": "ngetnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-21",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, 메인 화면 전면 개편",
+    "url": "http://www.inews24.com/view/1987459",
+    "source": "inews24.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-21",
+    "brand": "잡플래닛",
+    "title": "리뷰 보고 바로 지원까지… 잡플래닛, ‘탐색형 커리어 플랫폼’으로 진...",
+    "url": "https://www.venturesquare.net/1099957/",
+    "source": "venturesquare.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-21",
+    "brand": "잡플래닛",
+    "title": "리뷰에서 지원까지…잡플래닛, 구직 경험 바꾼다",
+    "url": "http://www.kdfnews.com/news/articleView.html?idxno=185461",
+    "source": "kdfnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-21",
+    "brand": "잡플래닛",
+    "title": "정보 탐색부터 지원까지 직행…잡플래닛, UI·UX 대대적 단장",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=82672",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-20",
+    "brand": "사람인",
+    "title": "사람인, 상반기 AI 서비스 이용자 2배 성장",
+    "url": "https://www.etnews.com/20260720000317",
+    "source": "etnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-20",
+    "brand": "잡코리아",
+    "title": "잡코리아, 반도체 채용 빅데이터 분석 발표 \"올 상반기 신입 공고 47% 급...",
+    "url": "https://www.thedailypost.kr/news/articleView.html?idxno=114721",
+    "source": "thedailypost.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-15",
+    "brand": "사람인",
+    "title": "사람인스토어 1주년...AI 서비스 앞세워 성장 견인",
+    "url": "https://economist.co.kr/article/view/ecn202607150033",
+    "source": "economist.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-15",
+    "brand": "사람인",
+    "title": "사람인스토어, 1년새 월간 페이지뷰 4배↑…AI 서비스로 호응 이끌어",
+    "url": "https://www.etnews.com/20260715000058",
+    "source": "etnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-15",
+    "brand": "잡코리아",
+    "title": "잡코리아·알바몬 조사, 구직자 우선순위 엇갈려",
+    "url": "http://www.beyondpost.co.kr/view.php?ud=20260715084754408346a9e4dd7f_30",
+    "source": "beyondpost.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-15",
+    "brand": "인크루트",
+    "title": "채용 넘어 경영 지원으로…인크루트, 4대보험 환급 조회 서비스 출시",
+    "url": "https://magazine.hankyung.com/business/article/202607156495b",
+    "source": "magazine.hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-15",
+    "brand": "인크루트",
+    "title": "인사 담당자 머리 아픈 '4대보험 과납금'…인크루트, 클릭 몇번으로 돌...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=82195",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-15",
+    "brand": "알바몬",
+    "title": "\"하루 10만원 벌게 해준다\"더니 성착취까지…알바몬 재택알바 사기 논란",
+    "url": "https://wemakenews.co.kr/news/view.php?no=25822",
+    "source": "wemakenews.co.kr",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-07-15",
+    "brand": "알바몬",
+    "title": "잡코리아·알바몬 조사, 구직자 우선순위 엇갈려",
+    "url": "http://www.beyondpost.co.kr/view.php?ud=20260715084754408346a9e4dd7f_30",
+    "source": "beyondpost.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-14",
+    "brand": "사람인",
+    "title": "[IT 플랫폼리더 열전⑥] 사람인 황현순 \"라이프플랫폼 전환…데이트매칭...",
+    "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5040111",
+    "source": "shinailbo.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-14",
+    "brand": "잡코리아",
+    "title": "[JOB리포트] 채용 공고 검색 대신 AI가 골라준다\"…잡코리아, \"AI 맞춤 추...",
+    "url": "https://www.news2day.co.kr/article/20260714500104",
+    "source": "news2day.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "사람인",
+    "title": "[이슈] 잡코리아, 사람인과 격차 더 벌려...채용 플랫폼 1위 '굳히기'",
+    "url": "https://www.startuptoday.co.kr/news/articleView.html?idxno=806455",
+    "source": "startuptoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "사람인",
+    "title": "잡코리아, 상반기 MAU 1천만 돌파...\"사람인, 리멤버 크게 제쳐\"",
+    "url": "https://zdnet.co.kr/view/?no=20260713101239",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "사람인",
+    "title": "사람인 동네알바 성장세, 여름 성수기 '동네워홀' 프로모션으로 성장 가...",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=109869",
+    "source": "edu.donga.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "사람인",
+    "title": "사람인 동네알바, 지원자 52% 늘었다…여름 프로모션 본격화",
+    "url": "https://www.newspim.com/news/view/20260713000059",
+    "source": "newspim.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "잡코리아",
+    "title": "잡코리아, 상반기 누적 MAU 1000만 돌파…정규직 채용 플랫폼 1위",
+    "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03217686645514192",
+    "source": "edaily.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "잡코리아",
+    "title": "[이슈] 잡코리아, 사람인과 격차 더 벌려...채용 플랫폼 1위 '굳히기'",
+    "url": "https://www.startuptoday.co.kr/news/articleView.html?idxno=806455",
+    "source": "startuptoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "잡코리아",
+    "title": "\"구직자 1000만명 몰렸다\"…잡코리아, 21개월 연속 1위",
+    "url": "https://www.hankyung.com/article/202607131429g",
+    "source": "hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "잡코리아",
+    "title": "취준생이 가장 많이 찾은 건 '잡코리아'...AI 추천 효과 톡톡",
+    "url": "https://www.wolyo.co.kr/news/articleView.html?idxno=314970",
+    "source": "wolyo.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "잡코리아",
+    "title": "AI 추천 앞세운 잡코리아…구직자 1000만 시대 열었다",
+    "url": "http://www.kdfnews.com/news/articleView.html?idxno=185111",
+    "source": "kdfnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "인크루트",
+    "title": "서미영 인크루트 대표 “AI 시대에도 본질은 사람과 일 연결”",
+    "url": "https://www.etoday.co.kr/news/view/2602518",
+    "source": "etoday.co.kr",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "알바천국",
+    "title": "알바천국, 새 브랜드 캠페인 '모든 생애 모든 알바로 사장천국 알바천국...",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=109873",
+    "source": "edu.donga.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "알바천국",
+    "title": "[#IT라운지] 알바천국 '브랜드 캠페인'·본AI '해커톤 우승'·모픽 '축구...",
+    "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=846973",
+    "source": "newsworks.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "알바천국",
+    "title": "알바천국, 오예주X윤경호 출연 캠페인 '사장천국 알바천국' 공개",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=751369",
+    "source": "slist.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "동네알바",
+    "title": "사람인 동네알바 성장세, 여름 성수기 '동네워홀' 프로모션으로 성장 가...",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=109869",
+    "source": "edu.donga.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-13",
+    "brand": "동네알바",
+    "title": "사람인 동네알바, 지원자 52% 늘었다…여름 프로모션 본격화",
+    "url": "https://www.newspim.com/news/view/20260713000059",
+    "source": "newspim.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-10",
+    "brand": "사람인",
+    "title": "사람인, 외국인 유학생 1000명 몰린 '코메이트'로 지역 인력난 해법 제시...",
+    "url": "https://www.upkoreanews.kr/news/articleView.html?idxno=99242",
+    "source": "upkoreanews.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-10",
+    "brand": "잡코리아",
+    "title": "\"팀장 혈압 올릴 서비스 만들어라\" 잡코리아 AI 해커톤 '바이브톤' 성료",
+    "url": "https://www.wolyo.co.kr/news/articleView.html?idxno=314865",
+    "source": "wolyo.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-10",
+    "brand": "리멤버",
+    "title": "'열심히 일한 죄?'…밥 먹듯 야근한 박 대리, 승진 밀린 이유 [리멤버 오...",
+    "url": "https://www.hankyung.com/article/202607107440g",
+    "source": "hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-10",
+    "brand": "알바몬",
+    "title": "알바몬, 자영업자 대상 휴가·채용 지원금 이벤트",
+    "url": "https://www.newspim.com/news/view/20260710001151",
+    "source": "newspim.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-10",
+    "brand": "알바천국",
+    "title": "알바천국 \"Z세대 71%, 친구 만남 지출 줄였다\"",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=849484",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-09",
+    "brand": "사람인",
+    "title": "[HR 뉴스브리핑] 황현순 사람인 대표, '청소년 불법도박 근절 캠페인' 동...",
+    "url": "https://www.asiatime.co.kr/article/20260709500044",
+    "source": "asiatime.co.kr",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-07-09",
+    "brand": "사람인",
+    "title": "전략적 제휴 택한 HR업계…사람인·리멤버 플랫폼 동맹 확대",
+    "url": "https://www.newspim.com/news/view/20260708001211",
+    "source": "newspim.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-09",
+    "brand": "잡코리아",
+    "title": "잡코리아, 상상력으로 경쟁하는 AI 경진대회 성료…우승은 '사내연애 품...",
+    "url": "https://www.etnews.com/20260709000293",
+    "source": "etnews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-09",
+    "brand": "잡코리아",
+    "title": "AI 코드 생성 기술, 개발 패러다임 바꾼다…잡코리아 '바이브톤' 성료",
+    "url": "https://www.e-science.co.kr/news/articleView.html?idxno=131697",
+    "source": "e-science.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-09",
+    "brand": "잡코리아",
+    "title": "잡코리아 \"바이브 코딩 축제 성료\"…장원에 100만원 상금 수여",
+    "url": "http://www.paxetv.com/news/articleView.html?idxno=276732",
+    "source": "paxetv.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-09",
+    "brand": "인크루트",
+    "title": "인크루트, ‘강남구 행복 일자리 박람회’ 온·오프라인 운영",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202607091816342604204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-09",
+    "brand": "인크루트",
+    "title": "인크루트, 청년 취업난 해소 위한 일자리 매칭…온·오프라인 융합형 채...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=81675",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-09",
+    "brand": "리멤버",
+    "title": "전략적 제휴 택한 HR업계…사람인·리멤버 플랫폼 동맹 확대",
+    "url": "https://www.newspim.com/news/view/20260708001211",
+    "source": "newspim.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-08",
+    "brand": "사람인",
+    "title": "캠퍼스 앱에서 알바·채용정보까지...사람인·에브리타임 ‘맞손’",
+    "url": "https://www.mk.co.kr/article/12092980",
+    "source": "mk.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-08",
+    "brand": "잡코리아",
+    "title": "\"제목은 10자 이하\"…잡코리아, 지원율 높이는 공고 작성법 공개",
+    "url": "https://www.ajunews.com/view/20260708165354521",
+    "source": "ajunews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-08",
+    "brand": "잡코리아",
+    "title": "잡코리아, 채용공고 작성 가이드 무료 배포",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=849091",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-08",
+    "brand": "잡코리아",
+    "title": "\"감 아닌 데이터로 인재 모은다\"…잡코리아, 채용 유입 공식 공개",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=81547",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-08",
+    "brand": "인크루트",
+    "title": "인크루트 내 '마이스 기업 전문관' 개설 외 [MICE]",
+    "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02033606645512552",
+    "source": "edaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-08",
+    "brand": "알바천국",
+    "title": "알바천국, 여름철 채용공고 등록 기업에게 채용지원금 제공",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=109721",
+    "source": "edu.donga.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-08",
+    "brand": "알바천국",
+    "title": "알바천국, 채용 지원금 이벤트...잡코리아 '채용공고 작성 가이드' 배포",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=750306",
+    "source": "slist.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "사람인",
+    "title": "에브리타임에서 취업까지… 사람인·비누랩스, Z세대 커리어 플랫폼 만...",
+    "url": "https://www.venturesquare.net/1096647/",
+    "source": "venturesquare.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "사람인",
+    "title": "사람인·비누랩스, MOU 체결…대학생부터 졸업생까지 '커리어 라이프사...",
+    "url": "https://www.hankyung.com/article/202607079496O",
+    "source": "hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "사람인",
+    "title": "대학생 앱 '에타'가 알바·인턴·취업 창구로…비누랩스·사람인 '맞손'",
+    "url": "https://www.newsis.com/view/NISX20260707_0003698645",
+    "source": "newsis.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "사람인",
+    "title": "캐치 '타겟 매칭 메시지' 누적 1500만→사람인-비누랩스 MOU",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=750064",
+    "source": "slist.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "사람인",
+    "title": "비누랩스, 사람인과 손잡고 'Z세대 커리어 생태계' 구축",
+    "url": "https://view.asiae.co.kr/article/2026070709203925353",
+    "source": "view.asiae.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "사람인",
+    "title": "'대학생 채용부터 이직까지'… 사람인·에브리타임, '커리어 플랫폼' 구...",
+    "url": "https://www.m-i.kr/news/articleView.html?idxno=1388810",
+    "source": "m-i.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "리멤버",
+    "title": "투자받은 스타트업, 이제 인재도 데이터로 찾는다…혁신의숲·리멤버 맞...",
+    "url": "https://www.venturesquare.net/1096607/",
+    "source": "venturesquare.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "리멤버",
+    "title": "리멤버-혁신의숲, 스타트업계 채용 판도 바꾼다…MOU 체결",
+    "url": "https://magazine.hankyung.com/job-joy/article/202607070666d",
+    "source": "magazine.hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "리멤버",
+    "title": "리멤버앤컴퍼니·마크앤컴퍼니, 채용 혁신 MOU 체결",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=848637",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "리멤버",
+    "title": "카카오페이·에브리타임·리멤버, 청년 맞춤형 금융·취업 정보 협력 강...",
+    "url": "https://www.tokenpost.kr/news/insights/375533",
+    "source": "tokenpost.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "리멤버",
+    "title": "리멤버, 채용 프로세스 최적화 돕는다…혁신의숲과 MOU",
+    "url": "https://www.dt.co.kr/article/12071508?ref=naver",
+    "source": "dt.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "리멤버",
+    "title": "[#IT라운지] 마키나락스-AWS '업무 협약'·HNIX-시대의영웅, 리멤버-마크...",
+    "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=846319",
+    "source": "newsworks.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "잡플래닛",
+    "title": "잡플래닛 조사, IT 이직 희망 1위 네이버…토스·카카오 순",
+    "url": "https://news.tf.co.kr/read/economy/2340725.htm",
+    "source": "news.tf.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, '네카라쿠배당토' IT 플랫폼 '이직 티어 월드컵' 설문 결과 발...",
+    "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=682054",
+    "source": "digitaltoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-07",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, '이직하고 싶은 IT 플랫폼' 설문...\"네이버·토스·카카오 등...",
+    "url": "http://www.paxetv.com/news/articleView.html?idxno=276519",
+    "source": "paxetv.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-06",
+    "brand": "알바몬",
+    "title": "월급 안 준 사업주 '한 눈에'…알바몬, 859건 공개",
+    "url": "https://biz.sbs.co.kr/article_hub/20000320819?division=NAVER",
+    "source": "biz.sbs.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-03",
+    "brand": "원티드",
+    "title": "AI가 사람 뽑고 자르는 시대…‘원티드랩’ 창업 후 첫 헤드헌터 뽑은 ...",
+    "url": "https://biz.heraldcorp.com/article/10796959?ref=naver",
+    "source": "biz.heraldcorp.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-03",
+    "brand": "원티드",
+    "title": "채용 넘어 AX ‘판’ 까는 원티드랩…이복기 대표 “우리 문제부터 AI로...",
+    "url": "https://biz.heraldcorp.com/article/10796958?ref=naver",
+    "source": "biz.heraldcorp.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-03",
+    "brand": "알바몬",
+    "title": "허위공고·임금 체불 걱정 뚝…알바몬, 다층 검증 통해 신뢰도 높였다",
+    "url": "http://www.segyebiz.com/newsView/20260702514202?OutUrl=naver",
+    "source": "segyebiz.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-03",
+    "brand": "알바천국",
+    "title": "알바천국 \"대학생 86.5%, 여름방학 알바 계획\"",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=848004",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-02",
+    "brand": "사람인",
+    "title": "\"인공지능 활용한 채용\" AI 라인업 확대 나선 사람인",
+    "url": "http://www.fnnews.com/news/202607021028028120",
+    "source": "fnnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-07-02",
+    "brand": "사람인",
+    "title": "사람인 코메이트, 외국인 유학생 공식 서포터즈 '코메이트 프렌즈' 2기 ...",
+    "url": "https://www.news1.kr/industry/general-industry/6215201",
+    "source": "news1.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-02",
+    "brand": "알바천국",
+    "title": "쿠팡풀필먼트 '채용페스타'...알바천국 여름방학 맞이 '럭키드로우'",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=749170",
+    "source": "slist.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-02",
+    "brand": "알바천국",
+    "title": "알바천국, 여름방학 럭키 드로우 진행",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=847797",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-01",
+    "brand": "원티드",
+    "title": "원티드랩-한국관광공사, '관광데이터 AI 프롬프톤' 열어...10개팀 시상",
+    "url": "https://zdnet.co.kr/view/?no=20260701153436",
+    "source": "zdnet.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-01",
+    "brand": "알바몬",
+    "title": "알바몬, '안심 채용' 경험 확산 나선다…1.5만개 경품 내건 참여형 프로...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=80978",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-01",
+    "brand": "알바몬",
+    "title": "[#IT라운지]·마키나락스-다겸 'MOU'·'알바몬 프로모션'·'셀피아 무료...",
+    "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=845656",
+    "source": "newsworks.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-07-01",
+    "brand": "알바몬",
+    "title": "알바몬, 안심 채용 연계 여름 프로모션 진행",
+    "url": "http://www.beyondpost.co.kr/view.php?ud=20260701091711800646a9e4dd7f_30",
+    "source": "beyondpost.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-30",
+    "brand": "사람인",
+    "title": "디지털융합교육원·㈜사람인, 네이버카페 '전국대학컨설턴트모임'과 '제...",
+    "url": "https://www.fntoday.co.kr/news/articleView.html?idxno=387227",
+    "source": "fntoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-30",
+    "brand": "잡코리아",
+    "title": "잡코리아, 서울형 청년인턴 직무캠프 운영",
+    "url": "https://edu.chosun.com/site/data/html_dir/2026/06/30/2026063080100.html",
+    "source": "edu.chosun.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-30",
+    "brand": "잡코리아",
+    "title": "채용 시장 '미스매치' 뚫은 AI 매칭…잡코리아, 청년 인턴십 새 지평 열...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=80850",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-30",
+    "brand": "인크루트",
+    "title": "한국MICE협회, HR테크 기업 인크루트 플랫폼 내 'MICE 기업 전문관' 전격...",
+    "url": "http://www.bizwnews.com/news/articleView.html?idxno=139740",
+    "source": "bizwnews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-30",
+    "brand": "인크루트",
+    "title": "인크루트, 20년 채용 데이터로 기업 브랜딩 지표 제시...지난해 입사 희...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=2026063016123815269817d053b9_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-30",
+    "brand": "인크루트",
+    "title": "인크루트, MICE 산업 채용 전용관 마련…300여 회원사 연계",
+    "url": "http://www.lawissue.co.kr/view.php?ud=20260630150550138204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-30",
+    "brand": "인크루트",
+    "title": "인크루트, MICE 전용 채용관 개설…업계 인재 매칭 가속화",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=80809",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "사람인",
+    "title": "여성기업 채용문 활짝…여기종, 사람인 전용관 열고 구인 지원",
+    "url": "https://www.m-i.kr/news/articleView.html?idxno=1386154",
+    "source": "m-i.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "원티드",
+    "title": "원티드랩, 10억 규모 자사주 취득…책임경영 및 주주환원 정책 강화",
+    "url": "https://magazine.hankyung.com/job-joy/article/202606294200d",
+    "source": "magazine.hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "원티드",
+    "title": "지지부진한 주가에 원티드랩 특단의 조치…3년 만에 자사주 매입",
+    "url": "https://news.mtn.co.kr/news-detail/2026062915194013687",
+    "source": "news.mtn.co.kr",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "원티드",
+    "title": "주가 방어 나선 원티드랩…10억원 자사주 매입으로 AX 성장 자신감 드러...",
+    "url": "https://www.venturesquare.net/1094205/",
+    "source": "venturesquare.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "인크루트",
+    "title": "[HR기업 AX 열전] 인크루트, 자본잠식 해소 국면…B2B·AI 조준",
+    "url": "https://www.bloter.net/news/articleView.html?idxno=666786",
+    "source": "bloter.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "리멤버",
+    "title": "\"연봉 만족하면 이직 안한다?\"…리멤버, ‘월간 HR 트렌드’ 론칭",
+    "url": "https://magazine.hankyung.com/job-joy/article/202606294392d",
+    "source": "magazine.hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "리멤버",
+    "title": "리멤버, 데이터 실증 리포트 '월간 HR 트렌드' 론칭…첫 호 '보상 vs 이직...",
+    "url": "https://platum.kr/archives/289995",
+    "source": "platum.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "리멤버",
+    "title": "리멤버, HR 데이터 리포트 발간…직장인 60.2% 이직 활동 확인",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202606290857227531204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "리멤버",
+    "title": "연봉 올려줘도 직원은 떠난다…리멤버, HR 통념 뒤집는 데이터 리포트 ...",
+    "url": "https://www.econovill.com/news/articleView.html?idxno=743715",
+    "source": "econovill.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "알바몬",
+    "title": "알바몬 \"안심 알바의 기준 제시\"…여름 브랜드 캠페인 공개",
+    "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=04191846645486640",
+    "source": "edaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "알바몬",
+    "title": "내 세상에 원래 그런 알바는 없어 알바몬, 여름 캠페인으로 알바 기준 ...",
+    "url": "http://www.technoa.co.kr/news/articleView.html?idxno=101067",
+    "source": "technoa.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "알바몬",
+    "title": "\"안심하고 구하는 알바\"…알바몬, 여름 성수기 캠페인 전개",
+    "url": "https://news.tf.co.kr/read/economy/2337589.htm",
+    "source": "news.tf.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "알바몬",
+    "title": "'알바는 원래 알바몬' 공개…4대 안심 체크리스트 제시",
+    "url": "https://zdnet.co.kr/view/?no=20260629104826",
+    "source": "zdnet.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "알바몬",
+    "title": "\"알바는 원래 알바몬\" 안심·신뢰·전문성으로 '규칙' 만든다",
+    "url": "https://www.wolyo.co.kr/news/articleView.html?idxno=314247",
+    "source": "wolyo.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "알바몬",
+    "title": "알바몬, '4대 안심 체크리스트' 앞세운 여름 캠페인 전개",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=748321",
+    "source": "slist.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "알바몬",
+    "title": "[#IT라운지] 알바천국 '여름방학 채용관'·알바몬 '브랜드 캠페인'·'월간...",
+    "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=845335",
+    "source": "newsworks.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-29",
+    "brand": "알바천국",
+    "title": "[#IT라운지] 알바천국 '여름방학 채용관'·알바몬 '브랜드 캠페인'·'월간...",
+    "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=845335",
+    "source": "newsworks.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-28",
+    "brand": "알바몬",
+    "title": "알바몬 여름 안심 알바 채용관 오픈, 공고 검증 강화",
+    "url": "http://www.technoa.co.kr/news/articleView.html?idxno=101063",
+    "source": "technoa.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-26",
+    "brand": "리멤버",
+    "title": "​[HR기업 AX 열전]② 리멤버, 서치펌 확보…한국형 링크드인 야심",
+    "url": "https://www.bloter.net/news/articleView.html?idxno=666586",
+    "source": "bloter.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-26",
+    "brand": "리멤버",
+    "title": "\"자가냐 전세냐\" 소개팅男 돌직구에…20대 직장인 고민 [리멤버 오피스...",
+    "url": "https://www.hankyung.com/article/202606269448g",
+    "source": "hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-26",
+    "brand": "리멤버",
+    "title": "[HR기업 AX 열전]① 리멤버, 데이터 독점력 주목…AI 채용 혁신",
+    "url": "https://www.bloter.net/news/articleView.html?idxno=666552",
+    "source": "bloter.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-26",
+    "brand": "알바천국",
+    "title": "[#IT라운지] 카카오 '청소년 창업가 발굴'·알바천국 '천국의 시네마'·...",
+    "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=845133",
+    "source": "newsworks.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-26",
+    "brand": "알바천국",
+    "title": "알바천국, 나홍진 감독 신작 '호프' 예매권 증정 이벤트",
+    "url": "https://www.asiatime.co.kr/article/20260626500039",
+    "source": "asiatime.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-25",
+    "brand": "잡코리아",
+    "title": "“채용 광고도 ‘가심비’ 시대” 잡코리아 ‘CPC’ 모델 호응",
+    "url": "https://ditoday.com/%ec%b1%84%ec%9a%a9-%ea%b4%91%ea%b3%a0%eb%8f%84-%ea%b0%80%ec%8b%ac%eb%b9%84-%ec%8b%9c%eb%8c%80-%ec%9e%a1%ec%bd%94%eb%a6%ac%ec%95%84-cpc/",
+    "source": "ditoday.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-25",
+    "brand": "인크루트",
+    "title": "\"하반기 공채 문 열렸다\"... 인크루트, 주요 기업 하반기 채용 정보 공개",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=202232",
+    "source": "thefirstmedia.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-25",
+    "brand": "인크루트",
+    "title": "인크루트, 주요 기업 채용 일정 공개…7월 초까지 서류 접수 이어져",
+    "url": "http://www.lawissue.co.kr/view.php?ud=20260625091720850204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-25",
+    "brand": "인크루트",
+    "title": "인크루트, 하반기 채용 시장 지각변동 예고…주요 기업 인재 선점 경쟁...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=80403",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-25",
+    "brand": "알바몬",
+    "title": "알바몬, 여름철 단기 채용 공고 검증 강화…안심 정보 제공 확대",
+    "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=203979",
+    "source": "lcnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-25",
+    "brand": "알바몬",
+    "title": "알바몬 \"여름철 알바 안심하고 지원하세요\"…'4대 안심 배지' 채용관 오...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=80442",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-25",
+    "brand": "잡플래닛",
+    "title": "[비즈 뉴스룸] 강원랜드, 잡플래닛 등",
+    "url": "https://www.getnews.co.kr/news/articleView.html?idxno=873197",
+    "source": "getnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-24",
+    "brand": "잡플래닛",
+    "title": "Z세대 공략…잡플래닛, 커리어 콘텐츠 '잡플위키' 론칭",
+    "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=05021686645485000",
+    "source": "edaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-23",
+    "brand": "잡코리아",
+    "title": "잡코리아, 현직자 인터뷰 중심 콘텐츠 개편…직무별 정보 탐색 기능 추...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202606231713555163204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-23",
+    "brand": "잡코리아",
+    "title": "\"삼성·AWS 현직자 스킬 한눈에\" 잡코리아, 자체 콘텐츠 강화",
+    "url": "https://www.ajunews.com/view/20260623152248425",
+    "source": "ajunews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-23",
+    "brand": "잡코리아",
+    "title": "잡코리아, 선배들의 취업·커리어 '찐' 이야기 담는다",
+    "url": "https://zdnet.co.kr/view/?no=20260623102911",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-23",
+    "brand": "잡코리아",
+    "title": "\"네이버·삼성 현직자가 알려주는 취업 족보\"…잡코리아, 오리지널 콘텐...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=80209",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-23",
+    "brand": "잡코리아",
+    "title": "잡코리아, 커리어 인사이트 콘텐츠 늘린다",
+    "url": "https://www.etnews.com/20260623000032",
+    "source": "etnews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-22",
+    "brand": "잡코리아",
+    "title": "잡코리아 \"IT 넘어 전 산업군, AI 인재 확보 경쟁\"",
+    "url": "https://www.ddaily.co.kr/page/view/2026062217122814397",
+    "source": "ddaily.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-22",
+    "brand": "잡코리아",
+    "title": "“AI 관련 채용 공고, 전년보다 70% ↑”…잡코리아 조사",
+    "url": "https://www.etnews.com/20260622000217",
+    "source": "etnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-22",
+    "brand": "잡코리아",
+    "title": "잡코리아 \"AI 채용 수요 급증…교육·광고·디자인 업종 증가폭 두드러...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202606221105542824204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-22",
+    "brand": "잡코리아",
+    "title": "\"AI 잘 쓰면 모셔간다\"…잡코리아 분석 'AI 인재 채용 트렌드' 살펴보니",
+    "url": "https://www.thedailypost.kr/news/articleView.html?idxno=114438",
+    "source": "thedailypost.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-22",
+    "brand": "잡코리아",
+    "title": "잡코리아, 산업별 AI 채용공고 70%↑…1만5000건 육박",
+    "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5032788",
+    "source": "shinailbo.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-22",
+    "brand": "잡코리아",
+    "title": "[카드] 잡코리아, 업종별 AI 키워드 공고 분석",
+    "url": "http://www.newsprime.co.kr/news/article.html?no=737474",
+    "source": "newsprime.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-22",
+    "brand": "잡코리아",
+    "title": "잡코리아 데이터 분석, AI 키워드 공고 전년 대비 70% 늘어나",
+    "url": "http://www.beyondpost.co.kr/view.php?ud=20260622090742815446a9e4dd7f_30",
+    "source": "beyondpost.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-22",
+    "brand": "리멤버",
+    "title": "강민국 의원 \"리멤버·SK쉴더스 조사 왜 늦어지나\" 질타",
+    "url": "http://www.financialreview.co.kr/news/articleView.html?idxno=43022",
+    "source": "financialreview.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-22",
+    "brand": "리멤버",
+    "title": "“개인정보위, 리멤버·SK쉴더스 삼킨 외국계 사모펀드 조사 ‘감감무소...",
+    "url": "https://www.dt.co.kr/article/12068690?ref=naver",
+    "source": "dt.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-19",
+    "brand": "잡코리아",
+    "title": "잡코리아, 상상력으로 경쟁하는 AI 경진대회 연다",
+    "url": "https://www.etnews.com/20260619000302",
+    "source": "etnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-19",
+    "brand": "잡코리아",
+    "title": "잡코리아, AI 해커톤 '바이브톤' 개최",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=845378",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-19",
+    "brand": "잡코리아",
+    "title": "\"팀장님 한숨 쉬면 장원이요\"...잡코리아, 이색 코딩 대회 연다",
+    "url": "https://zdnet.co.kr/view/?no=20260619110401",
+    "source": "zdnet.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-19",
+    "brand": "잡코리아",
+    "title": "잡코리아, 조선시대 과거시험으로 AI 인재 뽑는다…상금 100만원 '바이브...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=79930",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-19",
+    "brand": "알바천국",
+    "title": "알바천국 \"알바생 31.9% 최저시급 미달 경험\"",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=845374",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-19",
+    "brand": "알바천국",
+    "title": "알바천국, 아르바이트생 10명 중 3명 \"최저시급 못 받은 적 있다\"",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=109031",
+    "source": "edu.donga.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-18",
+    "brand": "알바몬",
+    "title": "\"알바 하면 역시 알바몬\"… 컨슈머인사이트 조사서 선호도·MAU·충성도 ...",
+    "url": "https://www.thedailypost.kr/news/articleView.html?idxno=114422",
+    "source": "thedailypost.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-18",
+    "brand": "알바몬",
+    "title": "알바몬, 10·20대 구직자 아르바이트 플랫폼 선호도 일부 1위",
+    "url": "http://www.inews24.com/view/1977732",
+    "source": "inews24.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-18",
+    "brand": "알바몬",
+    "title": "'알바' 하면 떠오르는 곳, 이용하는 곳 모두 알바몬이 1위",
+    "url": "https://www.wolyo.co.kr/news/articleView.html?idxno=313738",
+    "source": "wolyo.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-18",
+    "brand": "알바몬",
+    "title": "알바몬, 브랜드 조사서 이용률·선호도 등 주요 지표 1위",
+    "url": "http://www.lawissue.co.kr/view.php?ud=20260618100520580204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-18",
+    "brand": "알바몬",
+    "title": "알바몬, 아르바이트 플랫폼 시장 독주 체제 굳힌다…브랜드 경쟁력 압도...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=79819",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "잡코리아",
+    "title": "\"이력서 원클릭 지원하면 ATS로 쏙\"…나인하이어, 잡코리아 '즉시지원' ...",
+    "url": "https://www.thedailypost.kr/news/articleView.html?idxno=114391",
+    "source": "thedailypost.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "잡코리아",
+    "title": "나인하이어-잡코리아, 실시간 연동…\"지원자 이탈 줄이고 채용 관리 하...",
+    "url": "https://zdnet.co.kr/view/?no=20260617083951",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "인크루트",
+    "title": "[현장] 무인도에서 40분은 최태원의 '생각 근육'을 측정...인크루트 PSG는...",
+    "url": "https://www.news2day.co.kr/article/20260617500142",
+    "source": "news2day.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "인크루트",
+    "title": "\"월급 안 준 기업 채용공고는 안 받아요\"···인크루트, 검증 시스템 구...",
+    "url": "https://magazine.hankyung.com/job-joy/article/202606170832d",
+    "source": "magazine.hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "인크루트",
+    "title": "\"밀린 임금 있는지 실시간 확인\"…인크루트, '안심 채용' 전면 도입",
+    "url": "https://magazine.hankyung.com/business/article/202606171309b",
+    "source": "magazine.hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "인크루트",
+    "title": "숨고X호갱노노 아파트 홈케어 서비스...인크루트 임금체불 기업 검증 시...",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=745738",
+    "source": "slist.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "알바몬",
+    "title": "알바몬, 금융권 FDS 접목…AI로 허위공고 걸러낸다",
+    "url": "https://www.bloter.net/news/articleView.html?idxno=665720",
+    "source": "bloter.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "알바몬",
+    "title": "지원 2.4배 늘고, 노쇼 20% 줄고...알바몬, '바로출근' 효과 톡톡",
+    "url": "https://www.mt.co.kr/living/2026/06/17/2026061710072843595",
+    "source": "mt.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "알바몬",
+    "title": "알바몬, 독보적 구직자 안전망 조성…'신뢰 기반' 채용 생태계 제시",
+    "url": "https://www.newsway.co.kr/news/view?ud=2026061709351777482",
+    "source": "newsway.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "알바몬",
+    "title": "알바몬, 신뢰도 프로젝트로 '지원 2.4배↑' 성과 입증",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=844716",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "알바몬",
+    "title": "공고보다 중요한 건 신뢰…알바몬, 안전망 구축 속도",
+    "url": "http://www.kdfnews.com/news/articleView.html?idxno=184304",
+    "source": "kdfnews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-17",
+    "brand": "알바몬",
+    "title": "“알바도 신뢰가 경쟁력”…알바몬, 안전 채용 플랫폼 강화",
+    "url": "https://www.socialvalue.kr/news/view/1065597462584603",
+    "source": "socialvalue.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-16",
+    "brand": "잡코리아",
+    "title": "잡코리아·알바몬 한화이글스 브랜드데이, 1만3590명 몰려",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=844500",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-16",
+    "brand": "원티드",
+    "title": "원티드랩, 공공기관 대상 '채용 브랜딩' 상품 론칭",
+    "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=03276726645482376",
+    "source": "edaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-16",
+    "brand": "인크루트",
+    "title": "[IT 플랫폼리더 열전⑤] 인크루트 서미영, 28년 부부경영 \"이젠 AI 나비\"...",
+    "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5030390",
+    "source": "shinailbo.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-16",
+    "brand": "알바몬",
+    "title": "잡코리아·알바몬 한화이글스 브랜드데이, 1만3590명 몰려",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=844500",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-15",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, AI 대기업 재직자 만족도 분석…SK하이닉스 총점 1위",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=745361",
+    "source": "slist.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-12",
+    "brand": "원티드",
+    "title": "원티드랩, 소수계좌 거래집중 지정→투자주의 신호",
+    "url": "https://www.topstarnews.net/news/articleView.html?idxno=16091352",
+    "source": "topstarnews.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-12",
+    "brand": "원티드",
+    "title": "원티드랩, 특정계좌 매매관여 과다→투자주의종목 지정",
+    "url": "https://www.topstarnews.net/news/articleView.html?idxno=16091322",
+    "source": "topstarnews.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-12",
+    "brand": "리멤버",
+    "title": "6억 돈잔치가 채운 '황금 수갑'…'말뚝' 박는 삼성맨들 [리멤버 오피스...",
+    "url": "https://www.hankyung.com/article/202606122188g",
+    "source": "hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-12",
+    "brand": "알바몬",
+    "title": "알바몬 '보스몬' 종료에…매장 근태관리 서비스 '가치업' 주목도↑",
+    "url": "https://www.ddaily.co.kr/page/view/2026061210242334782",
+    "source": "ddaily.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-12",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, '젠슨 황 깐부' AI 대기업 분석… 네이버 사내문화·현대차 워...",
+    "url": "https://news.tvchosun.com/site/data/html_dir/2026/06/12/2026061290265.html",
+    "source": "news.tvchosun.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-12",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, '젠슨 황 AI 깐부들' 재직자 평가 보니...1위는 역시 그곳",
+    "url": "https://www.womentimes.co.kr/news/articleView.html?idxno=103615",
+    "source": "womentimes.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-11",
+    "brand": "잡코리아",
+    "title": "웍스피어 잡코리아ㆍ알바몬, '2026 브랜드 고객충성도 대상' 5년 연속 1위",
+    "url": "https://www.kdpress.co.kr/news/articleView.html?idxno=206026",
+    "source": "kdpress.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-11",
+    "brand": "알바몬",
+    "title": "웍스피어 잡코리아ㆍ알바몬, '2026 브랜드 고객충성도 대상' 5년 연속 1위",
+    "url": "https://www.kdpress.co.kr/news/articleView.html?idxno=206026",
+    "source": "kdpress.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-10",
+    "brand": "잡코리아",
+    "title": "청년뉴딜 사업, 잡코리아·알바천국서 한눈에 본다…10만명 취업 지원",
+    "url": "https://www.news1.kr/economy/employment-labor/6192604",
+    "source": "news1.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-10",
+    "brand": "알바몬",
+    "title": "알바몬, '관공서 알바 채용관' 오픈 … 여름방학 구직 수요 공략",
+    "url": "http://www.worktoday.co.kr/news/articleView.html?idxno=85488",
+    "source": "worktoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-10",
+    "brand": "알바천국",
+    "title": "청년뉴딜 사업, 잡코리아·알바천국서 한눈에 본다…10만명 취업 지원",
+    "url": "https://www.news1.kr/economy/employment-labor/6192604",
+    "source": "news1.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-10",
+    "brand": "알바천국",
+    "title": "정부 \"고용24·사람인·알바천국서 '청년뉴딜' 정보 확인하고 신청하세...",
+    "url": "https://www.newspim.com/news/view/20260609000987",
+    "source": "newspim.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-09",
+    "brand": "잡코리아",
+    "title": "잡코리아 ‘2026 기업 선호도 리포트’ 결과 공개",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202606091813581195204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-09",
+    "brand": "잡코리아",
+    "title": "잡코리아가 분석한 '채용 판도' 변화…구직자 선호도 제조-반도체로 이...",
+    "url": "https://www.thedailypost.kr/news/articleView.html?idxno=114318",
+    "source": "thedailypost.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-09",
+    "brand": "잡코리아",
+    "title": "잡코리아, '당장 출근하고 싶은 기업' 1위 SK하이닉스...2,3위는",
+    "url": "https://www.womentimes.co.kr/news/articleView.html?idxno=103476",
+    "source": "womentimes.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-09",
+    "brand": "원티드",
+    "title": "원티드랩·힐링페이퍼, AX Day서 AI 적용 사례 공유",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=843264",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-09",
+    "brand": "원티드",
+    "title": "원티드랩, 강남언니와 'AX 데이' 개최… AI로 효과 본 사례 공유",
+    "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=673308",
+    "source": "digitaltoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-09",
+    "brand": "원티드",
+    "title": "\"우린 AI로 이렇게 일한다\"...원티드랩-강남언니, AX 사례 공유",
+    "url": "https://zdnet.co.kr/view/?no=20260609101625",
+    "source": "zdnet.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-09",
+    "brand": "원티드",
+    "title": "“AI 도입보다 중요한 건 일하는 방식의 변화”…원티드랩·강남언니 AX...",
+    "url": "https://www.venturesquare.net/1089946/",
+    "source": "venturesquare.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-09",
+    "brand": "알바천국",
+    "title": "알바천국, '관공서 알바 채용관' 여름방학 오픈",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=843133",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-08",
+    "brand": "인크루트",
+    "title": "인크루트, 구직자 위한 'AI 활용능력 점검' 서비스 출시",
+    "url": "https://www.edaily.co.kr/news/newspath.asp?newsid=02338646645479752",
+    "source": "edaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-05",
+    "brand": "리멤버",
+    "title": "[산업 브리핑] 코웨이·대교·웅진씽크빅·리멤버앤컴퍼니",
+    "url": "http://www.niceeconomy.co.kr/news/articleView.html?idxno=89987",
+    "source": "niceeconomy.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-04",
+    "brand": "알바몬",
+    "title": "농촌 일자리, 이제 '알바몬'에서 바로바로 찾는다",
+    "url": "https://www.korea.kr/news/reporterView.do?newsId=148965080&call_from=naver_news",
+    "source": "korea.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-04",
+    "brand": "알바천국",
+    "title": "알바천국, 회원 대상 리워드 이벤트 '포인트 쑥쑥 챌린지' 진행",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=108376",
+    "source": "edu.donga.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-02",
+    "brand": "원티드",
+    "title": "한세대, U-10 연합대학과 ‘원티드 1on1 이력서 컨설팅’",
+    "url": "https://dhnews.co.kr/news/view/1065578417041279",
+    "source": "dhnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-02",
+    "brand": "인크루트",
+    "title": "인크루트, 서비스 28주년 맞아 참여형 이용 프로그램 운영",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202606022258156251204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-02",
+    "brand": "인크루트",
+    "title": "\"AI가 바꾸는 취업시장\"... 28주년 맞은 인크루트의 승부수",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=200498",
+    "source": "thefirstmedia.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-02",
+    "brand": "인크루트",
+    "title": "인크루트, 오픈 28주년 기념 구직자 대상 이벤트 진행",
+    "url": "https://www.asiatime.co.kr/article/20260602500037",
+    "source": "asiatime.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-02",
+    "brand": "인크루트",
+    "title": "[카드] 인크루트, 창설 28주년 기념 '참 잘 뽑았다' 이벤트",
+    "url": "http://www.newsprime.co.kr/news/article.html?no=735432",
+    "source": "newsprime.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-01",
+    "brand": "알바천국",
+    "title": "알바천국, 채용공고 제작 돕는 'AI 공고 상단이미지 생성 서비스' 출시",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=108252",
+    "source": "edu.donga.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-06-01",
+    "brand": "알바천국",
+    "title": "[잡] 사람인 '알바 노쇼 피해지원금'·알바천국 '캠퍼스 간식 대항전'",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=742525",
+    "source": "slist.kr",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-06-01",
+    "brand": "동네알바",
+    "title": "사람인 동네알바, 사장님 대상 '알바 노쇼 피해지원금' 이벤트 진행",
+    "url": "https://www.asiatime.co.kr/article/20260601500061",
+    "source": "asiatime.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-06-01",
+    "brand": "동네알바",
+    "title": "알바 노쇼에 사장님 속앓이···동네알바, 100만원 지원금 쏜다",
+    "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2434659",
+    "source": "enewstoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-30",
+    "brand": "리멤버",
+    "title": "네이버, 리멤버 앱에 '쇼핑 AI' 광고…'맞춤형 쇼핑 띄우기'",
+    "url": "https://news.mtn.co.kr/news-detail/2026052921501752221",
+    "source": "news.mtn.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-29",
+    "brand": "잡코리아",
+    "title": "토스 행운퀴즈 '잡코리아' 정답…5월 29일",
+    "url": "https://www.gametoc.co.kr/news/articleView.html?idxno=108876",
+    "source": "gametoc.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-29",
+    "brand": "인크루트",
+    "title": "개보위, 듀오·인크루트 등 52곳 대상 개인정보처리방침 평가",
+    "url": "https://www.yna.co.kr/view/AKR20260529055500530?input=1195m",
+    "source": "yna.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-29",
+    "brand": "리멤버",
+    "title": "\"요즘 MZ들은 이런가요?\"…신입 '철벽'에 당황한 사연 [리멤버 오피스워...",
+    "url": "https://www.hankyung.com/article/202605295881g",
+    "source": "hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-29",
+    "brand": "리멤버",
+    "title": "샤넬·스타벅스·리멤버·듀오...정부, 생활 밀착 플랫폼 개인정보처리...",
+    "url": "https://www.mk.co.kr/article/12061437",
+    "source": "mk.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-29",
+    "brand": "알바몬",
+    "title": "[단독] 알바몬이 만든 알바근태관리 시스템, 7월 문 닫는다",
+    "url": "https://www.ddaily.co.kr/page/view/2026052915322727366",
+    "source": "ddaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-28",
+    "brand": "잡코리아",
+    "title": "잡코리아 AI잡스, 비수도권 채용 열기 '1년' 만에 달궜다",
+    "url": "http://www.economytalk.kr/news/articleView.html?idxno=421590",
+    "source": "economytalk.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-28",
+    "brand": "원티드",
+    "title": "히든스카우트·원티드랩, 경력직 채용 협력…인재 매칭 강화",
+    "url": "https://www.job-post.co.kr/news/articleView.html?idxno=217042",
+    "source": "job-post.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-28",
+    "brand": "원티드",
+    "title": "히든스카우트, 원티드랩과 손잡고 전문 헤드헌터 네트워크 결합 경력직...",
+    "url": "https://www.epnc.co.kr/news/articleView.html?idxno=402320",
+    "source": "epnc.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-27",
+    "brand": "잡코리아",
+    "title": "잡코리아 AI잡스, 누적 지원 800만건 돌파",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=840933",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-27",
+    "brand": "잡코리아",
+    "title": "잡코리아, 'AI잡스' 출시 1주년… AX시대 'AI산업 채용 허브' 자리매김",
+    "url": "https://www.aitimes.kr/news/articleView.html?idxno=40219",
+    "source": "aitimes.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-27",
+    "brand": "잡코리아",
+    "title": "[단독] 원티드랩, '지도 기반 채용 서비스' 다음달 출시…잡코리아·사...",
+    "url": "https://news.mtn.co.kr/news-detail/2026052710122072130",
+    "source": "news.mtn.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-27",
+    "brand": "잡코리아",
+    "title": "잡코리아, ‘AI잡스’ 론칭 1주년... 가장 수요 많은 직무는 어디?",
+    "url": "https://ditoday.com/%ec%9e%a1%ec%bd%94%eb%a6%ac%ec%95%84-ai%ec%9e%a1%ec%8a%a4-%eb%a1%a0%ec%b9%ad-1%ec%a3%bc%eb%85%84-%ea%b0%80%ec%9e%a5-%ec%88%98%ec%9a%94-%eb%a7%8e%ec%9d%80-%ec%a7%81/",
+    "source": "ditoday.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-27",
+    "brand": "잡코리아",
+    "title": "\"1년새 800만번 넣었다\"…잡코리아 'AI잡스' AX 시대 채용 허브로 우뚝",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=77981",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-27",
+    "brand": "원티드",
+    "title": "[단독] 원티드랩, '지도 기반 채용 서비스' 다음달 출시…잡코리아·사...",
+    "url": "https://news.mtn.co.kr/news-detail/2026052710122072130",
+    "source": "news.mtn.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-27",
+    "brand": "알바천국",
+    "title": "포천시 소재 대진대 대학일자리플러스센터, 알바천국 간식대항전 성황...",
+    "url": "https://www.kgnews.co.kr/news/article.html?no=897287",
+    "source": "kgnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-26",
+    "brand": "알바천국",
+    "title": "알바천국, 청소년 알바생 5명 중 1명 \"근로계약서 작성 안 해\"",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=107976",
+    "source": "edu.donga.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-22",
+    "brand": "알바천국",
+    "title": "\"무료 간식 받을 대학 어디?\"···알바천국 '간식대항전' 캠퍼스 5곳 남...",
+    "url": "https://magazine.hankyung.com/job-joy/article/202605224578d",
+    "source": "magazine.hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-22",
+    "brand": "알바천국",
+    "title": "“간식차 떴다”…알바천국, 전국 15개 대학서 캠퍼스 어택 이벤트 진행",
+    "url": "https://www.gosiweek.com/article/1065575221743306",
+    "source": "gosiweek.com",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-05-21",
+    "brand": "인크루트",
+    "title": "채용도 AI 시대…인크루트, HR 특화 AI '나비' 공개",
+    "url": "https://magazine.hankyung.com/business/article/202605211161b",
+    "source": "magazine.hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-21",
+    "brand": "인크루트",
+    "title": "인크루트, 자체 AI 나비 선봬…채용 자동화·공정성↑",
+    "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5023246",
+    "source": "shinailbo.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-21",
+    "brand": "인크루트",
+    "title": "사람인 'AI 코칭'·인크루트 '나비'...AI 결합하는 HR테크 기업들",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=740521",
+    "source": "slist.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-21",
+    "brand": "인크루트",
+    "title": "인크루트, 효율·공정성 향상 돕는 채용 AI ‘나비’ 출시",
+    "url": "https://www.sedaily.com/article/20046652?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-21",
+    "brand": "인크루트",
+    "title": "인크루트가 만든 '나비'는 다르다…채용 프로세스 'AI 자동화' 시대",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=77502",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-21",
+    "brand": "급구",
+    "title": "전문대 신입 연봉이 1억?...하이닉스 응급구조사 채용 화제",
+    "url": "https://www.mk.co.kr/article/12054628",
+    "source": "mk.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-20",
+    "brand": "잡코리아",
+    "title": "잡코리아 원픽, 누적 조회 1억2천만회 돌파",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=839956",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-20",
+    "brand": "잡코리아",
+    "title": "\"이력서 요약부터 연봉 예측까지\"…잡코리아 'AI 원픽', 조회수 1억 2천...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=77413",
+    "source": "thefairnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-19",
+    "brand": "인크루트",
+    "title": "인크루트, 주요 기업 채용 일정 공개…가온전선·대상·오리온·한미글...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202605191811232017204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-19",
+    "brand": "인크루트",
+    "title": "\"필요한 정보만 쏙쏙\"... 인크루트, 상반기 주요 기업 공채 소식 알려",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=199688",
+    "source": "thefirstmedia.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-19",
+    "brand": "인크루트",
+    "title": "\"가온전선부터 한미글로벌까지\"…인크루트, 상반기 신입·인턴 채용 공...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=77275",
+    "source": "thefairnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-18",
+    "brand": "원티드",
+    "title": "“AI 잘 쓰는 마케터가 경쟁력”…원티드랩, ‘마케터 AX 챌린지’ 참가...",
+    "url": "https://www.venturesquare.net/1083089/",
+    "source": "venturesquare.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-18",
+    "brand": "인크루트",
+    "title": "인크루트, 공고 매칭 넘어 ‘합격 코칭’ 강화…개인 구직자 공략",
+    "url": "https://zdnet.co.kr/view/?no=20260518090804",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-18",
+    "brand": "잡플래닛",
+    "title": "잡플래닛 \"SK하이닉스 대기업 직장 만족도 종합 1위\"…GS칼텍스·현대차...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202605181831233818204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-18",
+    "brand": "잡플래닛",
+    "title": "'일하기 좋은 대기업' 1위 SK하이닉스, 2위는? / 잡플래닛, '일하기 좋은...",
+    "url": "http://topclass.chosun.com/news/articleView.html?idxno=36262",
+    "source": "topclass.chosun.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-18",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, 재직자 리뷰 기반 대기업 순위 공개",
+    "url": "http://www.beyondpost.co.kr/view.php?ud=20260518092525522046a9e4dd7f_30",
+    "source": "beyondpost.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-17",
+    "brand": "리멤버",
+    "title": "30년 경력도 속수무책…요즘엔 신입이 임원 가르친다는데 [리멤버 오피...",
+    "url": "https://www.hankyung.com/article/202605158389g",
+    "source": "hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-16",
+    "brand": "원티드",
+    "title": "장수지 원티드랩 PO \"AI 시대의 '프로덕트 오너', 정답 대신 시험지를 설...",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=210603",
+    "source": "aitimes.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-16",
+    "brand": "인크루트",
+    "title": "[Data Job (20)] 인크루트 조사 : 직장인 65%, ‘바로 쓸 실전AI교육’ 선...",
+    "url": "https://www.news2day.co.kr/article/20260515500164",
+    "source": "news2day.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-16",
+    "brand": "알바몬",
+    "title": "쥬얼리 하주연, 알바몬으로 취업한 일상 공개에 극호감…서인영 이어 부...",
+    "url": "https://sports.khan.co.kr/article/202605161021003?pt=nv",
+    "source": "sports.khan.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-15",
+    "brand": "원티드",
+    "title": "원티드랩, 1분기 영업손 9억…전년비 18.7%↓",
+    "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=05510406645449248",
+    "source": "edaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-15",
+    "brand": "인크루트",
+    "title": "인크루트 뉴스레터 잇츠 커리어 발행 1주년 기념 이용자 리뷰 이벤트 실...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202605151748083705204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-15",
+    "brand": "인크루트",
+    "title": "인크루트 \"잇츠커리어 리뷰 작성하고 커피 쿠폰 받아가세요\"",
+    "url": "https://www.newspim.com/news/view/20260515000546",
+    "source": "newspim.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-15",
+    "brand": "인크루트",
+    "title": "\"하루 10분 커리어 충전\" 인크루트, 뉴스레터 '잇츠 커리어' 1주년 감사...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=76998",
+    "source": "thefairnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-14",
+    "brand": "인크루트",
+    "title": "인크루트 \"SK하이닉스, 공채 관심 기업 1위 등극했다\"",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202605141934252188204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-14",
+    "brand": "인크루트",
+    "title": "SKT·인크루트 안전 조치 확인…개보위 시정명령 이행점검",
+    "url": "http://www.newstomato.com/ReadNews.aspx?no=1300903&inflow=N",
+    "source": "newstomato.com",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-05-14",
+    "brand": "인크루트",
+    "title": "SKT·인크루트 개인정보 유출 후속점검 완료…개인정보위, 하반기 시정...",
+    "url": "https://www.dailysecu.com/news/articleView.html?idxno=206735",
+    "source": "dailysecu.com",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-05-14",
+    "brand": "인크루트",
+    "title": "인크루트, 공채소식 조회수 분석… 'SK하이닉스' 가장 높은 관심",
+    "url": "https://www.m-i.kr/news/articleView.html?idxno=1372668",
+    "source": "m-i.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-14",
+    "brand": "리멤버",
+    "title": "직장인 SNS 리멤버 커넥트, 출시 두 달 만 방문자 120만명 돌파",
+    "url": "https://biz.chosun.com/it-science/ict/2026/05/14/GCUDA64SQFAGBEQZGHGXY3SWNE/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+    "source": "biz.chosun.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-14",
+    "brand": "리멤버",
+    "title": "직장인들 “회사보다 여기 먼저 켠다”… 리멤버 커넥트, 두 달 만에 12...",
+    "url": "https://www.venturesquare.net/1082202/",
+    "source": "venturesquare.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-13",
+    "brand": "원티드",
+    "title": "폴라리스그룹, 이해석 CAIO 원티드 하이파이브서 기조연설",
+    "url": "https://www.newsis.com/view/NISX20260513_0003627639",
+    "source": "newsis.com",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-05-13",
+    "brand": "인크루트",
+    "title": "취업포털 인크루트, 지난해 완전 자본잠식…자본총계 -35억",
+    "url": "https://www.sedaily.com/article/20043297?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-12",
+    "brand": "원티드",
+    "title": "'원티드 하이파이브 2026'서 AI 시대 미래 인재 육성 전략 공개한 현대그...",
+    "url": "https://www.sportschosun.com/life/2026-05-12/202605120100068350004504",
+    "source": "sportschosun.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-12",
+    "brand": "원티드",
+    "title": "[IT플랫폼리더 열전④] 원티드랩 이복기 \"향후 10년, AX솔루션 기업 재탄...",
+    "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5019252",
+    "source": "shinailbo.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-12",
+    "brand": "인크루트",
+    "title": "구직자 줄고 경쟁 심화 ‘인크루트’, 작년 완전 자본잠식",
+    "url": "https://www.sedaily.com/article/20043184?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-12",
+    "brand": "알바몬",
+    "title": "알바몬 '바로출근' 누적 이용자 30만 돌파…노쇼 비율 20% 낮아",
+    "url": "https://platum.kr/archives/286694",
+    "source": "platum.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-12",
+    "brand": "알바몬",
+    "title": "알바몬 '바로출근', 출시 6개월만에 30만 돌파…\"노쇼 잡고 채용 속도 높...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=76677",
+    "source": "thefairnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-11",
+    "brand": "원티드",
+    "title": "그렙, 원티드 '하이파이브'서 기업 AI 활용 역량 무료 진단해준다",
+    "url": "https://zdnet.co.kr/view/?no=20260511152202",
+    "source": "zdnet.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-11",
+    "brand": "원티드",
+    "title": "폴라리스오피스, M365·JIRA·원티드스페이스 결합 패키지 출시",
+    "url": "https://www.newsis.com/view/NISX20260511_0003623961",
+    "source": "newsis.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-11",
+    "brand": "인크루트",
+    "title": "인크루트, 기업용 데이터와 AI로 구직자 합격 역량 키운다",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=76641",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-11",
+    "brand": "알바몬",
+    "title": "\"앱 메인 AI 중심 개편\"…알바몬 공고지원 350% 증가",
+    "url": "https://biz.sbs.co.kr/article_hub/20000309493?division=NAVER",
+    "source": "biz.sbs.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-11",
+    "brand": "알바몬",
+    "title": "알바몬, AI 개인화 공고·간편 이력서 도입으로 구직 전환율 110% ↑",
+    "url": "https://www.hellot.net/news/article.html?no=112477",
+    "source": "hellot.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-09",
+    "brand": "알바천국",
+    "title": "[잡]알바천국, 5월 즉석당첨 이벤트→코메이트 '비자 점수 계산기'",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=737977",
+    "source": "slist.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-08",
+    "brand": "리멤버",
+    "title": "리멤버, 헤드헌팅사 인수…경력직 채용 시장 출사표",
+    "url": "https://www.hankyung.com/article/2026050848231",
+    "source": "hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-08",
+    "brand": "리멤버",
+    "title": "\"헤드헌팅 표준 만든다\"…리멤버 자회사 '에버브레인써치' 출범",
+    "url": "https://www.mt.co.kr/future/2026/05/08/2026050813572182750",
+    "source": "mt.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-08",
+    "brand": "리멤버",
+    "title": "[산업 브리핑] 네이버·리멤버·오픈AI",
+    "url": "http://www.niceeconomy.co.kr/news/articleView.html?idxno=89801",
+    "source": "niceeconomy.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-08",
+    "brand": "리멤버",
+    "title": "리멤버가 제시하는 AI 시대 B2B 전략, 핵심은 기술 아닌 '데이터 밀도'",
+    "url": "https://www.econovill.com/news/articleView.html?idxno=739654",
+    "source": "econovill.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-08",
+    "brand": "리멤버",
+    "title": "리멤버, AI·500만 인재DB로 헤드헌팅 판 바꾼다",
+    "url": "https://www.econovill.com/news/articleView.html?idxno=739616",
+    "source": "econovill.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-08",
+    "brand": "알바몬",
+    "title": "“농촌 구인·구직 쉽게”…농협, 알바몬과 협업",
+    "url": "https://www.nongmin.com/article/20260506500570",
+    "source": "nongmin.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-08",
+    "brand": "알바천국",
+    "title": "알바천국, 기업회원 채용지원금 100명 선정",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=837529",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-07",
+    "brand": "리멤버",
+    "title": "리멤버가 다시 쓴 B2B 성장 공식…“AI보다 중요한 건 데이터 밀도” [현...",
+    "url": "https://www.kukinews.com/article/view/kuk202605070162",
+    "source": "kukinews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-07",
+    "brand": "리멤버",
+    "title": "리멤버 “AI로 마케팅 평준화, '고밀도 데이터'가 승부 가른다”",
+    "url": "https://www.etnews.com/20260507000292",
+    "source": "etnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "인크루트",
+    "title": "인크루트, 취업박람회 2곳 참여…1800명 구직자에 AI 진단 도구 선봬",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202605062032058300204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "인크루트",
+    "title": "\"채용 진단을 게임으로\"... 인크루트, 취업박람회서 'AI 합격상점' 알려",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=199040",
+    "source": "thefirstmedia.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "인크루트",
+    "title": "인크루트, '합격상점' 오프라인 현장 등판…AI 기반 취업 솔루션으로 구...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=76187",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "알바몬",
+    "title": "\"농사일도 이젠 앱으로\"…농식품부·알바몬, 농촌 인력난 '맞손'",
+    "url": "http://www.youngnong.co.kr/news/articleView.html?idxno=59342",
+    "source": "youngnong.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "알바몬",
+    "title": "잡코리아·알바몬, 브랜드 고객충성도 대상 5년 연속 1위…전 항목 업계...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202605061842181978204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "알바몬",
+    "title": "[카드] 잡코리아·알바몬, HR 테크 플랫폼 경쟁력 입증",
+    "url": "http://www.newsprime.co.kr/news/article.html?no=732522",
+    "source": "newsprime.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "알바천국",
+    "title": "알바천국, '초간편 이력서' 서비스 도입",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=836980",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "알바천국",
+    "title": "구직 활동 편의성 높인다... 알바천국, 이력서 서비스 UI·UX 개편",
+    "url": "https://ditoday.com/%ea%b5%ac%ec%a7%81-%ed%99%9c%eb%8f%99-%ed%8e%b8%ec%9d%98%ec%84%b1-%eb%86%92%ec%9d%b8%eb%8b%a4-%ec%95%8c%eb%b0%94%ec%b2%9c%ea%b5%ad-%ec%9d%b4%eb%a0%a5%ec%84%9c-%ec%84%9c%eb%b9%84%ec%8a%a4-ui/",
+    "source": "ditoday.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "알바천국",
+    "title": "이력서 등록 안해도 지원 가능···알바천국, 이력서 서비스 개편",
+    "url": "https://magazine.hankyung.com/job-joy/article/202605067914d",
+    "source": "magazine.hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "알바천국",
+    "title": "알바천국, ‘초간편 이력서’ 출시…이력서 없이도 지원 가능",
+    "url": "https://www.venturesquare.net/1080334/",
+    "source": "venturesquare.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-06",
+    "brand": "급구",
+    "title": "SK하이닉스, 美 AI 신사업 전담 인력 '급구'…글로벌 빅테크 공략 고삐",
+    "url": "https://www.theguru.co.kr/news/article.html?no=101294",
+    "source": "theguru.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-05",
+    "brand": "알바몬",
+    "title": "농업 구인구직 알바몬과 '맞손'",
+    "url": "https://www.namdonews.com/news/articleView.html?idxno=909443",
+    "source": "namdonews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-04",
+    "brand": "알바몬",
+    "title": "농업 일자리, 알바몬서 찾는다…플랫폼 서비스 개시",
+    "url": "https://www.newsis.com/view/NISX20260504_0003616111",
+    "source": "newsis.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-04",
+    "brand": "알바몬",
+    "title": "알바몬에 뜬 농촌 일자리…청년·은퇴자 잇는 새 인력시장 열렸다",
+    "url": "https://www.newscammp.co.kr/news/articleView.html?idxno=6150",
+    "source": "newscammp.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-04",
+    "brand": "알바몬",
+    "title": "농업 일자리도 알바몬으로…‘국민 구직 플랫폼’ 타고 ‘순풍’",
+    "url": "https://www.munhwa.com/article/11586825?ref=naver",
+    "source": "munhwa.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-04",
+    "brand": "알바몬",
+    "title": "알바몬에 농사 일자리 등장…청년·귀농 희망자 몰린다",
+    "url": "https://www.kizmom.com/news/articleView.html?idxno=109906",
+    "source": "kizmom.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-04",
+    "brand": "알바몬",
+    "title": "\"알바몬으로 농업 일자리 정보 제공 시작… 농촌 인력난 해소 기대\"",
+    "url": "https://www.gokorea.kr/news/articleView.html?idxno=865400",
+    "source": "gokorea.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-04",
+    "brand": "알바몬",
+    "title": "알바몬서 ‘농사 알바’ 구한다",
+    "url": "https://www.sedaily.com/article/20039989?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-05-04",
+    "brand": "알바몬",
+    "title": "‘알바몬’ 통해 농업 일자리 구한다…농식품부 “많이 쓰는 사이트에서...",
+    "url": "https://www.busan.com/view/busan/view.php?code=2026050410005317494",
+    "source": "busan.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-04",
+    "brand": "알바천국",
+    "title": "알바천국 “가정의 달 10명 중 7명 부담”…평균 지출 47.9만원",
+    "url": "http://digitalchosun.dizzo.com/site/data/html_dir/2026/05/02/2026050280045.html",
+    "source": "digitalchosun.dizzo.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-05-01",
+    "brand": "리멤버",
+    "title": "\"90년생이랑 일 못하겠어요\"…팀장 멘붕 빠트린 신입 [리멤버 오피스워...",
+    "url": "https://www.hankyung.com/article/202604295883g",
+    "source": "hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-30",
+    "brand": "인크루트",
+    "title": "인크루트 조사, 대학생 77% 수평적 조직문화 선호",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202604301812097796204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-30",
+    "brand": "인크루트",
+    "title": "인크루트 \"대학생들, 수평적·과정중심주의·개방적·자율 책임 조직 선...",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=198923",
+    "source": "thefirstmedia.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-30",
+    "brand": "알바몬",
+    "title": "잡코리아·알바몬, 한화이글스와 이색 알바 이벤트",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=836449",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-30",
+    "brand": "알바천국",
+    "title": "알바천국 \"가정의 달 평균 지출 47만9000원\"",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=836435",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-30",
+    "brand": "알바천국",
+    "title": "알바천국, 가정의 달 지출 계획 조사...어버이날 '비상'",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=735877",
+    "source": "slist.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-29",
+    "brand": "원티드",
+    "title": "원티드랩, 비개발직군 AI 교육 '프론티어즈' 출시",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=835943",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-28",
+    "brand": "원티드",
+    "title": "[특징주] 원티드랩, 李대통령 공공서비스 일자리 적극발굴·전수조사 지...",
+    "url": "https://www.cstimes.com/news/articleView.html?idxno=703705",
+    "source": "cstimes.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-28",
+    "brand": "잡플래닛",
+    "title": "잡플래닛 매각한 브레인커머스, 작년 매출 4426억…영업익 65억",
+    "url": "https://www.mt.co.kr/future/2026/04/28/2026042815275389016",
+    "source": "mt.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-27",
+    "brand": "알바천국",
+    "title": "토스 행운퀴즈 '네이버페이 포인트 받기'…4월 27일 알바천국 정답 전체...",
+    "url": "https://www.gametoc.co.kr/news/articleView.html?idxno=108076",
+    "source": "gametoc.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-24",
+    "brand": "알바몬",
+    "title": "잡코리아·알바몬, 엽떡 ‘시식 인턴’ 가상 공고에 6만5000명 지원…경...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202604241814399896204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-22",
+    "brand": "인크루트",
+    "title": "인크루트 \"신입 구직자 95.8%, 연봉 수준이 입사에 영향 준다\"",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=198435",
+    "source": "thefirstmedia.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-22",
+    "brand": "인크루트",
+    "title": "인크루트 \"올해 신입 구직자 희망 초봉은 4196만원\"",
+    "url": "https://www.ddaily.co.kr/page/view/2026042210565982915",
+    "source": "ddaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-22",
+    "brand": "알바천국",
+    "title": "취업·비자·생활 한곳에···알바천국, 외국인 플랫폼 확장 승부수",
+    "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2421918",
+    "source": "enewstoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-22",
+    "brand": "알바천국",
+    "title": "[HR 뉴스브리핑] 알바천국, 외국인 위한 한국 일자리 생활정보 플랫폼 ...",
+    "url": "https://www.asiatime.co.kr/article/20260422500143",
+    "source": "asiatime.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-22",
+    "brand": "알바천국",
+    "title": "알바천국 'K-HIRE', PC 서비스 출시",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=834498",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-22",
+    "brand": "알바천국",
+    "title": "알바천국, 외국인 대상 韓일자리 정보 플랫폼 출시...MAU 23만 돌파",
+    "url": "https://www.slist.kr/news/articleView.html?idxno=733711",
+    "source": "slist.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-21",
+    "brand": "리멤버",
+    "title": "[산업 브리핑] 카카오·코웨이·리멤버",
+    "url": "http://www.niceeconomy.co.kr/news/articleView.html?idxno=89707",
+    "source": "niceeconomy.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-21",
+    "brand": "알바천국",
+    "title": "알바천국, 청소년 아르바이트 권익 교육 '첫 알바는 천국이지 클래스' ...",
+    "url": "https://edu.chosun.com/site/data/html_dir/2026/04/21/2026042180167.html",
+    "source": "edu.chosun.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-21",
+    "brand": "알바천국",
+    "title": "알바천국, 청소년 노동권 교육 확대 나선다",
+    "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=201081",
+    "source": "lcnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-19",
+    "brand": "급구",
+    "title": "'실적 반등 필요' 네이버 왓패드, '광고 업무 총괄' 급구",
+    "url": "https://www.theguru.co.kr/news/article.html?no=100718",
+    "source": "theguru.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-17",
+    "brand": "리멤버",
+    "title": "\"내 몸값 얼마?\"…직장인 똑똑한 이직 필수템 된 '이것' [리멤버 오피스...",
+    "url": "https://www.hankyung.com/article/202604165678g",
+    "source": "hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-16",
+    "brand": "리멤버",
+    "title": "부커스, ‘리멤버’ 기반 전자책 독서복지 프로모션",
+    "url": "https://www.joongang.co.kr/article/25420690",
+    "source": "joongang.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-16",
+    "brand": "리멤버",
+    "title": "부커스, 리멤버 통해 합리적 독서 지원 선보여...기업·공공기관 도입 ...",
+    "url": "https://www.job-post.co.kr/news/articleView.html?idxno=213608",
+    "source": "job-post.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-15",
+    "brand": "원티드",
+    "title": "원티드랩, AI 플랫폼 '엔노이아' 론칭...\"전사적 AX 시장 공략\"",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=832982",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-15",
+    "brand": "리멤버",
+    "title": "부커스, '리멤버' 통한 기업 대상 독서 지원 서비스 확대…합리적 전자...",
+    "url": "https://www.mhns.co.kr/news/articleView.html?idxno=744996",
+    "source": "mhns.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-15",
+    "brand": "리멤버",
+    "title": "부커스, '리멤버' 기반 '전자책 복지' 확산 나서…기업 HR 대상 프로모션...",
+    "url": "https://www.gukjenews.com/news/articleView.html?idxno=3557640",
+    "source": "gukjenews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-15",
+    "brand": "알바천국",
+    "title": "알바천국, 기업회원 대상 ‘AI 공고모집 작성 서비스’ 오픈",
+    "url": "https://edu.chosun.com/site/data/html_dir/2026/04/15/2026041580019.html",
+    "source": "edu.chosun.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-15",
+    "brand": "알바천국",
+    "title": "알바천국, 채용공고 작성 자동화…기업 부담 낮춘다",
+    "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=200782",
+    "source": "lcnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-15",
+    "brand": "잡플래닛",
+    "title": "[HR 게시판] 대학생이 가장 일하고 싶은 그룹 '삼성' .... 잡플래닛, 웍...",
+    "url": "http://www.worktoday.co.kr/news/articleView.html?idxno=83723",
+    "source": "worktoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-14",
+    "brand": "인크루트",
+    "title": "인크루트 조사, 대학생이 가장 일하고 싶은 그룹사 1위 ‘삼성’…2년 ...",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202604141805082557204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-14",
+    "brand": "알바몬",
+    "title": "동대문엽기떡볶이, 소비자 체험형 ‘엽떡 시식 알바몬·인턴’ 모집 실...",
+    "url": "https://www.hinews.co.kr/view.php?ud=202604141117303166dacadeb388_48",
+    "source": "hinews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-14",
+    "brand": "알바몬",
+    "title": "잡플래닛, BI 전면 교체…잡코리아·알바몬과 시너지 낸다",
+    "url": "https://www.sedaily.com/article/20032137?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-14",
+    "brand": "알바몬",
+    "title": "백소정, 알바몬과 ‘브랜드 채용관’ 운영… “가맹점 구인 부담 완화 ...",
+    "url": "http://digitalchosun.dizzo.com/site/data/html_dir/2026/04/13/2026041380141.html",
+    "source": "digitalchosun.dizzo.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-14",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, BI 리뉴얼 통해 '커리어 선택 기준 플랫폼' 확장 선언",
+    "url": "https://www.thedailypost.kr/news/articleView.html?idxno=113868",
+    "source": "thedailypost.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-14",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, 의사결정 플랫폼으로 진화한다...브랜드 리뉴얼 단행",
+    "url": "https://www.news2day.co.kr/article/20260414500154",
+    "source": "news2day.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-14",
+    "brand": "잡플래닛",
+    "title": "[카드] 잡플래닛, 새로운 브랜드 아이덴티티 공개",
+    "url": "http://www.newsprime.co.kr/news/article.html?no=730155",
+    "source": "newsprime.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-14",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, BI 전면 교체…잡코리아·알바몬과 시너지 낸다",
+    "url": "https://www.sedaily.com/article/20032137?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-14",
+    "brand": "잡플래닛",
+    "title": "웍스피어, 잡플래닛 BI 전면 리뉴얼…단순 리뷰 넘어 '커리어 설계' 중심...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=74263",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-13",
+    "brand": "알바몬",
+    "title": "잡코리아·알바몬, 1분기 구인구직 플랫폼 MAU 1위 달성",
+    "url": "https://news.tvchosun.com/site/data/html_dir/2026/04/13/2026041390234.html",
+    "source": "news.tvchosun.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-13",
+    "brand": "알바몬",
+    "title": "웍스피어, 'AI 네이티브' 전환 적중…잡코리아·알바몬 이용자 수 압도...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=74153",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-13",
+    "brand": "급구",
+    "title": "러시아 상트페테르부르크서 북한말 통역사 급구...이유는",
+    "url": "https://www.etoday.co.kr/news/view/2575236",
+    "source": "etoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-12",
+    "brand": "원티드",
+    "title": "원티드랩 \"HR 넘어 전 분야 AX 지원...'자기개선 루프'로 가능\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=209129",
+    "source": "aitimes.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-11",
+    "brand": "급구",
+    "title": "“사비로 알바 급구”… 광명 녹색어머니 울리는 ‘녹색 봉사’",
+    "url": "https://www.kyeonggi.com/article/20260409580301",
+    "source": "kyeonggi.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-10",
+    "brand": "인크루트",
+    "title": "취업하려면 '합격상점'으로…인크루트, AI 취업상품 스토어 오픈",
+    "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=02784726645414808",
+    "source": "edaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-10",
+    "brand": "인크루트",
+    "title": "[라이프 뉴스픽] 시몬스·인크루트·모나리자·유한킴벌리·레고·웅진",
+    "url": "https://www.ajunews.com/view/20260410093957225",
+    "source": "ajunews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-10",
+    "brand": "인크루트",
+    "title": "인크루트, 구직자 대상 ‘합격상점’ 열어…AI 분석 엔진 적용",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202604101307363999204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-10",
+    "brand": "인크루트",
+    "title": "인크루트, '합격상점' 출시…구직자 합격 역량 강화",
+    "url": "https://zdnet.co.kr/view/?no=20260410090126",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-10",
+    "brand": "인크루트",
+    "title": "정보 비대칭 해소 나선 인크루트…AI 기술력으로 구직자 '합격 사다리' ...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=73976",
+    "source": "thefairnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-08",
+    "brand": "원티드",
+    "title": "원티드랩 “직장인 92%는 AI 활용하지만…기업 AI 전환은 5%에 그쳐”",
+    "url": "https://www.etnews.com/20260408000448",
+    "source": "etnews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-08",
+    "brand": "원티드",
+    "title": "원티드랩, AX 인사이트 리포트 발간... \"AI 기업 도입은 초기 단계\"",
+    "url": "https://www.newspim.com/news/view/20260408001078",
+    "source": "newspim.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-08",
+    "brand": "원티드",
+    "title": "원티드랩 \"취업 시장 변화…기업 77%는 AI 능력자에 연봉 추가 가능\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=208934",
+    "source": "aitimes.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-08",
+    "brand": "급구",
+    "title": "[이 시각 세계] \"곰 잡아라\"‥일본, '공무원 사냥꾼' 급구",
+    "url": "https://imnews.imbc.com/replay/2026/nwtoday/article/6813486_37012.html",
+    "source": "imnews.imbc.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-08",
+    "brand": "잡플래닛",
+    "title": "잡플래닛 창업자 황희승 브레인커머스 대표 \"이번엔 파견·도급 시장 혁...",
+    "url": "http://www.newstomato.com/ReadNews.aspx?no=1297164&inflow=N",
+    "source": "newstomato.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-07",
+    "brand": "원티드",
+    "title": "원티드랩, 직장인 콘퍼런스 ‘하이파이브 2026’ 개최",
+    "url": "http://digitalchosun.dizzo.com/site/data/html_dir/2026/04/07/2026040780104.html",
+    "source": "digitalchosun.dizzo.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-07",
+    "brand": "급구",
+    "title": "“곰이 겨울잠에서 깨어났다”… 비상 걸린 日, 사냥꾼 급구",
+    "url": "https://www.chosun.com/international/international_general/2026/04/07/HJJ4BG26EVHX7MPYFSZTNWJUVU/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news",
+    "source": "chosun.com",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-04-06",
+    "brand": "원티드",
+    "title": "원티드랩 \"AX 과도기 맞은 개발자들과 고민 공유...에이전트는 기회의 ...",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=208818",
+    "source": "aitimes.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-06",
+    "brand": "알바천국",
+    "title": "알바천국, '매일매일 행운 뽑기' 즉석당첨 이벤트 진행",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=830523",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-06",
+    "brand": "잡플래닛",
+    "title": "다인정공, '2026 잡플래닛 어워즈' 워라밸 부문 수상···일과 삶의 균...",
+    "url": "https://www.enetnews.co.kr/news/articleView.html?idxno=48507",
+    "source": "enetnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-03",
+    "brand": "리멤버",
+    "title": "\"엔비디아로 '200배' 대박 났지만…\" 직장인 '뜻밖의 고백' [리멤버 오피...",
+    "url": "https://www.hankyung.com/article/202604036312g",
+    "source": "hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-02",
+    "brand": "알바몬",
+    "title": "\"엽떡 먹고 100만원 받는다\"...잡코리아·알바몬에 뜬 '시식 인턴' 정체",
+    "url": "https://magazine.hankyung.com/job-joy/article/202604024171d",
+    "source": "magazine.hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-02",
+    "brand": "알바몬",
+    "title": "동대문엽기떡볶이, ‘엽떡 시식 인턴·알바몬’ 모집 공고",
+    "url": "https://www.sportsworldi.com/newsView/20260402508757",
+    "source": "sportsworldi.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-04-02",
+    "brand": "알바천국",
+    "title": "욜로PC방, 알바천국 입점 3개월 '가맹점주 만족도 높아'.. 운영 고충 덜...",
+    "url": "http://www.newsroad.co.kr/news/articleView.html?idxno=57223",
+    "source": "newsroad.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-01",
+    "brand": "원티드",
+    "title": "日 기업 한국인 채용 지원…원티드랩-라프라스, 비자까지 밀착케어",
+    "url": "https://www.mt.co.kr/future/2026/04/01/2026040115382742237",
+    "source": "mt.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-01",
+    "brand": "원티드",
+    "title": "원티드랩 한·일 인재매칭 본격화…취업 지원 서비스 출시",
+    "url": "https://www.sedaily.com/article/20027075?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-04-01",
+    "brand": "원티드",
+    "title": "원티드랩X라프라스, 한-일 인재 매칭 협업한다",
+    "url": "https://zdnet.co.kr/view/?no=20260401083757",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "원티드",
+    "title": "핸디소프트, '원티드스페이스' 인수…SMB SaaS 시장 진출",
+    "url": "https://www.newsis.com/view/NISX20260331_0003570510",
+    "source": "newsis.com",
+    "sentiment": "negative"
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "원티드",
+    "title": "원티드랩, 작년 영업익 10억원…흑자전환",
+    "url": "https://zdnet.co.kr/view/?no=20260331104132",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "알바천국",
+    "title": "알바천국, 봄학기 '천국 어택! 간식 대항전' 진행",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=829110",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "알바천국",
+    "title": "알바천국, '간식 대항전'으로 대학생 공략 나서",
+    "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=126399",
+    "source": "lcnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "동네알바",
+    "title": "동네알바, 기업·알바생 '양방향' 공략…매칭 효율 극대화",
+    "url": "https://www.m-i.kr/news/articleView.html?idxno=1360189",
+    "source": "m-i.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "동네알바",
+    "title": "사람인 합병 시너지 ‘동네알바’ 기업·알바생 동시 공략",
+    "url": "https://www.sedaily.com/article/20026208?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "동네알바",
+    "title": "'동네알바'로 알바 시장과 시너지 내는 '사람인'",
+    "url": "https://www.wolyo.co.kr/news/articleView.html?idxno=310428",
+    "source": "wolyo.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-31",
+    "brand": "동네알바",
+    "title": "동네알바, 프랜차이즈 기업회원 공략 나서",
+    "url": "https://zdnet.co.kr/view/?no=20260331083855",
+    "source": "zdnet.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-30",
+    "brand": "인크루트",
+    "title": "인크루트, 3월 주요 '공공기관 신입' 채용 소식 전해",
+    "url": "https://www.veritas-a.com/news/articleView.html?idxno=603644",
+    "source": "veritas-a.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-27",
+    "brand": "알바몬",
+    "title": "웍스피어, 전사적 AI 전환 속도…잡코리아·알바몬 메인 화면 개편",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202603271356535413204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-27",
+    "brand": "알바몬",
+    "title": "일자리도 AI가 고른다…확 바뀐 잡코리아·알바몬, AX 속도",
+    "url": "https://www.hankyung.com/article/202603270352g",
+    "source": "hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-26",
+    "brand": "인크루트",
+    "title": "인크루트, '모의평가' 선봬…'서류·필기·면접' 원스톱 지원",
+    "url": "https://www.shinailbo.co.kr/news/articleView.html?idxno=5004808",
+    "source": "shinailbo.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-26",
+    "brand": "알바천국",
+    "title": "알바천국이 만든 외국인 채용 플랫폼, 이용자 12만명 돌파",
+    "url": "https://www.sedaily.com/article/20024714?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-26",
+    "brand": "알바천국",
+    "title": "[카드] 알바천국 '케이하이어' 이용자 수 12만명 돌파",
+    "url": "http://www.newsprime.co.kr/news/article.html?no=728271",
+    "source": "newsprime.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-26",
+    "brand": "알바천국",
+    "title": "알바천국, 외국인 일자리 플랫폼 'K-HIRE' 월간 활성 이용자 수 12만 명 ...",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=105286",
+    "source": "edu.donga.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-26",
+    "brand": "알바천국",
+    "title": "알바천국 K-HIRE, 한국 생활 맞춤형 서비스로 빠른 성장세",
+    "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=126164",
+    "source": "lcnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-26",
+    "brand": "알바천국",
+    "title": "알바천국 K-HIRE, MAU 12만4000명 돌파",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=827634",
+    "source": "hansbiz.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-25",
+    "brand": "원티드",
+    "title": "원티드랩, 에이전틱 디자인 시스템 ‘몽타주’ 공개",
+    "url": "https://www.sedaily.com/article/20024024?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-25",
+    "brand": "원티드",
+    "title": "원티드랩, 사내용으로 개발한 '디자인 에이전트' 공개…\"시간 90% 단축\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=208339",
+    "source": "aitimes.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-25",
+    "brand": "인크루트",
+    "title": "인크루트, AI 기반 모의 입사 지원 솔루션 출시",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202603251854105821204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-25",
+    "brand": "인크루트",
+    "title": "가상 기업 지원하고 AI 면접까지…인크루트 '모의취업' 솔루션 공개",
+    "url": "https://magazine.hankyung.com/business/article/202603255527b",
+    "source": "magazine.hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-25",
+    "brand": "인크루트",
+    "title": "인크루트, AI가 점치는 '가상 입사' 솔루션 출시…취업 준비의 디지털 ...",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=72437",
+    "source": "thefairnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-25",
+    "brand": "리멤버",
+    "title": "“이직 말고 성장”…리멤버, 베스트셀러로 ‘커리어 설계’ 플랫폼 승...",
+    "url": "https://www.segye.com/newsView/20260325506278?OutUrl=naver",
+    "source": "segye.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-24",
+    "brand": "알바몬",
+    "title": "잡코리아 알바몬, 한화이글스와 3년 연속 공식 파트너십 체결",
+    "url": "http://www.technoa.co.kr/news/articleView.html?idxno=100700",
+    "source": "technoa.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-24",
+    "brand": "알바몬",
+    "title": "시구·시타·애국가 알바 올해도? 한화, 2026시즌도 잡코리아·알바몬과...",
+    "url": "https://www.sportalkorea.com/news/articleView.html?idxno=2025052909553075202",
+    "source": "sportalkorea.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-24",
+    "brand": "알바천국",
+    "title": "알바천국 \"알바생 31% 재입사 후 근무기간 짧아져\"",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=826936",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-24",
+    "brand": "알바천국",
+    "title": "알바천국 \"재입사 알바생 3명 중 1명, 이전보다 짧게 근무\"",
+    "url": "https://www.newsis.com/view/NISX20260324_0003560860",
+    "source": "newsis.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-20",
+    "brand": "인크루트",
+    "title": "인크루트, '공채소식' 페이지 오픈",
+    "url": "http://www.inews24.com/view/1951499",
+    "source": "inews24.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-20",
+    "brand": "인크루트",
+    "title": "인크루트, 공채소식 페이지 개설…합격자소서·면접족보 제공",
+    "url": "https://www.etoday.co.kr/news/view/2567446",
+    "source": "etoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-18",
+    "brand": "원티드",
+    "title": "원티드랩·서울글로벌센터·오픈놀, '외국인 인재 정착 및 채용 활성화...",
+    "url": "http://www.worktoday.co.kr/news/articleView.html?idxno=82670",
+    "source": "worktoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-18",
+    "brand": "리멤버",
+    "title": "리멤버, iM뱅크와 금용 인재 채용 MOU 체결",
+    "url": "https://biz.chosun.com/it-science/ict/2026/03/18/CGWIKCNUKRAWVI77HLI6ZKPB54/?utm_source=naver&utm_medium=original&utm_campaign=biz",
+    "source": "biz.chosun.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-18",
+    "brand": "리멤버",
+    "title": "HR 기업이 금융권과?…리멤버·iM뱅크, '인재 확보' 나선다",
+    "url": "https://www.ddaily.co.kr/page/view/2026031815294327148",
+    "source": "ddaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-18",
+    "brand": "리멤버",
+    "title": "iM뱅크, 시중은행 도약 핵심 엔진 리멤버 탑재",
+    "url": "https://www.econovill.com/news/articleView.html?idxno=733605",
+    "source": "econovill.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-18",
+    "brand": "알바천국",
+    "title": "알바천국, '최강 알바 선발전' 이벤트 진행",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=825305",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-18",
+    "brand": "알바천국",
+    "title": "\"최강 알바는 누구?\"…알바천국, 미션 이벤트 연다",
+    "url": "https://www.ddaily.co.kr/page/view/2026031814425119906",
+    "source": "ddaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-18",
+    "brand": "알바천국",
+    "title": "알바 지원하면 현금 지급…알바천국, 5월 18일까지 두 달간 ‘최강 알바...",
+    "url": "https://www.gosiweek.com/article/1065573724632449",
+    "source": "gosiweek.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-17",
+    "brand": "알바몬",
+    "title": "잡코리아·알바몬 \"AI중심 메인 개편으로 클릭·지원 데이터 상승\"",
+    "url": "http://www.newsbrite.net/news/articleView.html?idxno=196970",
+    "source": "newsbrite.net",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-17",
+    "brand": "알바몬",
+    "title": "카카오, ‘카카오비즈 멤버십’ 혜택 확대…배민상회·알바몬 지원 추가",
+    "url": "http://www.metroseoul.co.kr/article/20260317500105",
+    "source": "metroseoul.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-17",
+    "brand": "알바천국",
+    "title": "알바천국, 대화형 구직 지원 서비스 '알바천국 AI 에이전트' 오픈",
+    "url": "https://www.ziksir.com/news/articleView.html?idxno=127360",
+    "source": "ziksir.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-17",
+    "brand": "알바천국",
+    "title": "'채용공고 핵심만 쏙'…알바천국, AI 에이전트 출시",
+    "url": "https://www.etnews.com/20260317000029",
+    "source": "etnews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-17",
+    "brand": "알바천국",
+    "title": "\"채용 궁금증, AI한테 물어보세요\"…알바천국, 대화형 AI 서비스 오픈",
+    "url": "https://www.news1.kr/industry/general-industry/6103296",
+    "source": "news1.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-17",
+    "brand": "잡플래닛",
+    "title": "린데코리아, ‘2026 잡플래닛 어워즈’ 채용 경험 부문 수상",
+    "url": "http://amenews.kr/news/view.php?idx=66033",
+    "source": "amenews.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-16",
+    "brand": "원티드",
+    "title": "\"구직 합격은 확률\"…모델 주우재, HR 플랫폼 '원티드'와 캠페인",
+    "url": "https://www.mt.co.kr/future/2026/03/16/2026031616584256585",
+    "source": "mt.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-16",
+    "brand": "원티드",
+    "title": "원티드랩, '주우재'와 데이터 기반 채용 기술 알린다",
+    "url": "https://www.etnews.com/20260316000314",
+    "source": "etnews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-16",
+    "brand": "원티드",
+    "title": "원티드랩, 주우재 브랜드 앰버서더 발탁...‘합격은 확률이다’ 캠페인...",
+    "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=02145126645383976",
+    "source": "edaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-16",
+    "brand": "인크루트",
+    "title": "인크루트, 게임형 진단 도구 'PSG' 구직자 대상 첫 공개",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202603162156114422204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-16",
+    "brand": "알바몬",
+    "title": "잡코리아·알바몬, '세상의 모든 일을 RESPECT' 캠페인으로 광고상 수상",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202603162159177367204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-15",
+    "brand": "원티드",
+    "title": "원티드랩·사람인, 채용 빙하기 실적 ‘선방’…신사업·투자 성공 효과",
+    "url": "https://www.sedaily.com/article/20019385?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-12",
+    "brand": "인크루트",
+    "title": "인크루트 ‘셜록N’, 중소기업 채용 해결사로 주목",
+    "url": "https://magazine.hankyung.com/business/article/202603127748b",
+    "source": "magazine.hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-12",
+    "brand": "리멤버",
+    "title": "리멤버, '업' 출시하자마자 베스트셀러 반열...'커리어 전략서 돌풍'",
+    "url": "https://www.mhns.co.kr/news/articleView.html?idxno=741028",
+    "source": "mhns.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-12",
+    "brand": "리멤버",
+    "title": "리멤버가 쓴 인터뷰집, 서점가 휩쓸었다",
+    "url": "https://www.sedaily.com/article/20018283?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-11",
+    "brand": "리멤버",
+    "title": "이직 창구 꼬리표 뗀 리멤버, 생애주기 커리어 파트너 정조준",
+    "url": "https://www.econovill.com/news/articleView.html?idxno=732642",
+    "source": "econovill.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-11",
+    "brand": "리멤버",
+    "title": "리멤버 커넥트, 링크드인과 뭐가 다를까",
+    "url": "https://zdnet.co.kr/view/?no=20260310151916",
+    "source": "zdnet.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-10",
+    "brand": "알바천국",
+    "title": "알바천국, 기업 대상 50만원 채용지원금 이벤트 진행",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=822873",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-10",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, ‘일하기 좋은 기업’ 상위 0.01% 31곳 선정…2026 어워즈 발표",
+    "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=04739606645382008",
+    "source": "edaily.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-10",
+    "brand": "잡플래닛",
+    "title": "구글·SKT·넥슨, 잡플래닛 ‘일하기 좋은 기업’으로 선정",
+    "url": "https://www.dt.co.kr/article/12050717?ref=naver",
+    "source": "dt.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-10",
+    "brand": "잡플래닛",
+    "title": "급여·복지, 워라벨 좋은 좋은 직장은 어디?…잡플래닛, 일하기 좋은 31...",
+    "url": "https://www.munhwa.com/article/11573555?ref=naver",
+    "source": "munhwa.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-10",
+    "brand": "잡플래닛",
+    "title": "잡플래닛, 구직자 평가로 본 ‘일하기 좋은 기업’ 31개사 공개",
+    "url": "https://www.news2day.co.kr/article/20260310500112",
+    "source": "news2day.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-10",
+    "brand": "잡플래닛",
+    "title": "‘별점 지옥’ 잡플래닛에서도 인정받았다…상위 0.01% 기업은?",
+    "url": "https://www.segye.com/newsView/20260310506993?OutUrl=naver",
+    "source": "segye.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-10",
+    "brand": "잡플래닛",
+    "title": "[#IT라운지] 네이버 '스타트업 투자'·엘리스 'AW 참가'·'잡플래닛 어워...",
+    "url": "https://www.newsworks.co.kr/news/articleView.html?idxno=833526",
+    "source": "newsworks.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-10",
+    "brand": "잡플래닛",
+    "title": "\"나의 직장 추구미는 무엇인가\"…잡플래닛이 선언한 0.01%의 기준",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=71033",
+    "source": "thefairnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-09",
+    "brand": "알바몬",
+    "title": "알바몬, 센서타워 APAC 어워즈 최고 알바 앱 선정 ... 'HR 업계 최초'",
+    "url": "http://www.worktoday.co.kr/news/articleView.html?idxno=82222",
+    "source": "worktoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-09",
+    "brand": "알바몬",
+    "title": "알바몬의 'HR 최초' 수상, AI가 바꾼 아르바이트 매칭의 신세계",
+    "url": "https://www.thefairnews.co.kr/news/articleView.html?idxno=70924",
+    "source": "thefairnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-08",
+    "brand": "원티드",
+    "title": "[리뷰] \"끝 아닌 새로운 시작\"… 피원하모니, '모스트 원티드'로 여는 뉴...",
+    "url": "https://www.ajunews.com/view/20260308192738302",
+    "source": "ajunews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-08",
+    "brand": "원티드",
+    "title": "'모스트 원티드 앙코르' 피원하모니, 지치지 않을 무대 위 영웅들 [TD리...",
+    "url": "http://www.tvdaily.co.kr/read.php3?aid=17729624451779941010",
+    "source": "tvdaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-07",
+    "brand": "원티드",
+    "title": "정기수 원티드랩 AI부문장 \"기업 AX 성패, 개인역량 지속 강화에 달려\"",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=207657",
+    "source": "aitimes.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-06",
+    "brand": "원티드",
+    "title": "AI 인재 키운다…원티드랩, 숙명여대와 취업 프로젝트 협력",
+    "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=04447686645380696",
+    "source": "edaily.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-05",
+    "brand": "알바천국",
+    "title": "알바천국, 3월 '행운 카드 뽑기' 즉석당첨 이벤트",
+    "url": "http://www.hansbiz.co.kr/news/articleView.html?idxno=821758",
+    "source": "hansbiz.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-05",
+    "brand": "동네알바",
+    "title": "동네알바 '신규 회원가입 프로모션' 실시…사람인과 시너지 본격화",
+    "url": "https://www.ziksir.com/news/articleView.html?idxno=126041",
+    "source": "ziksir.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-05",
+    "brand": "동네알바",
+    "title": "사람인, '동네알바' 새 회원되면 에어팟 프로 등 쏜다",
+    "url": "https://zdnet.co.kr/view/?no=20260305085451",
+    "source": "zdnet.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-03-03",
+    "brand": "인크루트",
+    "title": "인크루트 조사, 올해 연봉 협상 인상률 평균 7.5%",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202603031827178186204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-03",
+    "brand": "인크루트",
+    "title": "인크루트 \"2026년 연봉 협상 결과 '인상자' 줄고 '인상률' 늘었다\"",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=194505",
+    "source": "thefirstmedia.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-03",
+    "brand": "알바천국",
+    "title": "알바천국, 대학생 80.2% \"새 학기 '대학가 알바' 계획 있다\"",
+    "url": "https://edu.donga.com/news/articleView.html?idxno=104053",
+    "source": "edu.donga.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-03-02",
+    "brand": "급구",
+    "title": "“AI·로보틱스 경력직 급구” LG CNS, 세자릿수 인재 채용",
+    "url": "https://www.sedaily.com/article/20014074?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-28",
+    "brand": "알바몬",
+    "title": "잡코리아x알바몬, 연간 입사지원 9500만 건 돌파",
+    "url": "http://www.technoa.co.kr/news/articleView.html?idxno=100616",
+    "source": "technoa.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-23",
+    "brand": "원티드",
+    "title": "원티드랩, 5월 직장인 컨퍼런스 '원티드 하이파이브 2026' 개최",
+    "url": "https://www.digitaltoday.co.kr/news/articleView.html?idxno=633206",
+    "source": "digitaltoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-23",
+    "brand": "인크루트",
+    "title": "인크루트 셜록N \"헤드헌터 연락 가장 많이 받은 직장인은 '과장님'과 '연...",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=193908",
+    "source": "thefirstmedia.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-23",
+    "brand": "인크루트",
+    "title": "인크루트 \"헤드헌팅, 과장급·연구개발직 채용 가장 많아\"",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202602231413482454204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-20",
+    "brand": "알바천국",
+    "title": "알바천국, '천국의 시네마' 재개···'호퍼스' 예매권 증정 이벤트 진행",
+    "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2396389",
+    "source": "enewstoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-20",
+    "brand": "알바천국",
+    "title": "알바천국, 회원 대상 영화 관람 이벤트 '천국의 시네마' 운영",
+    "url": "https://www.lcnews.co.kr/news/articleView.html?idxno=124113",
+    "source": "lcnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-19",
+    "brand": "인크루트",
+    "title": "인크루트 \"전자·반도체 업종 채용 열기 역대급\"",
+    "url": "https://www.mhns.co.kr/news/articleView.html?idxno=739329",
+    "source": "mhns.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-19",
+    "brand": "인크루트",
+    "title": "인크루트, 2026년 업종별 채용 계획 조사 결과 발표",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202602191524029670204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-19",
+    "brand": "인크루트",
+    "title": "인크루트 \"올해 채용 가장 활발할 업종은 역시 '반도체'\"",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=193720",
+    "source": "thefirstmedia.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-19",
+    "brand": "급구",
+    "title": "머스크가 휘날린 태극기...'K-반도체' 인재 급구",
+    "url": "https://news.jtbc.co.kr/article/NB12285867?influxDiv=NAVER",
+    "source": "news.jtbc.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-13",
+    "brand": "알바천국",
+    "title": "알바천국, 대학 졸업자 3명 중 1명 \"졸업 후에도 아르바이트 찾는다\"",
+    "url": "https://www.ibabynews.com/news/articleView.html?idxno=148788",
+    "source": "ibabynews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-12",
+    "brand": "원티드",
+    "title": "원티드랩, 지난해 영업이익 11억…흑자전환",
+    "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=03998326645349864",
+    "source": "edaily.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-12",
+    "brand": "급구",
+    "title": "日 “트럭 운전할 사람 급구”…베트남·인도네시아서 수혈",
+    "url": "https://www.mk.co.kr/article/11960850",
+    "source": "mk.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-11",
+    "brand": "원티드",
+    "title": "원티드랩·숙명여대, 대학생 AI 서비스 개발 ‘빅데이터 프롬프톤’ 성...",
+    "url": "https://www.sedaily.com/article/20008097?ref=naver",
+    "source": "sedaily.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-10",
+    "brand": "인크루트",
+    "title": "인크루트, \"기업 73.4%, 올해 채용한다\"",
+    "url": "http://www.metroseoul.co.kr/article/20260210500246",
+    "source": "metroseoul.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-09",
+    "brand": "원티드",
+    "title": "황리건 원티드랩 총괄이사 “채용 넘어 AX로…글로벌 AX기업 목표”",
+    "url": "https://www.etoday.co.kr/news/view/2554212",
+    "source": "etoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-09",
+    "brand": "인크루트",
+    "title": "인크루트, 직장인 40.9% 설 연휴 상여금 수령 예상",
+    "url": "https://www.joongangenews.com/news/articleView.html?idxno=494369",
+    "source": "joongangenews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-08",
+    "brand": "원티드",
+    "title": "\"AI가 사람 뽑는다\" 원티드랩·사람인, 채용 시장 훈풍에 리플처럼 반등",
+    "url": "https://www.pinpointnews.co.kr/news/articleView.html?idxno=427062",
+    "source": "pinpointnews.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-05",
+    "brand": "원티드",
+    "title": "경기도일자리재단-원티드랩, 글로벌 채용 활성화를 위한 업무협약 체결",
+    "url": "http://www.metroseoul.co.kr/article/20260205500480",
+    "source": "metroseoul.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-05",
+    "brand": "원티드",
+    "title": "원티드랩, 외국인 구직자·구인기업 위한 맞춤형 고용지원 서비스 강화",
+    "url": "https://www.epnc.co.kr/news/articleView.html?idxno=328281",
+    "source": "epnc.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-05",
+    "brand": "잡플래닛",
+    "title": "잡코리아, 기업 홈페이지 전면 개편…알바몬·잡플래닛·나인하이어 '웍...",
+    "url": "https://www.ibabynews.com/news/articleView.html?idxno=148226",
+    "source": "ibabynews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-04",
+    "brand": "알바천국",
+    "title": "알바천국, 2월 한 달간 즉석당첨 이벤트 '행운 카드 뽑기' 진행",
+    "url": "https://www.ibabynews.com/news/articleView.html?idxno=148127",
+    "source": "ibabynews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-03",
+    "brand": "원티드",
+    "title": "LGU+, 경찰청 ‘보이스 원티드’ 캠페인 동참",
+    "url": "https://biz.heraldcorp.com/article/10668567?ref=naver",
+    "source": "biz.heraldcorp.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-03",
+    "brand": "인크루트",
+    "title": "인크루트 \"공공기관 신입 평균 연봉 4099만원 기록\"",
+    "url": "http://www.lawissue.co.kr/view.php?ud=202602031732176838204ead0791_12",
+    "source": "lawissue.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-03",
+    "brand": "알바천국",
+    "title": "알바천국, 구직자 대상 '유사 공고 한 번에 지원 서비스' 오픈",
+    "url": "http://www.worktoday.co.kr/news/articleView.html?idxno=80813",
+    "source": "worktoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-03",
+    "brand": "급구",
+    "title": "알바 등 단기 구인·구직 빠르게 매칭…본아이에프, '급구' 도입",
+    "url": "https://www.mt.co.kr/future/2026/02/03/2026020315121126530",
+    "source": "mt.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-03",
+    "brand": "급구",
+    "title": "니더, 본아이에프와 협력...'급구' 서비스 외식 프랜차이즈로 확장",
+    "url": "http://www.metroseoul.co.kr/article/20260202500590",
+    "source": "metroseoul.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-02",
+    "brand": "원티드",
+    "title": "슈퍼빌런랩스, 슈빌 슈퍼빌런 원티드 2월 27일 종료",
+    "url": "https://www.nbntv.co.kr/news/articleView.html?idxno=4017989",
+    "source": "nbntv.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-02-02",
+    "brand": "알바천국",
+    "title": "알바천국, 아르바이트생 66.9% \"설 연휴에도 아르바이트 계획 있다\"",
+    "url": "https://www.ibabynews.com/news/articleView.html?idxno=147923",
+    "source": "ibabynews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-02-01",
+    "brand": "원티드",
+    "title": "피원하모니, '모스트 원티드' 유럽 공연 성료…6개 도시 홀렸다",
+    "url": "https://www.ajunews.com/view/20260201102335799",
+    "source": "ajunews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-30",
+    "brand": "알바천국",
+    "title": "알바천국, 'AI 자기소개서 서비스' 활용 아르바이트 지원량 129만 건 돌파",
+    "url": "https://www.ibabynews.com/news/articleView.html?idxno=147829",
+    "source": "ibabynews.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-01-29",
+    "brand": "알바천국",
+    "title": "알바천국, Z세대 3명 중 1명 \"젠지 스테어 해본 적 있다\"",
+    "url": "https://www.ibabynews.com/news/articleView.html?idxno=147763",
+    "source": "ibabynews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-28",
+    "brand": "원티드",
+    "title": "“해외취업 기회 매칭”…원티드랩, ‘글로벌 멤버십’ 출시",
+    "url": "http://www.edaily.co.kr/news/newspath.asp?newsid=04598566645322312",
+    "source": "edaily.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-01-25",
+    "brand": "인크루트",
+    "title": "“새해엔 꼭 취업하자” 인크루트, 1월 채용 공고 소개",
+    "url": "https://www.g-enews.com/view.php?ud=202601251004567141638475ab2b_1",
+    "source": "g-enews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-22",
+    "brand": "알바천국",
+    "title": "[기업 소식] 알바천국, 시즌 채용관 '설날 알바 채용관' 오픈 外",
+    "url": "http://www.dailypop.kr/news/articleView.html?idxno=95646",
+    "source": "dailypop.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-01-22",
+    "brand": "잡플래닛",
+    "title": "잡코리아, 자회사 잡플래닛 통합 '본격화'…사무실 이전·의사결정 정비",
+    "url": "https://www.newspim.com/news/view/20260121000532",
+    "source": "newspim.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-19",
+    "brand": "알바천국",
+    "title": "욜로PC방, 알바천국 내 PC방 업계 최초 브랜드 채용관 개설",
+    "url": "https://www.getnews.co.kr/news/articleView.html?idxno=857721",
+    "source": "getnews.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-17",
+    "brand": "인크루트",
+    "title": "인크루트 28년사…\"우회상장과 분할, 그리고 NHN 체제\"",
+    "url": "https://www.ddaily.co.kr/page/view/2026011516511441184",
+    "source": "ddaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-17",
+    "brand": "알바천국",
+    "title": "알바천국, 대학생 78.8% “올해 아르바이트 계획 있다”",
+    "url": "http://digitalchosun.dizzo.com/site/data/html_dir/2026/01/15/2026011580138.html",
+    "source": "digitalchosun.dizzo.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-16",
+    "brand": "인크루트",
+    "title": "인크루트, 2026년 HR 제도 변화 발표",
+    "url": "https://www.joongangenews.com/news/articleView.html?idxno=487073",
+    "source": "joongangenews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-14",
+    "brand": "인크루트",
+    "title": "[MI인터뷰] 김의종 인크루트 어세스 파트장 \"데이터 기반 진단으로 채용...",
+    "url": "http://www.m-i.kr/news/articleView.html?idxno=1325345",
+    "source": "m-i.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-13",
+    "brand": "인크루트",
+    "title": "올해 HR 시장, 무엇이 달라지나…인크루트, 변경된 HR 제도 소개",
+    "url": "http://www.m-i.kr/news/articleView.html?idxno=1325002",
+    "source": "m-i.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-13",
+    "brand": "인크루트",
+    "title": "\"노란봉투법·최저시급 1만320원\"…인크루트, 올해 달라지는 HR 제도 소...",
+    "url": "http://www.thefirstmedia.net/news/articleView.html?idxno=190945",
+    "source": "thefirstmedia.net",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-13",
+    "brand": "인크루트",
+    "title": "인크루트가 본 올해 HR 키워드…노란봉투법 시행·노동절 명칭 변경",
+    "url": "https://www.etoday.co.kr/news/view/2544892",
+    "source": "etoday.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-12",
+    "brand": "알바천국",
+    "title": "벼룩시장·알바천국·다방, 모두 한 가족?…시너지 내는 미디어윌",
+    "url": "https://www.ddaily.co.kr/page/view/2026011215151574713",
+    "source": "ddaily.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-08",
+    "brand": "알바천국",
+    "title": "알바천국, 기업회원 채용지원금 이벤트 '알바비 천국이 드려요' 진행",
+    "url": "https://www.asiatime.co.kr/article/20260108500341",
+    "source": "asiatime.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-08",
+    "brand": "알바천국",
+    "title": "알바천국, 새해 즉석당첨 이벤트 '행운 카드 뽑기' 진행",
+    "url": "https://www.ibabynews.com/news/articleView.html?idxno=146150",
+    "source": "ibabynews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-08",
+    "brand": "잡플래닛",
+    "title": "잡플래닛 품은 잡코리아, AI 네이티브 전략으로 채용 시장 30년 룰 바꾼...",
+    "url": "https://www.econovill.com/news/articleView.html?idxno=724835",
+    "source": "econovill.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-01-07",
+    "brand": "알바천국",
+    "title": "알바천국, 수능 끝난 고3 알바비 지원 프로모션에 5만9천 명 몰렸다",
+    "url": "https://www.ibabynews.com/news/articleView.html?idxno=146257",
+    "source": "ibabynews.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-07",
+    "brand": "알바천국",
+    "title": "“수능 끝나자 6만 명 몰렸다”…알바천국 ‘첫 알바는 천국이지’ 역대...",
+    "url": "https://www.gosiweek.com/article/1065572191703397",
+    "source": "gosiweek.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-01-05",
+    "brand": "잡플래닛",
+    "title": "잡코리아, 잡플래닛 인수…AI 기반 '커리어 플랫폼' 전환 본격화",
+    "url": "https://magazine.hankyung.com/business/article/202601052176b",
+    "source": "magazine.hankyung.com",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-05",
+    "brand": "잡플래닛",
+    "title": "잡플래닛 품은 잡코리아, ‘한국판 링크드인’ 변신 나선다",
+    "url": "https://www.dt.co.kr/article/12038829?ref=naver",
+    "source": "dt.co.kr",
+    "sentiment": null
+  },
+  {
+    "date": "2026-01-03",
+    "brand": "알바천국",
+    "title": "﻿\"출퇴근 거리까지 체크\"...알바천국, '지원자 AI 매칭 서비스' 오픈",
+    "url": "https://www.aitimes.com/news/articleView.html?idxno=205262",
+    "source": "aitimes.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-01-02",
+    "brand": "알바천국",
+    "title": "알바천국, 채용 효율을 높이는 'AI 지원자 적합도' 오픈",
+    "url": "https://magazine.hankyung.com/job-joy/article/202601028177d",
+    "source": "magazine.hankyung.com",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-01-02",
+    "brand": "알바천국",
+    "title": "“이동 거리·근무조건 비교”…알바천국, ‘AI 지원자 적합도’ 서비스...",
+    "url": "https://www.etoday.co.kr/news/view/2541534",
+    "source": "etoday.co.kr",
+    "sentiment": "positive"
+  },
+  {
+    "date": "2026-01-02",
+    "brand": "알바천국",
+    "title": "'동네 사장님 위한 홍보 상품'…알바천국 \"저렴하게 가게 알릴 수 있어...",
+    "url": "https://www.mhns.co.kr/news/articleView.html?idxno=734848",
+    "source": "mhns.co.kr",
+    "sentiment": "positive"
   }
 ]
