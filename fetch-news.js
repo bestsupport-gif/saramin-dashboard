@@ -15,6 +15,7 @@ if (!CLIENT_ID || !CLIENT_SECRET) {
   console.error('NAVER_CLIENT_ID / NAVER_CLIENT_SECRET 환경변수가 필요합니다.');
   process.exit(1);
 }
+console.log(`Client ID 길이: ${CLIENT_ID.length}자 / Client Secret 길이: ${CLIENT_SECRET.length}자 (값 자체는 보안상 출력하지 않습니다)`);
 
 // 추적할 브랜드 목록 (대시보드 브랜드 세트와 동일하게 맞춰뒀습니다. 필요시 자유롭게 수정하세요)
 const BRANDS = [
@@ -48,10 +49,13 @@ async function fetchBrandNews(brand) {
     },
   });
   if (!res.ok) {
+    const bodyText = await res.text().catch(() => '(응답 본문을 읽을 수 없음)');
     console.error(`[${brand}] API 요청 실패: HTTP ${res.status}`);
+    console.error(`  응답 내용: ${bodyText}`);
     return [];
   }
   const json = await res.json();
+  console.log(`  [${brand}] 원본 응답 total=${json.total}, 반환된 item 수=${(json.items||[]).length}`);
   return (json.items || []).map((item) => {
     const date = naverDateToISO(item.pubDate);
     if (!date) return null;
