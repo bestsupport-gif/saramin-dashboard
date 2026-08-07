@@ -1,0 +1,107 @@
+{
+  "updatedAt": "2026-08-07T10:35:12.621Z",
+  "aos": [
+    {
+      "brand": "사람인",
+      "rank": null,
+      "prevRank": null
+    },
+    {
+      "brand": "잡코리아",
+      "rank": null,
+      "prevRank": null
+    },
+    {
+      "brand": "원티드",
+      "rank": null,
+      "prevRank": null
+    },
+    {
+      "brand": "인크루트",
+      "rank": null,
+      "prevRank": null
+    },
+    {
+      "brand": "리멤버",
+      "rank": null,
+      "prevRank": null
+    },
+    {
+      "brand": "알바몬",
+      "rank": null,
+      "prevRank": null
+    },
+    {
+      "brand": "알바천국",
+      "rank": null,
+      "prevRank": null
+    },
+    {
+      "brand": "동네알바",
+      "rank": null,
+      "prevRank": null
+    },
+    {
+      "brand": "급구",
+      "rank": null,
+      "prevRank": null
+    },
+    {
+      "brand": "잡플래닛",
+      "rank": null,
+      "prevRank": null
+    }
+  ],
+  "ios": [
+    {
+      "brand": "사람인",
+      "rank": 5,
+      "prevRank": null
+    },
+    {
+      "brand": "잡코리아",
+      "rank": 8,
+      "prevRank": null
+    },
+    {
+      "brand": "원티드",
+      "rank": 44,
+      "prevRank": null
+    },
+    {
+      "brand": "인크루트",
+      "rank": 39,
+      "prevRank": null
+    },
+    {
+      "brand": "리멤버",
+      "rank": 14,
+      "prevRank": null
+    },
+    {
+      "brand": "알바몬",
+      "rank": 3,
+      "prevRank": null
+    },
+    {
+      "brand": "알바천국",
+      "rank": 12,
+      "prevRank": null
+    },
+    {
+      "brand": "동네알바",
+      "rank": 21,
+      "prevRank": null
+    },
+    {
+      "brand": "급구",
+      "rank": 22,
+      "prevRank": null
+    },
+    {
+      "brand": "잡플래닛",
+      "rank": 33,
+      "prevRank": null
+    }
+  ]
+}
