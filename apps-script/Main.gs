@@ -25,7 +25,7 @@ function sendDailyReport() {
   const cpiSection = cpiOut.text, daSection = daOut.text;
   const cpiHtml = cpiOut.html, daHtml = daOut.html;
 
-  const subject = subjectFor_(yesterday);
+  const subject = subjectFor_(now);
   const body = buildEmailBody_(yesterday, cpiSection, daSection);
   const htmlBody = buildEmailHtml_(yesterday, cpiHtml, daHtml);
 
@@ -40,7 +40,7 @@ function sendDailyReport() {
   Logger.log('메일 발송 완료: %s', subject);
 }
 
-// "[와이즈버즈] 사람인 CPI / DA Report 26년 8월 Daily Report_260826" 형태 (전일 날짜 기준)
+// "[와이즈버즈] 사람인 CPI / DA Report 26년 9월 Daily Report_260928" 형태 (실행일=오늘 날짜 기준)
 function subjectFor_(targetDate) {
   const yy = targetDate.getFullYear() % 100;
   const month = targetDate.getMonth() + 1;
@@ -126,6 +126,6 @@ function previewDailyReport_() {
   const daSection = withTempSheet_(daFile.getId(), (ss) => buildDaSection_(ss, yesterday, dayBefore));
 
   const body = buildEmailBody_(yesterday, cpiSection, daSection);
-  Logger.log('제목: %s', subjectFor_(yesterday));
+  Logger.log('제목: %s', subjectFor_(now));
   Logger.log(body);
 }
