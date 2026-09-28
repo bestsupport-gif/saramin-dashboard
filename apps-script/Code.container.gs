@@ -33,6 +33,12 @@ const SR_CONFIG = {
   EMAIL_TO: 'best_support@wisebirds.com',
   EMAIL_SENDER_NAME: '사람인 데일리 리포트 자동화',
 
+  // 메일 인사말에 들어갈 이름 ("와이즈버즈 OOO입니다.") - 필요하면 바꿔서 쓰세요.
+  GREETING_NAME: '이소망',
+
+  // 메일 상단 "사람인 데일리 리포트" 하이퍼링크 대상
+  DAILY_REPORT_LINK_URL: 'https://drive.google.com/drive/folders/1JPWWd-HKaNIGIgCQggDSXSaWHbwgtLvi',
+
   // 드라이브 폴더 ID (사람인 CPI / DA 링크에서 추출)
   CPI_ROOT_FOLDER_ID: '11SIntvBWeplheOvl2Wz74FZB-rQHx6Xj',
   DA_ROOT_FOLDER_ID: '1gAvzZozBW64vyyMeOP6Wt7RJ45lKx3rb',
@@ -45,6 +51,10 @@ const SR_CONFIG = {
 
   // 변환용 임시 구글시트를 만들 폴더 (미지정 시 내 드라이브 최상단에 생성 후 바로 삭제)
   TEMP_FOLDER_ID: null,
+
+  // 하이라이트 색상 (실제 리포트 양식 참고)
+  HIGHLIGHT_TITLE_BG: '#C9DAF8',  // <사람인 CPI>/<사람인 DA> 하늘색
+  HIGHLIGHT_GROUP_BG: '#FFFF00',  // 사람인스토어/DA 노란색
 };
 
 // ---------------------------------------------------------------------------
@@ -264,6 +274,21 @@ function SR_withDelta_(cur, prev, formatter) {
   const delta = cur - prev;
   const deltaAbs = formatter(Math.abs(delta));
   return `${formatter(cur)} (${SR_arrow_(delta)}${deltaAbs})`;
+}
+
+// HTML 메일용: 증감 부분(▲/▼ + 값)을 색상 span으로 감싼다. ▲=빨강(상승), ▼=파랑(하락).
+function SR_withDeltaHtml_(cur, prev, formatter) {
+  const delta = cur - prev;
+  const deltaAbs = formatter(Math.abs(delta));
+  const color = delta > 0 ? '#d93025' : delta < 0 ? '#1a73e8' : '#5f6368';
+  return `${formatter(cur)} <span style="color:${color};font-weight:600;">(${SR_arrow_(delta)}${deltaAbs})</span>`;
+}
+
+function SR_htmlEscape_(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 function SR_safeDivide_(numerator, denominator) {
@@ -540,12 +565,55 @@ function SR_buildMetricLines_(metricKeys, curTotals, prevTotals) {
   return metricKeys.map((k) => SR_formatMetric_(k, curD[k] || 0, prevD[k] || 0));
 }
 
+// SR_formatMetric_ 의 HTML 버전: 증감 부분에 색상(▲빨강/▼파랑)을 입힌다.
+function SR_formatMetricHtml_(key, cur, prev) {
+  const label = SR_htmlEscape_(SR_METRIC_LABELS[key] || key);
+  switch (key) {
+    case 'ctr':
+    case 'roas':
+      return `${label} ${SR_withDeltaHtml_(cur, prev, (v) => SR_pctText_(v))}`;
+    case 'cpc':
+    case 'cpi':
+    case 'cpe':
+    case 'cpa':
+    case 'cpaSignup':
+      return `${label} ${SR_withDeltaHtml_(cur, prev, (v) => SR_wonText_(v))}`;
+    case 'spent':
+    case 'revenue':
+      return `${label} 약 ${SR_withDeltaHtml_(cur, prev, (v) => SR_manWonText_(v))}`;
+    default:
+      return `${label} ${SR_withDeltaHtml_(cur, prev, (v) => `${SR_commaInt_(v)}건`)}`;
+  }
+}
+
+function SR_buildMetricLinesHtml_(metricKeys, curTotals, prevTotals) {
+  const curD = SR_computeDerived_(curTotals);
+  const prevD = SR_computeDerived_(prevTotals);
+  return metricKeys.map((k) => SR_formatMetricHtml_(k, curD[k] || 0, prevD[k] || 0));
+}
+
 /**
- * Summary 탭에서 월 예산을 찾고, RAW 탭에서 MTD 소진액을 계산해 예산 현황 문장 생성
+ * 실제 사용 중인 메일 양식(하늘색/노란색 하이라이트, 굵게, ㄴ 서브불릿 구조)에 맞춘
+ * CPI/DA 섹션 빌더. 숫자는 전부 RAW 데이터를 날짜+매체 조건으로 집계해서 계산하고,
+ * "⏩" 같은 분석가 판단이 들어간 코멘트나 소재 단위 하이라이트는 자동 생성하지 않는다.
  */
-function SR_buildBudgetLine_(summarySheet, rawRows, dateColName, spentColName, targetDate, totalBudgetLabel) {
-  const budgetRaw = SR_findLabelValue_(summarySheet, SR_CONFIG.BUDGET_LABEL_TEXT);
-  const budget = SR_toNumber_(budgetRaw);
+
+function SR_mediaByKey_(list, key) {
+  const found = list.filter((c) => c.key === key)[0];
+  if (!found) throw new Error(`MEDIA_CONFIG 에서 key="${key}" 를 찾지 못했습니다.`);
+  return found;
+}
+
+// key 로 지정된 매체의 전일/직전일 집계값(합산 totals, SR_computeDerived_ 적용 전)을 반환
+function SR_mediaTotals_(mediaConfigList, rows, dateColName, colMap, key, yesterday, dayBefore) {
+  const cfg = SR_mediaByKey_(mediaConfigList, key);
+  const cur = SR_aggregateSection_(rows, dateColName, colMap, cfg.match, yesterday);
+  const prev = SR_aggregateSection_(rows, dateColName, colMap, cfg.match, dayBefore);
+  return { cur: SR_computeDerived_(cur), prev: SR_computeDerived_(prev), matched: cur._matchedRows > 0 || prev._matchedRows > 0 };
+}
+
+function SR_buildBudgetLineText_(summarySheet, rawRows, dateColName, spentColName, targetDate, totalBudgetLabel) {
+  const budget = SR_toNumber_(SR_findLabelValue_(summarySheet, SR_CONFIG.BUDGET_LABEL_TEXT));
   const mtdSpent = SR_sumSpentMonthToDate_(rawRows, dateColName, spentColName, targetDate);
   const pct = SR_safeDivide_(mtdSpent, budget);
   const yy = targetDate.getFullYear() % 100;
@@ -556,20 +624,9 @@ function SR_buildBudgetLine_(summarySheet, rawRows, dateColName, spentColName, t
   return `- ${yy}년 ${month}월 예산 ${SR_manWonText_(budget, 0)} 중 약 ${SR_pctText_(pct)}인 약 ${SR_manWonText_(mtdSpent)} 소진 운영 중입니다.`;
 }
 
-/**
- * MEDIA_CONFIG 배열 하나를 순회하며 "라벨\n지표1, 지표2 ..." 섹션 텍스트 생성
- */
-function SR_buildMediaSections_(mediaConfigList, rawRows, dateColName, colMap, yesterday, dayBefore) {
-  return mediaConfigList.map((cfg) => {
-    const cur = SR_aggregateSection_(rawRows, dateColName, colMap, cfg.match, yesterday);
-    const prev = SR_aggregateSection_(rawRows, dateColName, colMap, cfg.match, dayBefore);
-    const lines = SR_buildMetricLines_(cfg.metrics, cur, prev);
-    if (cur._matchedRows === 0 && prev._matchedRows === 0) {
-      return `[${cfg.label}]\n- 전일/직전일 RAW 데이터에서 해당 조건과 일치하는 행을 찾지 못했습니다. Config.gs 의 매칭 조건을 확인해 주세요.`;
-    }
-    return `[${cfg.label}]\n- ${lines.join(', ')}`;
-  });
-}
+// ---------------------------------------------------------------------------
+// 텍스트(plain) 버전 - 메일 클라이언트가 HTML 을 못 읽을 때의 대체 본문
+// ---------------------------------------------------------------------------
 
 function SR_buildCpiSection_(spreadsheet, yesterday, dayBefore) {
   const summarySheet = spreadsheet.getSheetByName(SR_CONFIG.SUMMARY_SHEET_NAME);
@@ -578,11 +635,21 @@ function SR_buildCpiSection_(spreadsheet, yesterday, dayBefore) {
     throw new Error(`CPI 파일에서 '${SR_CONFIG.SUMMARY_SHEET_NAME}' 또는 '${SR_CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
   }
   const { rows } = SR_readSheetAsObjects_(rawSheet);
+  const budgetLine = SR_buildBudgetLineText_(summarySheet, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_RAW_COLS.SPENT, yesterday, 'CPI');
 
-  const budgetLine = SR_buildBudgetLine_(summarySheet, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_RAW_COLS.SPENT, yesterday, 'CPI');
-  const mediaSections = SR_buildMediaSections_(SR_CPI_MEDIA_CONFIG, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_COL_MAP, yesterday, dayBefore);
+  const asa = SR_mediaTotals_(SR_CPI_MEDIA_CONFIG, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_COL_MAP, 'asa', yesterday, dayBefore);
+  const gi = SR_mediaTotals_(SR_CPI_MEDIA_CONFIG, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_COL_MAP, 'google_install', yesterday, dayBefore);
+  const ga = SR_mediaTotals_(SR_CPI_MEDIA_CONFIG, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_COL_MAP, 'google_apply', yesterday, dayBefore);
 
-  return `<사람인 CPI>\n${budgetLine}\n\n${mediaSections.join('\n\n')}`;
+  const asaLine = `- 전일 ASA 캠페인 광고비 약 ${SR_manWonText_(asa.cur.spent)} 소진 운영 간 CTR ${SR_withDelta_(asa.cur.ctr, asa.prev.ctr, SR_pctText_)}, CPC ${SR_withDelta_(asa.cur.cpc, asa.prev.cpc, SR_wonText_)} 발생으로 유입 ${SR_commaInt_(asa.cur.click)}건 확보, CPI ${SR_withDelta_(asa.cur.cpi, asa.prev.cpi, SR_wonText_)}, 설치 ${SR_withDelta_(asa.cur.install, asa.prev.install, SR_commaInt_)}건 확보`;
+
+  const gaLines = [
+    `-  Install_AOS 캠페인 CPI ${SR_wonText_(gi.cur.cpi)} 기록 / Apply_AOS 캠페인 지원 CPA ${SR_wonText_(ga.cur.cpa)} 기록`,
+    `ㄴ Install 캠페인 광고비 약 ${SR_manWonText_(gi.cur.spent)} 소진 간 CPE ${SR_withDelta_(gi.cur.cpe, gi.prev.cpe, SR_wonText_)} 발생, CPI ${SR_withDelta_(gi.cur.cpi, gi.prev.cpi, SR_wonText_)} 발생으로 앱오픈 ${SR_withDelta_(gi.cur.appOpen, gi.prev.appOpen, SR_commaInt_)}건 및 설치 수 ${SR_withDelta_(gi.cur.install, gi.prev.install, SR_commaInt_)}건 확보`,
+    `ㄴ Apply 캠페인 광고비 약 ${SR_manWonText_(ga.cur.spent)} 소진 간 CPA ${SR_withDelta_(ga.cur.cpa, ga.prev.cpa, SR_wonText_)} 발생, 지원 수 ${SR_withDelta_(ga.cur.apply, ga.prev.apply, SR_commaInt_)}건 확보`,
+  ];
+
+  return `<사람인 CPI>\n${budgetLine}\n\n[ASA]\n${asaLine}\n\n[Google AC]\n${gaLines.join('\n')}`;
 }
 
 function SR_buildDaSection_(spreadsheet, yesterday, dayBefore) {
@@ -592,23 +659,60 @@ function SR_buildDaSection_(spreadsheet, yesterday, dayBefore) {
     throw new Error(`DA 파일에서 '${SR_CONFIG.SUMMARY_SHEET_NAME}' 또는 '${SR_CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
   }
   const { rows } = SR_readSheetAsObjects_(rawSheet);
-
-  const budgetLine = SR_buildBudgetLine_(summarySheet, rows, SR_DA_RAW_COLS.DATE, SR_DA_RAW_COLS.SPENT, yesterday, 'DA');
-  const mediaSections = SR_buildMediaSections_(SR_DA_MEDIA_CONFIG, rows, SR_DA_RAW_COLS.DATE, SR_DA_COL_MAP, yesterday, dayBefore);
+  const budgetLine = SR_buildBudgetLineText_(summarySheet, rows, SR_DA_RAW_COLS.DATE, SR_DA_RAW_COLS.SPENT, yesterday, 'DA');
   const month = yesterday.getMonth() + 1;
 
-  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 타불라, 나인즈, 유튜브 구독 캠페인까지 포함된 예산입니다.\n\n${mediaSections.join('\n\n')}\n\n※ 유튜브구독캠페인은 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.`;
+  const mc = SR_DA_MEDIA_CONFIG;
+  const T = (key) => SR_mediaTotals_(mc, rows, SR_DA_RAW_COLS.DATE, SR_DA_COL_MAP, key, yesterday, dayBefore);
+  const conv = T('meta_store_conversion');
+  const traf = T('meta_store_traffic');
+  const metaInstall = T('meta_install');
+  const appierInstall = T('appier_install');
+  const appierSignup = T('appier_signup');
+  const inmobi = T('inmobi_install');
+  const rtbh = T('rtbh_apply');
+  const criteo = T('criteo_apply');
+  const taboola = T('taboola_traffic');
+  const buzzvil = T('rcpa_buzzvil');
+  const rcpe = T('rcpe_total');
+
+  const metaLines = [
+    `- 메타 사람인스토어 Conversion 캠페인 전일 상품보기 ${SR_withDelta_(conv.cur.productView, conv.prev.productView, SR_commaInt_)}건 및 구매 ${SR_withDelta_(conv.cur.purchase, conv.prev.purchase, SR_commaInt_)}건 발생, 구매액 약 ${SR_manWonText_(conv.cur.revenue)}`,
+    `- Traffic Web 캠페인 전일 광고비 약 ${SR_manWonText_(traf.cur.spent)} 소진 운영 간 CTR ${SR_withDelta_(traf.cur.ctr, traf.prev.ctr, SR_pctText_)} 기록 및 CPC ${SR_withDelta_(traf.cur.cpc, traf.prev.cpc, SR_wonText_)} 발생`,
+  ];
+
+  const installLines = [
+    `- Install(AOS/iOS) 캠페인 전일 CPI ${SR_withDelta_(metaInstall.cur.cpi, metaInstall.prev.cpi, SR_wonText_)} 발생, 광고비 약 ${SR_manWonText_(metaInstall.cur.spent)} 소진 간 설치 수 ${SR_withDelta_(metaInstall.cur.install, metaInstall.prev.install, SR_commaInt_)}건 확보`,
+    ``,
+    `- 애피어 전일 Install_iOS 캠페인 CPI ${SR_withDelta_(appierInstall.cur.cpi, appierInstall.prev.cpi, SR_wonText_)} 발생, 광고비 약 ${SR_manWonText_(appierInstall.cur.spent)} 운영 간 설치 수 ${SR_withDelta_(appierInstall.cur.install, appierInstall.prev.install, SR_commaInt_)}건 확보`,
+    `ㄴ Signup_AOS/iOS 캠페인 CPA ${SR_withDelta_(appierSignup.cur.cpa, appierSignup.prev.cpa, SR_wonText_)} 발생 및 광고비 약 ${SR_manWonText_(appierSignup.cur.spent)} 소진 간 입사지원 ${SR_withDelta_(appierSignup.cur.apply, appierSignup.prev.apply, SR_commaInt_)}건 확보`,
+    ``,
+    `- 인모비 Install_iOS 캠페인 설치 ${SR_withDelta_(inmobi.cur.install, inmobi.prev.install, SR_commaInt_)}건 확보 및 CPI ${SR_withDelta_(inmobi.cur.cpi, inmobi.prev.cpi, SR_wonText_)} 기록`,
+  ];
+
+  const applyLines = [
+    `- RTBH 광고비 약 ${SR_manWonText_(rtbh.cur.spent)} 소진 간 CPA ${SR_withDelta_(rtbh.cur.cpa, rtbh.prev.cpa, SR_wonText_)} 기록하며 지원 수 ${SR_withDelta_(rtbh.cur.apply, rtbh.prev.apply, SR_commaInt_)}건 확보`,
+    `- 크리테오 전일 ${SR_manWonText_(criteo.cur.spent)} 소진 간 지원 CPA ${SR_withDelta_(criteo.cur.cpa, criteo.prev.cpa, SR_wonText_)} 및 입사지원 수 ${SR_withDelta_(criteo.cur.apply, criteo.prev.apply, SR_commaInt_)}건 확보`,
+  ];
+
+  const trafficLine = `- 타불라 광고비 약 ${SR_manWonText_(taboola.cur.spent)} 소진 간 CPC ${SR_withDelta_(taboola.cur.cpc, taboola.prev.cpc, SR_wonText_)} 발생, CTR ${SR_withDelta_(taboola.cur.ctr, taboola.prev.ctr, SR_pctText_)} 발생으로 유입 ${SR_commaInt_(taboola.cur.click)}건 확보`;
+
+  const rcpLines = [
+    `- rCPA 운영 매체 '버즈빌' 회원가입 총 ${SR_commaInt_(buzzvil.cur.signup)}건 확보 및 CPA ${SR_wonText_(buzzvil.cur.cpaSignup)} 기록 운영 중`,
+    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피) 앱 실행 단가 ${SR_wonText_(rcpe.cur.cpe)}로 운영 중`,
+  ];
+
+  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 타불라, 나인즈, 유튜브 구독 캠페인까지 포함된 예산입니다.\n- 유튜브 구독 캠페인 데이터는 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
 }
 
 function SR_buildEmailBody_(yesterday, cpiSection, daSection) {
   const dateText = SR_formatMD_(yesterday);
   return `안녕하세요,
-와이즈버즈입니다.
+와이즈버즈 ${SR_CONFIG.GREETING_NAME}입니다.
 
-📂 사람인 데일리 리포트
+📂 사람인 데일리 리포트 (${SR_CONFIG.DAILY_REPORT_LINK_URL})
 
 ${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.
-(아래 수치는 스크립트가 RAW 데이터를 기준으로 자동 집계한 값이며, 매체/키워드 조정이나 소재 관련 코멘트는 포함되어 있지 않습니다. 확인 후 필요한 코멘트를 추가해 주세요.)
 
 ${cpiSection}
 
@@ -618,6 +722,131 @@ ${daSection}
 
 감사합니다.
 (자동 발송)`;
+}
+
+// ---------------------------------------------------------------------------
+// HTML 버전 (폰트/하이라이트/줄바꿈/하이퍼링크 포함, 실제 발송용 htmlBody)
+// ---------------------------------------------------------------------------
+
+function SR_titleHtml_(text) {
+  return `<p style="margin:20px 0 6px;"><b style="background-color:${SR_CONFIG.HIGHLIGHT_TITLE_BG};padding:1px 4px;">&lt;${text}&gt;</b></p>`;
+}
+
+function SR_groupHtml_(text) {
+  return `<p style="margin:16px 0 2px;"><b style="background-color:${SR_CONFIG.HIGHLIGHT_GROUP_BG};padding:1px 4px;">${text}</b></p>`;
+}
+
+function SR_subHeaderHtml_(text) {
+  return `<p style="margin:4px 0 2px;"><b>[${SR_htmlEscape_(text)}]</b></p>`;
+}
+
+function SR_linesHtml_(lines) {
+  return `<p style="margin:0 0 10px;">${lines.filter((l) => l !== '').join('<br>')}</p>`;
+}
+
+function SR_buildCpiSectionHtml_(spreadsheet, yesterday, dayBefore) {
+  const summarySheet = spreadsheet.getSheetByName(SR_CONFIG.SUMMARY_SHEET_NAME);
+  const rawSheet = spreadsheet.getSheetByName(SR_CONFIG.RAW_SHEET_NAME);
+  if (!summarySheet || !rawSheet) {
+    throw new Error(`CPI 파일에서 '${SR_CONFIG.SUMMARY_SHEET_NAME}' 또는 '${SR_CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
+  }
+  const { rows } = SR_readSheetAsObjects_(rawSheet);
+  const budgetLine = SR_buildBudgetLineText_(summarySheet, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_RAW_COLS.SPENT, yesterday, 'CPI');
+
+  const asa = SR_mediaTotals_(SR_CPI_MEDIA_CONFIG, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_COL_MAP, 'asa', yesterday, dayBefore);
+  const gi = SR_mediaTotals_(SR_CPI_MEDIA_CONFIG, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_COL_MAP, 'google_install', yesterday, dayBefore);
+  const ga = SR_mediaTotals_(SR_CPI_MEDIA_CONFIG, rows, SR_CPI_RAW_COLS.DATE, SR_CPI_COL_MAP, 'google_apply', yesterday, dayBefore);
+
+  const asaLine = `- 전일 ASA 캠페인 광고비 약 ${SR_manWonText_(asa.cur.spent)} 소진 운영 간 CTR ${SR_withDeltaHtml_(asa.cur.ctr, asa.prev.ctr, SR_pctText_)}, CPC ${SR_withDeltaHtml_(asa.cur.cpc, asa.prev.cpc, SR_wonText_)} 발생으로 유입 ${SR_commaInt_(asa.cur.click)}건 확보, CPI ${SR_withDeltaHtml_(asa.cur.cpi, asa.prev.cpi, SR_wonText_)}, 설치 ${SR_withDeltaHtml_(asa.cur.install, asa.prev.install, SR_commaInt_)}건 확보`;
+
+  const gaLines = [
+    `-  Install_AOS 캠페인 CPI ${SR_wonText_(gi.cur.cpi)} 기록 / Apply_AOS 캠페인 지원 CPA ${SR_wonText_(ga.cur.cpa)} 기록`,
+    `ㄴ Install 캠페인 광고비 약 ${SR_manWonText_(gi.cur.spent)} 소진 간 CPE ${SR_withDeltaHtml_(gi.cur.cpe, gi.prev.cpe, SR_wonText_)} 발생, CPI ${SR_withDeltaHtml_(gi.cur.cpi, gi.prev.cpi, SR_wonText_)} 발생으로 앱오픈 ${SR_withDeltaHtml_(gi.cur.appOpen, gi.prev.appOpen, SR_commaInt_)}건 및 설치 수 ${SR_withDeltaHtml_(gi.cur.install, gi.prev.install, SR_commaInt_)}건 확보`,
+    `ㄴ Apply 캠페인 광고비 약 ${SR_manWonText_(ga.cur.spent)} 소진 간 CPA ${SR_withDeltaHtml_(ga.cur.cpa, ga.prev.cpa, SR_wonText_)} 발생, 지원 수 ${SR_withDeltaHtml_(ga.cur.apply, ga.prev.apply, SR_commaInt_)}건 확보`,
+  ];
+
+  return SR_titleHtml_('사람인 CPI') +
+    `<p style="margin:0 0 10px;">${budgetLine}</p>` +
+    SR_subHeaderHtml_('ASA') + SR_linesHtml_([asaLine]) +
+    SR_subHeaderHtml_('Google AC') + SR_linesHtml_(gaLines);
+}
+
+function SR_buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
+  const summarySheet = spreadsheet.getSheetByName(SR_CONFIG.SUMMARY_SHEET_NAME);
+  const rawSheet = spreadsheet.getSheetByName(SR_CONFIG.RAW_SHEET_NAME);
+  if (!summarySheet || !rawSheet) {
+    throw new Error(`DA 파일에서 '${SR_CONFIG.SUMMARY_SHEET_NAME}' 또는 '${SR_CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
+  }
+  const { rows } = SR_readSheetAsObjects_(rawSheet);
+  const budgetLine = SR_buildBudgetLineText_(summarySheet, rows, SR_DA_RAW_COLS.DATE, SR_DA_RAW_COLS.SPENT, yesterday, 'DA');
+  const month = yesterday.getMonth() + 1;
+
+  const mc = SR_DA_MEDIA_CONFIG;
+  const T = (key) => SR_mediaTotals_(mc, rows, SR_DA_RAW_COLS.DATE, SR_DA_COL_MAP, key, yesterday, dayBefore);
+  const conv = T('meta_store_conversion');
+  const traf = T('meta_store_traffic');
+  const metaInstall = T('meta_install');
+  const appierInstall = T('appier_install');
+  const appierSignup = T('appier_signup');
+  const inmobi = T('inmobi_install');
+  const rtbh = T('rtbh_apply');
+  const criteo = T('criteo_apply');
+  const taboola = T('taboola_traffic');
+  const buzzvil = T('rcpa_buzzvil');
+  const rcpe = T('rcpe_total');
+
+  const metaLines = [
+    `- 메타 사람인스토어 Conversion 캠페인 전일 상품보기 ${SR_withDeltaHtml_(conv.cur.productView, conv.prev.productView, SR_commaInt_)}건 및 구매 ${SR_withDeltaHtml_(conv.cur.purchase, conv.prev.purchase, SR_commaInt_)}건 발생, 구매액 약 ${SR_manWonText_(conv.cur.revenue)}`,
+    `- Traffic Web 캠페인 전일 광고비 약 ${SR_manWonText_(traf.cur.spent)} 소진 운영 간 CTR ${SR_withDeltaHtml_(traf.cur.ctr, traf.prev.ctr, SR_pctText_)} 기록 및 CPC ${SR_withDeltaHtml_(traf.cur.cpc, traf.prev.cpc, SR_wonText_)} 발생`,
+  ];
+
+  const installLines = [
+    `- Install(AOS/iOS) 캠페인 전일 CPI ${SR_withDeltaHtml_(metaInstall.cur.cpi, metaInstall.prev.cpi, SR_wonText_)} 발생, 광고비 약 ${SR_manWonText_(metaInstall.cur.spent)} 소진 간 설치 수 ${SR_withDeltaHtml_(metaInstall.cur.install, metaInstall.prev.install, SR_commaInt_)}건 확보`,
+  ];
+  const appierLines = [
+    `- 애피어 전일 Install_iOS 캠페인 CPI ${SR_withDeltaHtml_(appierInstall.cur.cpi, appierInstall.prev.cpi, SR_wonText_)} 발생, 광고비 약 ${SR_manWonText_(appierInstall.cur.spent)} 운영 간 설치 수 ${SR_withDeltaHtml_(appierInstall.cur.install, appierInstall.prev.install, SR_commaInt_)}건 확보`,
+    `ㄴ Signup_AOS/iOS 캠페인 CPA ${SR_withDeltaHtml_(appierSignup.cur.cpa, appierSignup.prev.cpa, SR_wonText_)} 발생 및 광고비 약 ${SR_manWonText_(appierSignup.cur.spent)} 소진 간 입사지원 ${SR_withDeltaHtml_(appierSignup.cur.apply, appierSignup.prev.apply, SR_commaInt_)}건 확보`,
+  ];
+  const inmobiLines = [
+    `- 인모비 Install_iOS 캠페인 설치 ${SR_withDeltaHtml_(inmobi.cur.install, inmobi.prev.install, SR_commaInt_)}건 확보 및 CPI ${SR_withDeltaHtml_(inmobi.cur.cpi, inmobi.prev.cpi, SR_wonText_)} 기록`,
+  ];
+
+  const applyLines = [
+    `- RTBH 광고비 약 ${SR_manWonText_(rtbh.cur.spent)} 소진 간 CPA ${SR_withDeltaHtml_(rtbh.cur.cpa, rtbh.prev.cpa, SR_wonText_)} 기록하며 지원 수 ${SR_withDeltaHtml_(rtbh.cur.apply, rtbh.prev.apply, SR_commaInt_)}건 확보`,
+    `- 크리테오 전일 ${SR_manWonText_(criteo.cur.spent)} 소진 간 지원 CPA ${SR_withDeltaHtml_(criteo.cur.cpa, criteo.prev.cpa, SR_wonText_)} 및 입사지원 수 ${SR_withDeltaHtml_(criteo.cur.apply, criteo.prev.apply, SR_commaInt_)}건 확보`,
+  ];
+
+  const trafficLine = `- 타불라 광고비 약 ${SR_manWonText_(taboola.cur.spent)} 소진 간 CPC ${SR_withDeltaHtml_(taboola.cur.cpc, taboola.prev.cpc, SR_wonText_)} 발생, CTR ${SR_withDeltaHtml_(taboola.cur.ctr, taboola.prev.ctr, SR_pctText_)} 발생으로 유입 ${SR_commaInt_(taboola.cur.click)}건 확보`;
+
+  const rcpLines = [
+    `- rCPA 운영 매체 '버즈빌' 회원가입 총 ${SR_commaInt_(buzzvil.cur.signup)}건 확보 및 CPA ${SR_wonText_(buzzvil.cur.cpaSignup)} 기록 운영 중`,
+    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피) 앱 실행 단가 ${SR_wonText_(rcpe.cur.cpe)}로 운영 중`,
+  ];
+
+  return SR_titleHtml_('사람인 DA') +
+    `<p style="margin:0 0 4px;">${budgetLine}</p>` +
+    `<p style="margin:0 0 4px;"><b>*${month}월 예산 사람인스토어, 타불라, 나인즈, 유튜브 구독 캠페인까지 포함된 예산입니다.</b></p>` +
+    `<p style="margin:0 0 10px;font-size:12px;color:#5f6368;">- 유튜브 구독 캠페인 데이터는 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.</p>` +
+    SR_groupHtml_('사람인스토어') +
+    SR_subHeaderHtml_('메타') + SR_linesHtml_(metaLines) +
+    SR_groupHtml_('DA') +
+    SR_subHeaderHtml_('머신러닝 - 앱설치 매체') +
+    SR_linesHtml_(installLines) + SR_linesHtml_(appierLines) + SR_linesHtml_(inmobiLines) +
+    SR_subHeaderHtml_('머신러닝 - 입사지원 매체') + SR_linesHtml_(applyLines) +
+    SR_subHeaderHtml_('머신러닝 - 트래픽 매체') + SR_linesHtml_([trafficLine]) +
+    SR_subHeaderHtml_('rCPE/rCPA') + SR_linesHtml_(rcpLines);
+}
+
+function SR_buildEmailHtml_(yesterday, cpiHtml, daHtml) {
+  const dateText = SR_formatMD_(yesterday);
+  return `<div style="font-family:'Malgun Gothic',Arial,sans-serif;font-size:14px;color:#202124;line-height:1.7;">
+  <p>안녕하세요,<br>와이즈버즈 ${SR_htmlEscape_(SR_CONFIG.GREETING_NAME)}입니다.</p>
+  <p>📂 <a href="${SR_CONFIG.DAILY_REPORT_LINK_URL}">사람인 데일리 리포트</a></p>
+  <p>${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.</p>
+  ${cpiHtml}
+  ${daHtml}
+  <p style="margin-top:24px;">감사합니다.<br><span style="font-size:12px;color:#9aa0a6;">(자동 발송)</span></p>
+</div>`;
 }
 
 /**
@@ -636,20 +865,38 @@ function SR_sendDailyReport() {
   const daFile = SR_findLatestReportFile_(SR_CONFIG.DA_ROOT_FOLDER_ID, now);
   Logger.log('CPI 파일: %s / DA 파일: %s', cpiFile.getName(), daFile.getName());
 
-  const cpiSection = SR_withTempSheet_(cpiFile.getId(), (ss) => SR_buildCpiSection_(ss, yesterday, dayBefore));
-  const daSection = SR_withTempSheet_(daFile.getId(), (ss) => SR_buildDaSection_(ss, yesterday, dayBefore));
+  const cpiOut = SR_withTempSheet_(cpiFile.getId(), (ss) => ({
+    text: SR_buildCpiSection_(ss, yesterday, dayBefore),
+    html: SR_buildCpiSectionHtml_(ss, yesterday, dayBefore),
+  }));
+  const daOut = SR_withTempSheet_(daFile.getId(), (ss) => ({
+    text: SR_buildDaSection_(ss, yesterday, dayBefore),
+    html: SR_buildDaSectionHtml_(ss, yesterday, dayBefore),
+  }));
+  const cpiSection = cpiOut.text, daSection = daOut.text;
+  const cpiHtml = cpiOut.html, daHtml = daOut.html;
 
-  const subject = `[사람인] ${SR_formatMD_(yesterday)} 기준 CPI, DA 데일리 리포트`;
+  const subject = SR_subjectFor_(yesterday);
   const body = SR_buildEmailBody_(yesterday, cpiSection, daSection);
+  const htmlBody = SR_buildEmailHtml_(yesterday, cpiHtml, daHtml);
 
   MailApp.sendEmail({
     to: SR_CONFIG.EMAIL_TO,
     subject: subject,
     body: body,
+    htmlBody: htmlBody,
     name: SR_CONFIG.EMAIL_SENDER_NAME,
   });
 
   Logger.log('메일 발송 완료: %s', subject);
+}
+
+// "[와이즈버즈] 사람인 CPI / DA Report 26년 8월 Daily Report_260826" 형태 (전일 날짜 기준)
+function SR_subjectFor_(targetDate) {
+  const yy = targetDate.getFullYear() % 100;
+  const month = targetDate.getMonth() + 1;
+  const yyMMdd = Utilities.formatDate(targetDate, SR_CONFIG.TIMEZONE, 'yyMMdd');
+  return `[와이즈버즈] 사람인 CPI / DA Report ${yy}년 ${month}월 Daily Report_${yyMMdd}`;
 }
 
 /**
@@ -730,6 +977,7 @@ function SR_previewDailyReport_() {
   const daSection = SR_withTempSheet_(daFile.getId(), (ss) => SR_buildDaSection_(ss, yesterday, dayBefore));
 
   const body = SR_buildEmailBody_(yesterday, cpiSection, daSection);
+  Logger.log('제목: %s', SR_subjectFor_(yesterday));
   Logger.log(body);
 }
 

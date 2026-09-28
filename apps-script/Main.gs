@@ -14,20 +14,38 @@ function sendDailyReport() {
   const daFile = findLatestReportFile_(CONFIG.DA_ROOT_FOLDER_ID, now);
   Logger.log('CPI 파일: %s / DA 파일: %s', cpiFile.getName(), daFile.getName());
 
-  const cpiSection = withTempSheet_(cpiFile.getId(), (ss) => buildCpiSection_(ss, yesterday, dayBefore));
-  const daSection = withTempSheet_(daFile.getId(), (ss) => buildDaSection_(ss, yesterday, dayBefore));
+  const cpiOut = withTempSheet_(cpiFile.getId(), (ss) => ({
+    text: buildCpiSection_(ss, yesterday, dayBefore),
+    html: buildCpiSectionHtml_(ss, yesterday, dayBefore),
+  }));
+  const daOut = withTempSheet_(daFile.getId(), (ss) => ({
+    text: buildDaSection_(ss, yesterday, dayBefore),
+    html: buildDaSectionHtml_(ss, yesterday, dayBefore),
+  }));
+  const cpiSection = cpiOut.text, daSection = daOut.text;
+  const cpiHtml = cpiOut.html, daHtml = daOut.html;
 
-  const subject = `[사람인] ${formatMD_(yesterday)} 기준 CPI, DA 데일리 리포트`;
+  const subject = subjectFor_(yesterday);
   const body = buildEmailBody_(yesterday, cpiSection, daSection);
+  const htmlBody = buildEmailHtml_(yesterday, cpiHtml, daHtml);
 
   MailApp.sendEmail({
     to: CONFIG.EMAIL_TO,
     subject: subject,
     body: body,
+    htmlBody: htmlBody,
     name: CONFIG.EMAIL_SENDER_NAME,
   });
 
   Logger.log('메일 발송 완료: %s', subject);
+}
+
+// "[와이즈버즈] 사람인 CPI / DA Report 26년 8월 Daily Report_260826" 형태 (전일 날짜 기준)
+function subjectFor_(targetDate) {
+  const yy = targetDate.getFullYear() % 100;
+  const month = targetDate.getMonth() + 1;
+  const yyMMdd = Utilities.formatDate(targetDate, CONFIG.TIMEZONE, 'yyMMdd');
+  return `[와이즈버즈] 사람인 CPI / DA Report ${yy}년 ${month}월 Daily Report_${yyMMdd}`;
 }
 
 /**
@@ -108,5 +126,6 @@ function previewDailyReport_() {
   const daSection = withTempSheet_(daFile.getId(), (ss) => buildDaSection_(ss, yesterday, dayBefore));
 
   const body = buildEmailBody_(yesterday, cpiSection, daSection);
+  Logger.log('제목: %s', subjectFor_(yesterday));
   Logger.log(body);
 }

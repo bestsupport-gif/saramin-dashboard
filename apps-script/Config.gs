@@ -29,6 +29,12 @@ const CONFIG = {
   EMAIL_TO: 'best_support@wisebirds.com',
   EMAIL_SENDER_NAME: '사람인 데일리 리포트 자동화',
 
+  // 메일 인사말에 들어갈 이름 ("와이즈버즈 OOO입니다.") - 필요하면 바꿔서 쓰세요.
+  GREETING_NAME: '이소망',
+
+  // 메일 상단 "사람인 데일리 리포트" 하이퍼링크 대상
+  DAILY_REPORT_LINK_URL: 'https://drive.google.com/drive/folders/1JPWWd-HKaNIGIgCQggDSXSaWHbwgtLvi',
+
   // 드라이브 폴더 ID (사람인 CPI / DA 링크에서 추출)
   CPI_ROOT_FOLDER_ID: '11SIntvBWeplheOvl2Wz74FZB-rQHx6Xj',
   DA_ROOT_FOLDER_ID: '1gAvzZozBW64vyyMeOP6Wt7RJ45lKx3rb',
@@ -41,6 +47,10 @@ const CONFIG = {
 
   // 변환용 임시 구글시트를 만들 폴더 (미지정 시 내 드라이브 최상단에 생성 후 바로 삭제)
   TEMP_FOLDER_ID: null,
+
+  // 하이라이트 색상 (실제 리포트 양식 참고)
+  HIGHLIGHT_TITLE_BG: '#C9DAF8',  // <사람인 CPI>/<사람인 DA> 하늘색
+  HIGHLIGHT_GROUP_BG: '#FFFF00',  // 사람인스토어/DA 노란색
 };
 
 // ---------------------------------------------------------------------------
