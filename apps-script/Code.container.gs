@@ -727,3 +727,7 @@ function SR_previewDailyReport_() {
   const body = SR_buildEmailBody_(yesterday, cpiSection, daSection);
   Logger.log(body);
 }
+
+function 실행_CPI값확인() { SR_logDistinctCpiValues_(); }
+function 실행_DA값확인() { SR_logDistinctDaValues_(); }
+function 실행_미리보기() { SR_previewDailyReport_(); }
