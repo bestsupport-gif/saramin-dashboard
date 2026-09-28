@@ -1,0 +1,41 @@
+{
+  "timeZone": "Asia/Seoul",
+  "dependencies": {
+    "enabledAdvancedServices": [
+      {
+        "userSymbol": "Drive",
+        "version": "v2",
+        "serviceId": "drive"
+      },
+      {
+        "userSymbol": "Sheets",
+        "version": "v4",
+        "serviceId": "sheets"
+      },
+      {
+        "userSymbol": "DriveV3",
+        "version": "v3",
+        "serviceId": "drive"
+      }
+    ]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "sheets": {
+    "macrosQ": [
+      {
+        "menuName": "DA_MMP",
+        "functionName": "DA_MMP",
+        "defaultShortcut": "Ctrl+Alt+Shift+1"
+      },
+      {
+        "menuName": "MMPDA필터",
+        "functionName": "myFunction"
+      },
+      {
+        "menuName": "MMP_DA_필터링_F",
+        "functionName": "myFunction1"
+      }
+    ]
+  }
+}
