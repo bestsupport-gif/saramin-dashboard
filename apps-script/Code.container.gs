@@ -52,6 +52,12 @@ const SR_CONFIG = {
   // DA Summary 탭은 라벨 검색이 아니라 이 셀 값을 직접 당월 총 예산으로 사용
   DA_BUDGET_CELL: 'C7',
 
+  // 나인즈는 RAW에 매체 성과 데이터가 없고(월 정액 예산을 영업일수로 나눠 소진하는 방식),
+  // 원본 파일의 수식으로만 표시되던 값이라 변환 사본에서는 읽을 수 없다. 매월 고정 예산을
+  // 여기서 하드코딩해서 영업일(월~금) 비례로 직접 계산해 DA 소진액에 더한다.
+  // 금액이 바뀌면 이 값만 수정하면 됨.
+  DA_NINE_MONTHLY_BUDGET: 20000000,
+
   // 변환용 임시 구글시트를 만들 폴더 (미지정 시 내 드라이브 최상단에 생성 후 바로 삭제)
   TEMP_FOLDER_ID: null,
 
@@ -236,6 +242,41 @@ function SR_formatMD_(date) {
 
 function SR_formatDateKey_(date) {
   return Utilities.formatDate(date, SR_CONFIG.TIMEZONE, 'yyyy-MM-dd');
+}
+
+function SR_isWeekday_(date) {
+  const day = date.getDay(); // 0=일, 6=토
+  return day !== 0 && day !== 6;
+}
+
+// 해당 연/월(monthIndex0: 0=1월)의 영업일(월~금) 수
+function SR_businessDaysInMonth_(year, monthIndex0) {
+  const daysInMonth = new Date(year, monthIndex0 + 1, 0).getDate();
+  let count = 0;
+  for (let d = 1; d <= daysInMonth; d++) {
+    if (SR_isWeekday_(new Date(year, monthIndex0, d))) count++;
+  }
+  return count;
+}
+
+// 해당 연/월 1일부터 dayOfMonth일까지(포함)의 영업일(월~금) 수
+function SR_businessDaysElapsed_(year, monthIndex0, dayOfMonth) {
+  let count = 0;
+  for (let d = 1; d <= dayOfMonth; d++) {
+    if (SR_isWeekday_(new Date(year, monthIndex0, d))) count++;
+  }
+  return count;
+}
+
+// 나인즈처럼 "월 정액 예산을 당월 영업일수로 나눠 경과 영업일만큼 소진"하는 매체의
+// targetDate 기준 누적 소진액을 계산 (공휴일은 반영하지 않음 - 순수 월~금 기준).
+function SR_proratedBusinessDaySpend_(monthlyBudget, targetDate) {
+  const year = targetDate.getFullYear();
+  const monthIndex0 = targetDate.getMonth();
+  const totalBizDays = SR_businessDaysInMonth_(year, monthIndex0);
+  const elapsedBizDays = SR_businessDaysElapsed_(year, monthIndex0, targetDate.getDate());
+  if (!totalBizDays) return 0;
+  return (monthlyBudget / totalBizDays) * elapsedBizDays;
 }
 
 // 헤더 셀 안의 줄바꿈/공백 위치가 파일마다 조금씩 다를 수 있고(예: "Install\n(+SKAN)" vs
@@ -653,11 +694,12 @@ function SR_mediaMTD_(mediaConfigList, rows, dateColName, colMap, key, targetDat
 }
 
 // budgetCellRef 가 주어지면 (예: 'C7') Summary 탭에서 라벨을 찾는 대신 그 셀 값을 직접 읽는다.
-function SR_buildBudgetLineText_(summarySheet, rawRows, dateColName, spentColName, targetDate, totalBudgetLabel, budgetCellRef) {
+// extraMtdSpent: RAW에 없는 매체(예: 나인즈, 정액/영업일 비례 소진)의 소진액을 추가로 더할 때 사용.
+function SR_buildBudgetLineText_(summarySheet, rawRows, dateColName, spentColName, targetDate, totalBudgetLabel, budgetCellRef, extraMtdSpent) {
   const budget = budgetCellRef
     ? SR_toNumber_(summarySheet.getRange(budgetCellRef).getValue())
     : SR_toNumber_(SR_findLabelValue_(summarySheet, SR_CONFIG.BUDGET_LABEL_TEXT));
-  const mtdSpent = SR_sumSpentMonthToDate_(rawRows, dateColName, spentColName, targetDate);
+  const mtdSpent = SR_sumSpentMonthToDate_(rawRows, dateColName, spentColName, targetDate) + (extraMtdSpent || 0);
   const pct = SR_safeDivide_(mtdSpent, budget);
   const yy = targetDate.getFullYear() % 100;
   const month = targetDate.getMonth() + 1;
@@ -703,7 +745,8 @@ function SR_buildDaSection_(spreadsheet, yesterday, dayBefore) {
     throw new Error(`DA 파일에서 '${SR_CONFIG.SUMMARY_SHEET_NAME}' 또는 '${SR_CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
   }
   const { rows } = SR_readSheetAsObjects_(rawSheet);
-  const budgetLine = SR_buildBudgetLineText_(summarySheet, rows, SR_DA_RAW_COLS.DATE, SR_DA_RAW_COLS.SPENT, yesterday, 'DA', SR_CONFIG.DA_BUDGET_CELL);
+  const nineSpent = SR_proratedBusinessDaySpend_(SR_CONFIG.DA_NINE_MONTHLY_BUDGET, yesterday);
+  const budgetLine = SR_buildBudgetLineText_(summarySheet, rows, SR_DA_RAW_COLS.DATE, SR_DA_RAW_COLS.SPENT, yesterday, 'DA', SR_CONFIG.DA_BUDGET_CELL, nineSpent);
   const month = yesterday.getMonth() + 1;
 
   const mc = SR_DA_MEDIA_CONFIG;
@@ -823,7 +866,8 @@ function SR_buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
     throw new Error(`DA 파일에서 '${SR_CONFIG.SUMMARY_SHEET_NAME}' 또는 '${SR_CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
   }
   const { rows } = SR_readSheetAsObjects_(rawSheet);
-  const budgetLine = SR_buildBudgetLineText_(summarySheet, rows, SR_DA_RAW_COLS.DATE, SR_DA_RAW_COLS.SPENT, yesterday, 'DA', SR_CONFIG.DA_BUDGET_CELL);
+  const nineSpent = SR_proratedBusinessDaySpend_(SR_CONFIG.DA_NINE_MONTHLY_BUDGET, yesterday);
+  const budgetLine = SR_buildBudgetLineText_(summarySheet, rows, SR_DA_RAW_COLS.DATE, SR_DA_RAW_COLS.SPENT, yesterday, 'DA', SR_CONFIG.DA_BUDGET_CELL, nineSpent);
   const month = yesterday.getMonth() + 1;
 
   const mc = SR_DA_MEDIA_CONFIG;

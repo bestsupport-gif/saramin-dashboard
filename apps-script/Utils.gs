@@ -17,6 +17,41 @@ function formatDateKey_(date) {
   return Utilities.formatDate(date, CONFIG.TIMEZONE, 'yyyy-MM-dd');
 }
 
+function isWeekday_(date) {
+  const day = date.getDay(); // 0=일, 6=토
+  return day !== 0 && day !== 6;
+}
+
+// 해당 연/월(monthIndex0: 0=1월)의 영업일(월~금) 수
+function businessDaysInMonth_(year, monthIndex0) {
+  const daysInMonth = new Date(year, monthIndex0 + 1, 0).getDate();
+  let count = 0;
+  for (let d = 1; d <= daysInMonth; d++) {
+    if (isWeekday_(new Date(year, monthIndex0, d))) count++;
+  }
+  return count;
+}
+
+// 해당 연/월 1일부터 dayOfMonth일까지(포함)의 영업일(월~금) 수
+function businessDaysElapsed_(year, monthIndex0, dayOfMonth) {
+  let count = 0;
+  for (let d = 1; d <= dayOfMonth; d++) {
+    if (isWeekday_(new Date(year, monthIndex0, d))) count++;
+  }
+  return count;
+}
+
+// 나인즈처럼 "월 정액 예산을 당월 영업일수로 나눠 경과 영업일만큼 소진"하는 매체의
+// targetDate 기준 누적 소진액을 계산 (공휴일은 반영하지 않음 - 순수 월~금 기준).
+function proratedBusinessDaySpend_(monthlyBudget, targetDate) {
+  const year = targetDate.getFullYear();
+  const monthIndex0 = targetDate.getMonth();
+  const totalBizDays = businessDaysInMonth_(year, monthIndex0);
+  const elapsedBizDays = businessDaysElapsed_(year, monthIndex0, targetDate.getDate());
+  if (!totalBizDays) return 0;
+  return (monthlyBudget / totalBizDays) * elapsedBizDays;
+}
+
 // 헤더 셀 안의 줄바꿈/공백 위치가 파일마다 조금씩 다를 수 있고(예: "Install\n(+SKAN)" vs
 // "Install (+SKAN)"), 눈에 안 보이는 제어문자(예: 백스페이스)가 섞여 들어간 경우도 확인됨.
 // 매칭용 키는 공백/제어문자를 전부 제거해서 만든다. Config.gs 의 *_RAW_COLS 상수들도

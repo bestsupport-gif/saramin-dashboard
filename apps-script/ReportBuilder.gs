@@ -47,11 +47,12 @@ function mediaMTD_(mediaConfigList, rows, dateColName, colMap, key, targetDate) 
 }
 
 // budgetCellRef 가 주어지면 (예: 'C7') Summary 탭에서 라벨을 찾는 대신 그 셀 값을 직접 읽는다.
-function buildBudgetLineText_(summarySheet, rawRows, dateColName, spentColName, targetDate, totalBudgetLabel, budgetCellRef) {
+// extraMtdSpent: RAW에 없는 매체(예: 나인즈, 정액/영업일 비례 소진)의 소진액을 추가로 더할 때 사용.
+function buildBudgetLineText_(summarySheet, rawRows, dateColName, spentColName, targetDate, totalBudgetLabel, budgetCellRef, extraMtdSpent) {
   const budget = budgetCellRef
     ? toNumber_(summarySheet.getRange(budgetCellRef).getValue())
     : toNumber_(findLabelValue_(summarySheet, CONFIG.BUDGET_LABEL_TEXT));
-  const mtdSpent = sumSpentMonthToDate_(rawRows, dateColName, spentColName, targetDate);
+  const mtdSpent = sumSpentMonthToDate_(rawRows, dateColName, spentColName, targetDate) + (extraMtdSpent || 0);
   const pct = safeDivide_(mtdSpent, budget);
   const yy = targetDate.getFullYear() % 100;
   const month = targetDate.getMonth() + 1;
@@ -97,7 +98,8 @@ function buildDaSection_(spreadsheet, yesterday, dayBefore) {
     throw new Error(`DA 파일에서 '${CONFIG.SUMMARY_SHEET_NAME}' 또는 '${CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
   }
   const { rows } = readSheetAsObjects_(rawSheet);
-  const budgetLine = buildBudgetLineText_(summarySheet, rows, DA_RAW_COLS.DATE, DA_RAW_COLS.SPENT, yesterday, 'DA', CONFIG.DA_BUDGET_CELL);
+  const nineSpent = proratedBusinessDaySpend_(CONFIG.DA_NINE_MONTHLY_BUDGET, yesterday);
+  const budgetLine = buildBudgetLineText_(summarySheet, rows, DA_RAW_COLS.DATE, DA_RAW_COLS.SPENT, yesterday, 'DA', CONFIG.DA_BUDGET_CELL, nineSpent);
   const month = yesterday.getMonth() + 1;
 
   const mc = DA_MEDIA_CONFIG;
@@ -217,7 +219,8 @@ function buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
     throw new Error(`DA 파일에서 '${CONFIG.SUMMARY_SHEET_NAME}' 또는 '${CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
   }
   const { rows } = readSheetAsObjects_(rawSheet);
-  const budgetLine = buildBudgetLineText_(summarySheet, rows, DA_RAW_COLS.DATE, DA_RAW_COLS.SPENT, yesterday, 'DA', CONFIG.DA_BUDGET_CELL);
+  const nineSpent = proratedBusinessDaySpend_(CONFIG.DA_NINE_MONTHLY_BUDGET, yesterday);
+  const budgetLine = buildBudgetLineText_(summarySheet, rows, DA_RAW_COLS.DATE, DA_RAW_COLS.SPENT, yesterday, 'DA', CONFIG.DA_BUDGET_CELL, nineSpent);
   const month = yesterday.getMonth() + 1;
 
   const mc = DA_MEDIA_CONFIG;
