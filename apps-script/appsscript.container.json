@@ -22,7 +22,7 @@
   "exceptionLogging": "STACKDRIVER",
   "runtimeVersion": "V8",
   "sheets": {
-    "macrosQ": [
+    "macros": [
       {
         "menuName": "DA_MMP",
         "functionName": "DA_MMP",
