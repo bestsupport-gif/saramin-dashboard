@@ -64,6 +64,21 @@ function withDelta_(cur, prev, formatter) {
   return `${formatter(cur)} (${arrow_(delta)}${deltaAbs})`;
 }
 
+// HTML 메일용: 증감 부분(▲/▼ + 값)을 색상 span으로 감싼다. ▲=빨강(상승), ▼=파랑(하락).
+function withDeltaHtml_(cur, prev, formatter) {
+  const delta = cur - prev;
+  const deltaAbs = formatter(Math.abs(delta));
+  const color = delta > 0 ? '#d93025' : delta < 0 ? '#1a73e8' : '#5f6368';
+  return `${formatter(cur)} <span style="color:${color};font-weight:600;">(${arrow_(delta)}${deltaAbs})</span>`;
+}
+
+function htmlEscape_(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 function safeDivide_(numerator, denominator) {
   if (!denominator) return 0;
   return numerator / denominator;

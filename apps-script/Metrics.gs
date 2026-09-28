@@ -110,3 +110,30 @@ function buildMetricLines_(metricKeys, curTotals, prevTotals) {
   const prevD = computeDerived_(prevTotals);
   return metricKeys.map((k) => formatMetric_(k, curD[k] || 0, prevD[k] || 0));
 }
+
+// formatMetric_ 의 HTML 버전: 증감 부분에 색상(▲빨강/▼파랑)을 입힌다.
+function formatMetricHtml_(key, cur, prev) {
+  const label = htmlEscape_(METRIC_LABELS[key] || key);
+  switch (key) {
+    case 'ctr':
+    case 'roas':
+      return `${label} ${withDeltaHtml_(cur, prev, (v) => pctText_(v))}`;
+    case 'cpc':
+    case 'cpi':
+    case 'cpe':
+    case 'cpa':
+    case 'cpaSignup':
+      return `${label} ${withDeltaHtml_(cur, prev, (v) => wonText_(v))}`;
+    case 'spent':
+    case 'revenue':
+      return `${label} 약 ${withDeltaHtml_(cur, prev, (v) => manWonText_(v))}`;
+    default:
+      return `${label} ${withDeltaHtml_(cur, prev, (v) => `${commaInt_(v)}건`)}`;
+  }
+}
+
+function buildMetricLinesHtml_(metricKeys, curTotals, prevTotals) {
+  const curD = computeDerived_(curTotals);
+  const prevD = computeDerived_(prevTotals);
+  return metricKeys.map((k) => formatMetricHtml_(k, curD[k] || 0, prevD[k] || 0));
+}

@@ -77,3 +77,78 @@ ${daSection}
 감사합니다.
 (자동 발송)`;
 }
+
+// ---------------------------------------------------------------------------
+// HTML 메일 버전 (폰트/줄바꿈/하이퍼링크 포함)
+// ---------------------------------------------------------------------------
+
+function buildBudgetLineHtml_(summarySheet, rawRows, dateColName, spentColName, targetDate, totalBudgetLabel) {
+  const budget = toNumber_(findLabelValue_(summarySheet, CONFIG.BUDGET_LABEL_TEXT));
+  const mtdSpent = sumSpentMonthToDate_(rawRows, dateColName, spentColName, targetDate);
+  const pct = safeDivide_(mtdSpent, budget);
+  const yy = targetDate.getFullYear() % 100;
+  const month = targetDate.getMonth() + 1;
+  if (!budget) {
+    return `<p>- ${htmlEscape_(totalBudgetLabel)} 예산 정보를 Summary 탭에서 찾지 못했습니다 (라벨: "${htmlEscape_(CONFIG.BUDGET_LABEL_TEXT)}"). 셀 위치를 확인해 주세요.</p>`;
+  }
+  return `<p>- ${yy}년 ${month}월 예산 <b>${manWonText_(budget, 0)}</b> 중 약 <b>${pctText_(pct)}</b>인 약 <b>${manWonText_(mtdSpent)}</b> 소진 운영 중입니다.</p>`;
+}
+
+function buildMediaSectionsHtml_(mediaConfigList, rawRows, dateColName, colMap, yesterday, dayBefore) {
+  return mediaConfigList.map((cfg) => {
+    const cur = aggregateSection_(rawRows, dateColName, colMap, cfg.match, yesterday);
+    const prev = aggregateSection_(rawRows, dateColName, colMap, cfg.match, dayBefore);
+    const label = htmlEscape_(cfg.label);
+    if (cur._matchedRows === 0 && prev._matchedRows === 0) {
+      return `<p><b>[${label}]</b><br>- 전일/직전일 RAW 데이터에서 해당 조건과 일치하는 행을 찾지 못했습니다. 매칭 조건을 확인해 주세요.</p>`;
+    }
+    const lines = buildMetricLinesHtml_(cfg.metrics, cur, prev);
+    return `<p><b>[${label}]</b><br>- ${lines.join(', ')}</p>`;
+  });
+}
+
+function buildCpiSectionHtml_(spreadsheet, yesterday, dayBefore, fileUrl) {
+  const summarySheet = spreadsheet.getSheetByName(CONFIG.SUMMARY_SHEET_NAME);
+  const rawSheet = spreadsheet.getSheetByName(CONFIG.RAW_SHEET_NAME);
+  if (!summarySheet || !rawSheet) {
+    throw new Error(`CPI 파일에서 '${CONFIG.SUMMARY_SHEET_NAME}' 또는 '${CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
+  }
+  const { rows } = readSheetAsObjects_(rawSheet);
+  const budgetLine = buildBudgetLineHtml_(summarySheet, rows, CPI_RAW_COLS.DATE, CPI_RAW_COLS.SPENT, yesterday, 'CPI');
+  const mediaSections = buildMediaSectionsHtml_(CPI_MEDIA_CONFIG, rows, CPI_RAW_COLS.DATE, CPI_COL_MAP, yesterday, dayBefore);
+  const heading = `<h3 style="margin:20px 0 6px;">&lt;사람인 CPI&gt;` +
+    (fileUrl ? ` <a href="${fileUrl}" style="font-size:12px;font-weight:normal;">[원본 리포트 열기]</a>` : '') +
+    `</h3>`;
+  return heading + budgetLine + mediaSections.join('');
+}
+
+function buildDaSectionHtml_(spreadsheet, yesterday, dayBefore, fileUrl) {
+  const summarySheet = spreadsheet.getSheetByName(CONFIG.SUMMARY_SHEET_NAME);
+  const rawSheet = spreadsheet.getSheetByName(CONFIG.RAW_SHEET_NAME);
+  if (!summarySheet || !rawSheet) {
+    throw new Error(`DA 파일에서 '${CONFIG.SUMMARY_SHEET_NAME}' 또는 '${CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
+  }
+  const { rows } = readSheetAsObjects_(rawSheet);
+  const budgetLine = buildBudgetLineHtml_(summarySheet, rows, DA_RAW_COLS.DATE, DA_RAW_COLS.SPENT, yesterday, 'DA');
+  const mediaSections = buildMediaSectionsHtml_(DA_MEDIA_CONFIG, rows, DA_RAW_COLS.DATE, DA_COL_MAP, yesterday, dayBefore);
+  const month = yesterday.getMonth() + 1;
+  const heading = `<h3 style="margin:20px 0 6px;">&lt;사람인 DA&gt;` +
+    (fileUrl ? ` <a href="${fileUrl}" style="font-size:12px;font-weight:normal;">[원본 리포트 열기]</a>` : '') +
+    `</h3>`;
+  const note = `<p style="font-size:12px;color:#5f6368;">*${month}월 예산 사람인스토어, 타불라, 나인즈, 유튜브 구독 캠페인까지 포함된 예산입니다.</p>`;
+  const ytNote = `<p style="font-size:12px;color:#5f6368;">※ 유튜브구독캠페인은 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.</p>`;
+  return heading + budgetLine + note + mediaSections.join('') + ytNote;
+}
+
+function buildEmailHtml_(yesterday, cpiHtml, daHtml) {
+  const dateText = formatMD_(yesterday);
+  return `<div style="font-family:'Malgun Gothic',Arial,sans-serif;font-size:14px;color:#202124;line-height:1.7;">
+  <p>안녕하세요,<br>와이즈버즈입니다.</p>
+  <p>📂 <b>사람인 데일리 리포트</b></p>
+  <p>${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.<br>
+  <span style="font-size:12px;color:#5f6368;">(아래 수치는 스크립트가 RAW 데이터를 기준으로 자동 집계한 값이며, 매체/키워드 조정이나 소재 관련 코멘트는 포함되어 있지 않습니다. 확인 후 필요한 코멘트를 추가해 주세요.)</span></p>
+  ${cpiHtml}
+  ${daHtml}
+  <p style="margin-top:24px;">감사합니다.<br><span style="font-size:12px;color:#9aa0a6;">(자동 발송)</span></p>
+</div>`;
+}
