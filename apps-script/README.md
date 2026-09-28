@@ -10,8 +10,18 @@
 
 ## 설정 방법
 
+파일을 나눠서 넣거나, 한 파일로 합쳐서 넣거나 둘 중 편한 방법으로 하면 됩니다. 둘 다 결과는 동일합니다.
+
+**방법 A (한 파일로 붙여넣기, 가장 간단)**
 1. [script.google.com](https://script.google.com) 에서 새 프로젝트 생성 (예: `사람인 데일리 리포트`)
+2. 기본으로 생긴 `Code.gs` 안의 내용을 전부 지우고, 이 폴더의 `Code.gs` 내용 전체를 그대로 붙여넣기
+
+**방법 B (파일 6개로 나눠서 붙여넣기)**
+1. [script.google.com](https://script.google.com) 에서 새 프로젝트 생성
 2. 이 폴더의 `.gs` 파일들(Config, Utils, FileUtils, Metrics, ReportBuilder, Main)을 그대로 복사해서 스크립트 편집기에 각각 같은 이름의 파일로 붙여넣기
+
+**공통 (A, B 둘 다 이어서 진행)**
+
 3. 좌측 `프로젝트 설정` > `appsscript.json 파일을 편집기에서 보기` 체크 후, 이 폴더의 `appsscript.json` 내용으로 덮어쓰기
 4. 좌측 `서비스(+)` 에서 **Drive API** (Advanced Google Services)를 추가 (appsscript.json에 이미 선언되어 있지만, UI에서도 한 번 추가해줘야 활성화되는 경우가 있습니다)
 5. 이 스크립트를 실행할 구글 계정이 두 드라이브 폴더(CPI/DA)에 접근 권한이 있는지 확인 (best_support@wisebirds.com 계정 권장)
