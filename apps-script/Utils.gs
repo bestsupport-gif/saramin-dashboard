@@ -42,9 +42,15 @@ function wonText_(n) {
   return `${commaInt_(n)}원`;
 }
 
-function manWonText_(n, decimals) {
-  const man = n / 10000;
-  return `${man.toFixed(decimals == null ? 1 : decimals)}만 원`;
+// 1억 이상이면 "1억 5,950만 원", 미만이면 "1,741만 원" 형태로 표시 (원 단위 반올림)
+function manWonText_(n) {
+  const manTotal = Math.round(n / 10000);
+  const eok = Math.floor(manTotal / 10000);
+  const man = manTotal % 10000;
+  if (eok > 0) {
+    return man > 0 ? `${eok}억 ${man.toLocaleString('ko-KR')}만 원` : `${eok}억 원`;
+  }
+  return `${man.toLocaleString('ko-KR')}만 원`;
 }
 
 function pctText_(ratio0to1, decimals) {
@@ -64,12 +70,9 @@ function withDelta_(cur, prev, formatter) {
   return `${formatter(cur)} (${arrow_(delta)}${deltaAbs})`;
 }
 
-// HTML 메일용: 증감 부분(▲/▼ + 값)을 색상 span으로 감싼다. ▲=빨강(상승), ▼=파랑(하락).
+// HTML 본문에서도 색상/볼드 없이 일반 텍스트와 동일하게 표시 (요청에 따라 스타일 제거)
 function withDeltaHtml_(cur, prev, formatter) {
-  const delta = cur - prev;
-  const deltaAbs = formatter(Math.abs(delta));
-  const color = delta > 0 ? '#d93025' : delta < 0 ? '#1a73e8' : '#5f6368';
-  return `${formatter(cur)} <span style="color:${color};font-weight:600;">(${arrow_(delta)}${deltaAbs})</span>`;
+  return withDelta_(cur, prev, formatter);
 }
 
 function htmlEscape_(s) {

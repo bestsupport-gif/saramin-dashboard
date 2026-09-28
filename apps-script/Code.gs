@@ -46,8 +46,11 @@ const CONFIG = {
   RAW_SHEET_NAME: 'RAW',
   SUMMARY_SHEET_NAME: 'Summary',
 
-  // 예산 라벨 셀 탐색 시 사용할 텍스트 (Summary 탭 상단에 위치)
+  // 예산 라벨 셀 탐색 시 사용할 텍스트 (CPI Summary 탭에서 사용, 라벨 검색 방식)
   BUDGET_LABEL_TEXT: '월 예산',
+
+  // DA Summary 탭은 라벨 검색이 아니라 이 셀 값을 직접 당월 총 예산으로 사용
+  DA_BUDGET_CELL: 'C7',
 
   // 변환용 임시 구글시트를 만들 폴더 (미지정 시 내 드라이브 최상단에 생성 후 바로 삭제)
   TEMP_FOLDER_ID: null,
@@ -254,9 +257,15 @@ function wonText_(n) {
   return `${commaInt_(n)}원`;
 }
 
-function manWonText_(n, decimals) {
-  const man = n / 10000;
-  return `${man.toFixed(decimals == null ? 1 : decimals)}만 원`;
+// 1억 이상이면 "1억 5,950만 원", 미만이면 "1,741만 원" 형태로 표시 (원 단위 반올림)
+function manWonText_(n) {
+  const manTotal = Math.round(n / 10000);
+  const eok = Math.floor(manTotal / 10000);
+  const man = manTotal % 10000;
+  if (eok > 0) {
+    return man > 0 ? `${eok}억 ${man.toLocaleString('ko-KR')}만 원` : `${eok}억 원`;
+  }
+  return `${man.toLocaleString('ko-KR')}만 원`;
 }
 
 function pctText_(ratio0to1, decimals) {
@@ -276,12 +285,9 @@ function withDelta_(cur, prev, formatter) {
   return `${formatter(cur)} (${arrow_(delta)}${deltaAbs})`;
 }
 
-// HTML 메일용: 증감 부분(▲/▼ + 값)을 색상 span으로 감싼다. ▲=빨강(상승), ▼=파랑(하락).
+// HTML 본문에서도 색상/볼드 없이 일반 텍스트와 동일하게 표시 (요청에 따라 스타일 제거)
 function withDeltaHtml_(cur, prev, formatter) {
-  const delta = cur - prev;
-  const deltaAbs = formatter(Math.abs(delta));
-  const color = delta > 0 ? '#d93025' : delta < 0 ? '#1a73e8' : '#5f6368';
-  return `${formatter(cur)} <span style="color:${color};font-weight:600;">(${arrow_(delta)}${deltaAbs})</span>`;
+  return withDelta_(cur, prev, formatter);
 }
 
 function htmlEscape_(s) {
@@ -612,16 +618,48 @@ function mediaTotals_(mediaConfigList, rows, dateColName, colMap, key, yesterday
   return { cur: computeDerived_(cur), prev: computeDerived_(prev), matched: cur._matchedRows > 0 || prev._matchedRows > 0 };
 }
 
-function buildBudgetLineText_(summarySheet, rawRows, dateColName, spentColName, targetDate, totalBudgetLabel) {
-  const budget = toNumber_(findLabelValue_(summarySheet, CONFIG.BUDGET_LABEL_TEXT));
+// 이번 달 1일 ~ targetDate 까지 누적 합산 (rCPA/rCPE 처럼 "전일자"가 아니라 "총합" 운영값이
+// 필요한 매체용). 반환값은 computeDerived_ 적용된 값 그대로 (증감 비교 없음).
+function aggregateSectionMTD_(rows, dateColName, colMap, matchFn, targetDate) {
+  const targetKey = formatDateKey_(targetDate);
+  const monthPrefix = targetKey.slice(0, 7);
+  const semanticKeys = Object.keys(colMap);
+  const totals = {};
+  semanticKeys.forEach((k) => (totals[k] = 0));
+  rows.forEach((row) => {
+    const raw = row[dateColName];
+    if (!raw) return;
+    const d = (raw instanceof Date) ? raw : new Date(raw);
+    if (isNaN(d.getTime())) return;
+    const key = formatDateKey_(d);
+    if (key.slice(0, 7) !== monthPrefix || key > targetKey) return;
+    if (matchFn && !matchFn(row)) return;
+    semanticKeys.forEach((k) => {
+      totals[k] += toNumber_(row[colMap[k]]);
+    });
+  });
+  return computeDerived_(totals);
+}
+
+function mediaMTD_(mediaConfigList, rows, dateColName, colMap, key, targetDate) {
+  const cfg = mediaByKey_(mediaConfigList, key);
+  return aggregateSectionMTD_(rows, dateColName, colMap, cfg.match, targetDate);
+}
+
+// budgetCellRef 가 주어지면 (예: 'C7') Summary 탭에서 라벨을 찾는 대신 그 셀 값을 직접 읽는다.
+function buildBudgetLineText_(summarySheet, rawRows, dateColName, spentColName, targetDate, totalBudgetLabel, budgetCellRef) {
+  const budget = budgetCellRef
+    ? toNumber_(summarySheet.getRange(budgetCellRef).getValue())
+    : toNumber_(findLabelValue_(summarySheet, CONFIG.BUDGET_LABEL_TEXT));
   const mtdSpent = sumSpentMonthToDate_(rawRows, dateColName, spentColName, targetDate);
   const pct = safeDivide_(mtdSpent, budget);
   const yy = targetDate.getFullYear() % 100;
   const month = targetDate.getMonth() + 1;
   if (!budget) {
-    return `- ${totalBudgetLabel} 예산 정보를 Summary 탭에서 찾지 못했습니다 (라벨: "${CONFIG.BUDGET_LABEL_TEXT}"). 셀 위치를 확인해 주세요.`;
+    const where = budgetCellRef ? `셀: "${budgetCellRef}"` : `라벨: "${CONFIG.BUDGET_LABEL_TEXT}"`;
+    return `- ${totalBudgetLabel} 예산 정보를 Summary 탭에서 찾지 못했습니다 (${where}). 확인해 주세요.`;
   }
-  return `- ${yy}년 ${month}월 예산 ${manWonText_(budget, 0)} 중 약 ${pctText_(pct)}인 약 ${manWonText_(mtdSpent)} 소진 운영 중입니다.`;
+  return `- ${yy}년 ${month}월 예산 ${manWonText_(budget)} 중 약 ${pctText_(pct)}인 약 ${manWonText_(mtdSpent)} 소진 운영 중입니다.`;
 }
 
 // ---------------------------------------------------------------------------
@@ -659,7 +697,7 @@ function buildDaSection_(spreadsheet, yesterday, dayBefore) {
     throw new Error(`DA 파일에서 '${CONFIG.SUMMARY_SHEET_NAME}' 또는 '${CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
   }
   const { rows } = readSheetAsObjects_(rawSheet);
-  const budgetLine = buildBudgetLineText_(summarySheet, rows, DA_RAW_COLS.DATE, DA_RAW_COLS.SPENT, yesterday, 'DA');
+  const budgetLine = buildBudgetLineText_(summarySheet, rows, DA_RAW_COLS.DATE, DA_RAW_COLS.SPENT, yesterday, 'DA', CONFIG.DA_BUDGET_CELL);
   const month = yesterday.getMonth() + 1;
 
   const mc = DA_MEDIA_CONFIG;
@@ -673,8 +711,9 @@ function buildDaSection_(spreadsheet, yesterday, dayBefore) {
   const rtbh = T('rtbh_apply');
   const criteo = T('criteo_apply');
   const taboola = T('taboola_traffic');
-  const buzzvil = T('rcpa_buzzvil');
-  const rcpe = T('rcpe_total');
+  // rCPA/rCPE는 전일자 비교가 아니라 이번 달 누적(총합) 운영값으로 표기
+  const buzzvil = mediaMTD_(mc, rows, DA_RAW_COLS.DATE, DA_COL_MAP, 'rcpa_buzzvil', yesterday);
+  const rcpe = mediaMTD_(mc, rows, DA_RAW_COLS.DATE, DA_COL_MAP, 'rcpe_total', yesterday);
 
   const metaLines = [
     `- 메타 사람인스토어 Conversion 캠페인 전일 상품보기 ${withDelta_(conv.cur.productView, conv.prev.productView, commaInt_)}건 및 구매 ${withDelta_(conv.cur.purchase, conv.prev.purchase, commaInt_)}건 발생, 구매액 약 ${manWonText_(conv.cur.revenue)}`,
@@ -698,8 +737,8 @@ function buildDaSection_(spreadsheet, yesterday, dayBefore) {
   const trafficLine = `- 타불라 광고비 약 ${manWonText_(taboola.cur.spent)} 소진 간 CPC ${withDelta_(taboola.cur.cpc, taboola.prev.cpc, wonText_)} 발생, CTR ${withDelta_(taboola.cur.ctr, taboola.prev.ctr, pctText_)} 발생으로 유입 ${commaInt_(taboola.cur.click)}건 확보`;
 
   const rcpLines = [
-    `- rCPA 운영 매체 '버즈빌' 회원가입 총 ${commaInt_(buzzvil.cur.signup)}건 확보 및 CPA ${wonText_(buzzvil.cur.cpaSignup)} 기록 운영 중`,
-    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피) 앱 실행 단가 ${wonText_(rcpe.cur.cpe)}로 운영 중`,
+    `- rCPA 운영 매체 '버즈빌' 회원가입 총 ${commaInt_(buzzvil.signup)}건 확보 및 CPA ${wonText_(buzzvil.cpaSignup)} 기록 운영 중`,
+    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피) 앱 실행 단가 ${wonText_(rcpe.cpe)}로 운영 중`,
   ];
 
   return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 타불라, 나인즈, 유튜브 구독 캠페인까지 포함된 예산입니다.\n- 유튜브 구독 캠페인 데이터는 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
@@ -720,8 +759,7 @@ ${cpiSection}
 ${daSection}
 
 
-감사합니다.
-(자동 발송)`;
+감사합니다.`;
 }
 
 // ---------------------------------------------------------------------------
@@ -778,7 +816,7 @@ function buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
     throw new Error(`DA 파일에서 '${CONFIG.SUMMARY_SHEET_NAME}' 또는 '${CONFIG.RAW_SHEET_NAME}' 탭을 찾지 못했습니다.`);
   }
   const { rows } = readSheetAsObjects_(rawSheet);
-  const budgetLine = buildBudgetLineText_(summarySheet, rows, DA_RAW_COLS.DATE, DA_RAW_COLS.SPENT, yesterday, 'DA');
+  const budgetLine = buildBudgetLineText_(summarySheet, rows, DA_RAW_COLS.DATE, DA_RAW_COLS.SPENT, yesterday, 'DA', CONFIG.DA_BUDGET_CELL);
   const month = yesterday.getMonth() + 1;
 
   const mc = DA_MEDIA_CONFIG;
@@ -792,8 +830,8 @@ function buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
   const rtbh = T('rtbh_apply');
   const criteo = T('criteo_apply');
   const taboola = T('taboola_traffic');
-  const buzzvil = T('rcpa_buzzvil');
-  const rcpe = T('rcpe_total');
+  const buzzvil = mediaMTD_(mc, rows, DA_RAW_COLS.DATE, DA_COL_MAP, 'rcpa_buzzvil', yesterday);
+  const rcpe = mediaMTD_(mc, rows, DA_RAW_COLS.DATE, DA_COL_MAP, 'rcpe_total', yesterday);
 
   const metaLines = [
     `- 메타 사람인스토어 Conversion 캠페인 전일 상품보기 ${withDeltaHtml_(conv.cur.productView, conv.prev.productView, commaInt_)}건 및 구매 ${withDeltaHtml_(conv.cur.purchase, conv.prev.purchase, commaInt_)}건 발생, 구매액 약 ${manWonText_(conv.cur.revenue)}`,
@@ -819,8 +857,8 @@ function buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
   const trafficLine = `- 타불라 광고비 약 ${manWonText_(taboola.cur.spent)} 소진 간 CPC ${withDeltaHtml_(taboola.cur.cpc, taboola.prev.cpc, wonText_)} 발생, CTR ${withDeltaHtml_(taboola.cur.ctr, taboola.prev.ctr, pctText_)} 발생으로 유입 ${commaInt_(taboola.cur.click)}건 확보`;
 
   const rcpLines = [
-    `- rCPA 운영 매체 '버즈빌' 회원가입 총 ${commaInt_(buzzvil.cur.signup)}건 확보 및 CPA ${wonText_(buzzvil.cur.cpaSignup)} 기록 운영 중`,
-    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피) 앱 실행 단가 ${wonText_(rcpe.cur.cpe)}로 운영 중`,
+    `- rCPA 운영 매체 '버즈빌' 회원가입 총 ${commaInt_(buzzvil.signup)}건 확보 및 CPA ${wonText_(buzzvil.cpaSignup)} 기록 운영 중`,
+    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피) 앱 실행 단가 ${wonText_(rcpe.cpe)}로 운영 중`,
   ];
 
   return titleHtml_('사람인 DA') +
@@ -845,7 +883,7 @@ function buildEmailHtml_(yesterday, cpiHtml, daHtml) {
   <p>${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.</p>
   ${cpiHtml}
   ${daHtml}
-  <p style="margin-top:24px;">감사합니다.<br><span style="font-size:12px;color:#9aa0a6;">(자동 발송)</span></p>
+  <p style="margin-top:24px;">감사합니다.</p>
 </div>`;
 }
 

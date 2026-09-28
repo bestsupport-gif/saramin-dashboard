@@ -42,8 +42,11 @@ const CONFIG = {
   RAW_SHEET_NAME: 'RAW',
   SUMMARY_SHEET_NAME: 'Summary',
 
-  // 예산 라벨 셀 탐색 시 사용할 텍스트 (Summary 탭 상단에 위치)
+  // 예산 라벨 셀 탐색 시 사용할 텍스트 (CPI Summary 탭에서 사용, 라벨 검색 방식)
   BUDGET_LABEL_TEXT: '월 예산',
+
+  // DA Summary 탭은 라벨 검색이 아니라 이 셀 값을 직접 당월 총 예산으로 사용
+  DA_BUDGET_CELL: 'C7',
 
   // 변환용 임시 구글시트를 만들 폴더 (미지정 시 내 드라이브 최상단에 생성 후 바로 삭제)
   TEMP_FOLDER_ID: null,
