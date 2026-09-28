@@ -1,7 +1,5 @@
 /**
  * 사람인 CPI/DA 데일리 리포트 자동 코멘트 발송 - 전체 코드 (한 파일 버전)
- * Apps Script 프로젝트의 Code.gs 하나에 이 파일 전체를 붙여넣고,
- * appsscript.json 매니페스트만 별도로 설정하면 됩니다.
  */
 
 /**
@@ -109,88 +107,95 @@ const DA_RAW_COLS = {
   REVENUE: '구매액(App+Web)',
 };
 
-// ⚠️ 추정치 - logDistinctDaValues_() 실행 결과로 검증/수정 필요
+// logDistinctDaValues_() 실행 로그로 실측 확인된 값 기준 (Channel | Media | DA | Objective | Campaign):
+//   AdisonOfferwall | AdisonOfferwall | DA | Install | install_AOS/iOS
+//   Buzzvil | Buzzvil | DA | Install|SignUp|Youtube_sub | ...
+//   CookieOven | CookieOven | DA | Install | Install_AOS/iOS
+//   appier | appier | DA | Install|SignUp | ...
+//   criteo | Criteo | DA | Apply | Apply_Web_*
+//   facebook.business | Meta | DA|사람인스토어 | Install|Conversion|Traffic | ...
+//   greenp | greenp | DA | Traffic | Install_AOS/iOS  (그린피 - Objective 이름은 Traffic이지만 실제로는 실행형 매체)
+//   inmobi | inmobi | DA | Install | install_iOS
+//   rtbhouse | RTBhouse | DA | Apply | Apply_AOS/iOS
+//   taboola | taboola | DA | Traffic | Traffic_WEB
+// 중요: DA 컬럼 값이 'DA' 또는 '사람인스토어' 로 구분되어 있어, 메타 자체 캠페인과
+// 사람인스토어 캠페인을 이 컬럼으로 정확히 나눌 수 있음 (Media 컬럼이 아님).
 const DA_MEDIA_CONFIG = [
   {
     key: 'meta_store_conversion',
     label: '사람인스토어 [메타] Conversion',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'Meta' &&
-      row[DA_RAW_COLS.MEDIA] === '사람인스토어' &&
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'facebook.business' &&
+      row[DA_RAW_COLS.DA] === '사람인스토어' &&
       row[DA_RAW_COLS.OBJECTIVE] === 'Conversion',
     metrics: ['productView', 'purchase', 'revenue', 'roas'],
   },
   {
     key: 'meta_store_traffic',
     label: '사람인스토어 [메타] Traffic Web',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'Meta' &&
-      row[DA_RAW_COLS.MEDIA] === '사람인스토어' &&
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'facebook.business' &&
+      row[DA_RAW_COLS.DA] === '사람인스토어' &&
       row[DA_RAW_COLS.OBJECTIVE] === 'Traffic',
     metrics: ['spent', 'imps', 'click', 'ctr', 'cpc'],
   },
   {
     key: 'meta_install',
     label: '[머신러닝-앱설치] Meta(자체) Install',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'Meta' &&
-      row[DA_RAW_COLS.MEDIA] === 'Install',
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'facebook.business' &&
+      row[DA_RAW_COLS.DA] === 'DA' &&
+      row[DA_RAW_COLS.OBJECTIVE] === 'Install',
     metrics: ['spent', 'install', 'cpi', 'appOpen', 'cpe'],
   },
   {
     key: 'appier_install',
     label: '[머신러닝-앱설치] 애피어 Install',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'Appier' &&
-      /install/i.test(String(row[DA_RAW_COLS.CAMPAIGN] || '')),
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'appier' &&
+      row[DA_RAW_COLS.OBJECTIVE] === 'Install',
     metrics: ['spent', 'install', 'cpi'],
   },
   {
     key: 'appier_signup',
     label: '[머신러닝-앱설치] 애피어 Signup(입사지원)',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'Appier' &&
-      /signup/i.test(String(row[DA_RAW_COLS.CAMPAIGN] || '')),
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'appier' &&
+      row[DA_RAW_COLS.OBJECTIVE] === 'SignUp',
     metrics: ['spent', 'apply', 'cpa'],
   },
   {
     key: 'inmobi_install',
     label: '[머신러닝-앱설치] 인모비 Install',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'Inmobi',
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'inmobi',
     metrics: ['spent', 'install', 'cpi'],
   },
   {
     key: 'rtbh_apply',
     label: '[머신러닝-입사지원] RTBH',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'RTB house' || row[DA_RAW_COLS.CHANNEL] === 'RTBH',
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'rtbhouse',
     metrics: ['spent', 'apply', 'cpa'],
   },
   {
     key: 'criteo_apply',
     label: '[머신러닝-입사지원] 크리테오',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'Criteo',
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'criteo',
     metrics: ['spent', 'apply', 'cpa'],
   },
   {
     key: 'taboola_traffic',
     label: '[머신러닝-트래픽] 타불라',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'taboola' || row[DA_RAW_COLS.CHANNEL] === 'Taboola',
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'taboola',
     metrics: ['spent', 'imps', 'click', 'ctr', 'cpc'],
   },
   {
-    // 실제 값 확인됨: Channel="Buzzvil" (한글 아님). 단 Buzzvil 채널 안에 Youtube_sub(CPY)
-    // 캠페인도 섞여 있어서, rCPA 가입 캠페인만 걸러내려고 Objective가 "Youtube_sub"가
-    // 아닌 것만 포함시킴 (Objective 실제값 전체 확인 후 더 정확히 좁혀야 함).
     key: 'rcpa_buzzvil',
     label: '[rCPA] 버즈빌',
     match: (row) => row[DA_RAW_COLS.CHANNEL] === 'Buzzvil' &&
-      row[DA_RAW_COLS.OBJECTIVE] !== 'Youtube_sub',
+      row[DA_RAW_COLS.OBJECTIVE] === 'SignUp',
     metrics: ['spent', 'signup', 'cpaSignup'],
   },
   {
-    // 실제 값 확인됨: Channel="AdisonOfferwall" (한글 아님, "애디슨오퍼월-네트워크/쿠키오븐"
-    // 처럼 세분화된 값이 아니라 하나로 뭉쳐 있음 - 네트워크/쿠키오븐 구분이 필요하면 Campaign/
-    // Creative 컬럼 값으로 추가 분리해야 함). "그린피" 채널은 아직 샘플에서 못 봐서 그대로 둠.
     // "앱 실행" 전용 컬럼이 RAW 헤더에서 확인되지 않아, 임시로 Total Opens(App+Web) 컬럼을
     // "실행수"로 대체 사용합니다. 실제 컬럼이 따로 있다면 metrics/appOpen 매핑을 수정하세요.
     key: 'rcpe_total',
-    label: '[rCPE] 애디슨오퍼월/그린피 (앱 실행)',
-    match: (row) => ['AdisonOfferwall', '그린피', 'Greenpea'].indexOf(row[DA_RAW_COLS.CHANNEL]) !== -1,
+    label: '[rCPE] 애디슨오퍼월-네트워크/쿠키오븐, 그린피 (앱 실행)',
+    match: (row) => ['AdisonOfferwall', 'CookieOven', 'greenp'].indexOf(row[DA_RAW_COLS.CHANNEL]) !== -1,
     metrics: ['spent', 'appOpen', 'cpe'],
   },
 ];
