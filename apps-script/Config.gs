@@ -30,7 +30,7 @@ const CONFIG = {
   EMAIL_SENDER_NAME: '사람인 데일리 리포트 자동화',
 
   // 메일 인사말에 들어갈 이름 ("와이즈버즈 OOO입니다.") - 필요하면 바꿔서 쓰세요.
-  GREETING_NAME: '이소망',
+  GREETING_NAME: '장지원',
 
   // 메일 상단 "사람인 데일리 리포트" 하이퍼링크 대상
   DAILY_REPORT_LINK_URL: 'https://drive.google.com/drive/folders/1JPWWd-HKaNIGIgCQggDSXSaWHbwgtLvi',
