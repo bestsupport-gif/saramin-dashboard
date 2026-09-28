@@ -747,7 +747,7 @@ function SR_buildDaSection_(spreadsheet, yesterday, dayBefore) {
     `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피, 버즈빌) 앱 실행 단가 ${SR_wonText_(rcpe.cpe)}로 운영 중`,
   ];
 
-  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)\n- 유튜브 구독 캠페인 데이터는 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
+  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
 }
 
 function SR_buildEmailBody_(yesterday, cpiSection, daSection) {
@@ -870,8 +870,7 @@ function SR_buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
 
   return SR_titleHtml_('사람인 DA') +
     `<p style="margin:0 0 4px;">${budgetLine}</p>` +
-    `<p style="margin:0 0 4px;font-size:12px;color:#5f6368;">*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)</p>` +
-    `<p style="margin:0 0 10px;font-size:12px;color:#5f6368;">- 유튜브 구독 캠페인 데이터는 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.</p>` +
+    `<p style="margin:0 0 10px;font-size:12px;color:#5f6368;">*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)</p>` +
     SR_groupHtml_('사람인스토어') +
     SR_subHeaderHtml_('메타') + SR_linesHtml_(metaLines) +
     SR_groupHtml_('DA') +
