@@ -1,7 +1,7 @@
 /**
  * 사람인 CPI/DA 데일리 리포트 자동 코멘트 발송 - 전체 코드 (한 파일 버전)
  * Apps Script 프로젝트의 Code.gs 하나에 이 파일 전체를 붙여넣고,
- * appsscript.json 매니페스트만 별도로 설정하면 됩니다. (README.md 참고)
+ * appsscript.json 매니페스트만 별도로 설정하면 됩니다.
  */
 
 /**
@@ -173,17 +173,24 @@ const SR_DA_MEDIA_CONFIG = [
     metrics: ['spent', 'imps', 'click', 'ctr', 'cpc'],
   },
   {
+    // 실제 값 확인됨: Channel="Buzzvil" (한글 아님). 단 Buzzvil 채널 안에 Youtube_sub(CPY)
+    // 캠페인도 섞여 있어서, rCPA 가입 캠페인만 걸러내려고 Objective가 "Youtube_sub"가
+    // 아닌 것만 포함시킴 (Objective 실제값 전체 확인 후 더 정확히 좁혀야 함).
     key: 'rcpa_buzzvil',
     label: '[rCPA] 버즈빌',
-    match: (row) => row[SR_DA_RAW_COLS.CHANNEL] === '버즈빌',
+    match: (row) => row[SR_DA_RAW_COLS.CHANNEL] === 'Buzzvil' &&
+      row[SR_DA_RAW_COLS.OBJECTIVE] !== 'Youtube_sub',
     metrics: ['spent', 'signup', 'cpaSignup'],
   },
   {
+    // 실제 값 확인됨: Channel="AdisonOfferwall" (한글 아님, "애디슨오퍼월-네트워크/쿠키오븐"
+    // 처럼 세분화된 값이 아니라 하나로 뭉쳐 있음 - 네트워크/쿠키오븐 구분이 필요하면 Campaign/
+    // Creative 컬럼 값으로 추가 분리해야 함). "그린피" 채널은 아직 샘플에서 못 봐서 그대로 둠.
     // "앱 실행" 전용 컬럼이 RAW 헤더에서 확인되지 않아, 임시로 Total Opens(App+Web) 컬럼을
     // "실행수"로 대체 사용합니다. 실제 컬럼이 따로 있다면 metrics/appOpen 매핑을 수정하세요.
     key: 'rcpe_total',
-    label: '[rCPE] 애디슨오퍼월-네트워크/쿠키오븐, 그린피 (앱 실행)',
-    match: (row) => ['애디슨오퍼월-네트워크', '애디슨오퍼월-쿠키오븐', '그린피'].indexOf(row[SR_DA_RAW_COLS.CHANNEL]) !== -1,
+    label: '[rCPE] 애디슨오퍼월/그린피 (앱 실행)',
+    match: (row) => ['AdisonOfferwall', '그린피', 'Greenpea'].indexOf(row[SR_DA_RAW_COLS.CHANNEL]) !== -1,
     metrics: ['spent', 'appOpen', 'cpe'],
   },
 ];
@@ -207,11 +214,12 @@ function SR_formatDateKey_(date) {
   return Utilities.formatDate(date, SR_CONFIG.TIMEZONE, 'yyyy-MM-dd');
 }
 
-// 헤더 셀 안의 줄바꿈/공백 위치가 파일마다 조금씩 다를 수 있어(예: "Install\n(+SKAN)" vs
-// "Install (+SKAN)"), 매칭용 키는 공백을 전부 제거해서 만든다. Config.gs 의 *_RAW_COLS
-// 상수들도 반드시 같은 방식(공백 없이)으로 적어야 한다.
+// 헤더 셀 안의 줄바꿈/공백 위치가 파일마다 조금씩 다를 수 있고(예: "Install\n(+SKAN)" vs
+// "Install (+SKAN)"), 눈에 안 보이는 제어문자(예: 백스페이스)가 섞여 들어간 경우도 확인됨.
+// 매칭용 키는 공백/제어문자를 전부 제거해서 만든다. Config.gs 의 *_RAW_COLS 상수들도
+// 반드시 같은 방식(공백 없이)으로 적어야 한다.
 function SR_normalizeHeader_(h) {
-  return String(h == null ? '' : h).replace(/\s+/g, '').trim();
+  return String(h == null ? '' : h).replace(/[\x00-\x20\x7F]+/g, '').trim();
 }
 
 // "₩1,234,567", "39.7%", 1234, "" 등을 모두 숫자로 변환. 실패 시 0.
@@ -284,6 +292,17 @@ function SR_withTempSheet_(fileId, callback) {
   }
 }
 
+// 실제 리포트 파일은 RAW 탭 맨 위 몇 줄이 제목/안내문구인 경우가 있어(DA 리포트는 7행부터
+// 헤더), 1행을 무조건 헤더로 가정하지 않고 "Spent"와 "Channel"이 함께 있는 행을 찾아
+// 그 행을 헤더로 사용한다.
+function SR_findHeaderRow_(values) {
+  for (let r = 0; r < Math.min(values.length, 20); r++) {
+    const row = values[r].map((c) => String(c == null ? '' : c).trim());
+    if (row.indexOf('Spent') !== -1 && row.indexOf('Channel') !== -1) return r;
+  }
+  return 0;
+}
+
 /**
  * 시트 데이터 전체를 헤더 기준 객체 배열로 읽기.
  * 반환: { headers: string[](정규화됨), rows: Object[] }
@@ -291,9 +310,10 @@ function SR_withTempSheet_(fileId, callback) {
 function SR_readSheetAsObjects_(sheet) {
   const values = sheet.getDataRange().getValues();
   if (values.length === 0) return { headers: [], rows: [] };
-  const headers = values[0].map(SR_normalizeHeader_);
+  const headerRowIdx = SR_findHeaderRow_(values);
+  const headers = values[headerRowIdx].map(SR_normalizeHeader_);
   const rows = [];
-  for (let r = 1; r < values.length; r++) {
+  for (let r = headerRowIdx + 1; r < values.length; r++) {
     const row = {};
     for (let c = 0; c < headers.length; c++) {
       row[headers[c]] = values[r][c];

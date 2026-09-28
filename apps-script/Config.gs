@@ -167,17 +167,24 @@ const DA_MEDIA_CONFIG = [
     metrics: ['spent', 'imps', 'click', 'ctr', 'cpc'],
   },
   {
+    // 실제 값 확인됨: Channel="Buzzvil" (한글 아님). 단 Buzzvil 채널 안에 Youtube_sub(CPY)
+    // 캠페인도 섞여 있어서, rCPA 가입 캠페인만 걸러내려고 Objective가 "Youtube_sub"가
+    // 아닌 것만 포함시킴 (Objective 실제값 전체 확인 후 더 정확히 좁혀야 함).
     key: 'rcpa_buzzvil',
     label: '[rCPA] 버즈빌',
-    match: (row) => row[DA_RAW_COLS.CHANNEL] === '버즈빌',
+    match: (row) => row[DA_RAW_COLS.CHANNEL] === 'Buzzvil' &&
+      row[DA_RAW_COLS.OBJECTIVE] !== 'Youtube_sub',
     metrics: ['spent', 'signup', 'cpaSignup'],
   },
   {
+    // 실제 값 확인됨: Channel="AdisonOfferwall" (한글 아님, "애디슨오퍼월-네트워크/쿠키오븐"
+    // 처럼 세분화된 값이 아니라 하나로 뭉쳐 있음 - 네트워크/쿠키오븐 구분이 필요하면 Campaign/
+    // Creative 컬럼 값으로 추가 분리해야 함). "그린피" 채널은 아직 샘플에서 못 봐서 그대로 둠.
     // "앱 실행" 전용 컬럼이 RAW 헤더에서 확인되지 않아, 임시로 Total Opens(App+Web) 컬럼을
     // "실행수"로 대체 사용합니다. 실제 컬럼이 따로 있다면 metrics/appOpen 매핑을 수정하세요.
     key: 'rcpe_total',
-    label: '[rCPE] 애디슨오퍼월-네트워크/쿠키오븐, 그린피 (앱 실행)',
-    match: (row) => ['애디슨오퍼월-네트워크', '애디슨오퍼월-쿠키오븐', '그린피'].indexOf(row[DA_RAW_COLS.CHANNEL]) !== -1,
+    label: '[rCPE] 애디슨오퍼월/그린피 (앱 실행)',
+    match: (row) => ['AdisonOfferwall', '그린피', 'Greenpea'].indexOf(row[DA_RAW_COLS.CHANNEL]) !== -1,
     metrics: ['spent', 'appOpen', 'cpe'],
   },
 ];

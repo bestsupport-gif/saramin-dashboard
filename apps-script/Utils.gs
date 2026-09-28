@@ -17,11 +17,12 @@ function formatDateKey_(date) {
   return Utilities.formatDate(date, CONFIG.TIMEZONE, 'yyyy-MM-dd');
 }
 
-// 헤더 셀 안의 줄바꿈/공백 위치가 파일마다 조금씩 다를 수 있어(예: "Install\n(+SKAN)" vs
-// "Install (+SKAN)"), 매칭용 키는 공백을 전부 제거해서 만든다. Config.gs 의 *_RAW_COLS
-// 상수들도 반드시 같은 방식(공백 없이)으로 적어야 한다.
+// 헤더 셀 안의 줄바꿈/공백 위치가 파일마다 조금씩 다를 수 있고(예: "Install\n(+SKAN)" vs
+// "Install (+SKAN)"), 눈에 안 보이는 제어문자(예: 백스페이스)가 섞여 들어간 경우도 확인됨.
+// 매칭용 키는 공백/제어문자를 전부 제거해서 만든다. Config.gs 의 *_RAW_COLS 상수들도
+// 반드시 같은 방식(공백 없이)으로 적어야 한다.
 function normalizeHeader_(h) {
-  return String(h == null ? '' : h).replace(/\s+/g, '').trim();
+  return String(h == null ? '' : h).replace(/[\x00-\x20\x7F]+/g, '').trim();
 }
 
 // "₩1,234,567", "39.7%", 1234, "" 등을 모두 숫자로 변환. 실패 시 0.
@@ -94,6 +95,17 @@ function withTempSheet_(fileId, callback) {
   }
 }
 
+// 실제 리포트 파일은 RAW 탭 맨 위 몇 줄이 제목/안내문구인 경우가 있어(DA 리포트는 7행부터
+// 헤더), 1행을 무조건 헤더로 가정하지 않고 "Spent"와 "Channel"이 함께 있는 행을 찾아
+// 그 행을 헤더로 사용한다.
+function findHeaderRow_(values) {
+  for (let r = 0; r < Math.min(values.length, 20); r++) {
+    const row = values[r].map((c) => String(c == null ? '' : c).trim());
+    if (row.indexOf('Spent') !== -1 && row.indexOf('Channel') !== -1) return r;
+  }
+  return 0;
+}
+
 /**
  * 시트 데이터 전체를 헤더 기준 객체 배열로 읽기.
  * 반환: { headers: string[](정규화됨), rows: Object[] }
@@ -101,9 +113,10 @@ function withTempSheet_(fileId, callback) {
 function readSheetAsObjects_(sheet) {
   const values = sheet.getDataRange().getValues();
   if (values.length === 0) return { headers: [], rows: [] };
-  const headers = values[0].map(normalizeHeader_);
+  const headerRowIdx = findHeaderRow_(values);
+  const headers = values[headerRowIdx].map(normalizeHeader_);
   const rows = [];
-  for (let r = 1; r < values.length; r++) {
+  for (let r = headerRowIdx + 1; r < values.length; r++) {
     const row = {};
     for (let c = 0; c < headers.length; c++) {
       row[headers[c]] = values[r][c];
