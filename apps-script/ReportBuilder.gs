@@ -138,10 +138,10 @@ function buildDaSection_(spreadsheet, yesterday, dayBefore) {
 
   const rcpLines = [
     `- rCPA 운영 매체 '버즈빌' 회원가입 총 ${commaInt_(buzzvil.signup)}건 확보 및 CPA ${wonText_(buzzvil.cpaSignup)} 기록 운영 중`,
-    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피) 앱 실행 단가 ${wonText_(rcpe.cpe)}로 운영 중`,
+    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피, 버즈빌) 앱 실행 단가 ${wonText_(rcpe.cpe)}로 운영 중`,
   ];
 
-  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 타불라, 나인즈, 유튜브 구독 캠페인까지 포함된 예산입니다.\n- 유튜브 구독 캠페인 데이터는 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
+  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)\n- 유튜브 구독 캠페인 데이터는 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
 }
 
 function buildEmailBody_(yesterday, cpiSection, daSection) {
@@ -159,7 +159,8 @@ ${cpiSection}
 ${daSection}
 
 
-감사합니다.`;
+감사합니다.
+${CONFIG.GREETING_NAME} 드림`;
 }
 
 // ---------------------------------------------------------------------------
@@ -258,12 +259,12 @@ function buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
 
   const rcpLines = [
     `- rCPA 운영 매체 '버즈빌' 회원가입 총 ${commaInt_(buzzvil.signup)}건 확보 및 CPA ${wonText_(buzzvil.cpaSignup)} 기록 운영 중`,
-    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피) 앱 실행 단가 ${wonText_(rcpe.cpe)}로 운영 중`,
+    `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피, 버즈빌) 앱 실행 단가 ${wonText_(rcpe.cpe)}로 운영 중`,
   ];
 
   return titleHtml_('사람인 DA') +
     `<p style="margin:0 0 4px;">${budgetLine}</p>` +
-    `<p style="margin:0 0 4px;"><b>*${month}월 예산 사람인스토어, 타불라, 나인즈, 유튜브 구독 캠페인까지 포함된 예산입니다.</b></p>` +
+    `<p style="margin:0 0 4px;font-size:12px;color:#5f6368;">*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)</p>` +
     `<p style="margin:0 0 10px;font-size:12px;color:#5f6368;">- 유튜브 구독 캠페인 데이터는 이번 버전에 자동 집계되지 않습니다. 필요 시 [유튜브구독캠페인] 시트를 별도로 확인해 주세요.</p>` +
     groupHtml_('사람인스토어') +
     subHeaderHtml_('메타') + linesHtml_(metaLines) +
@@ -283,6 +284,6 @@ function buildEmailHtml_(yesterday, cpiHtml, daHtml) {
   <p>${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.</p>
   ${cpiHtml}
   ${daHtml}
-  <p style="margin-top:24px;">감사합니다.</p>
+  <p style="margin-top:24px;">감사합니다.<br>${htmlEscape_(CONFIG.GREETING_NAME)} 드림</p>
 </div>`;
 }

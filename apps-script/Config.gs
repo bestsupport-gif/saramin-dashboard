@@ -202,9 +202,15 @@ const DA_MEDIA_CONFIG = [
   {
     // "앱 실행" 전용 컬럼이 RAW 헤더에서 확인되지 않아, 임시로 Total Opens(App+Web) 컬럼을
     // "실행수"로 대체 사용합니다. 실제 컬럼이 따로 있다면 metrics/appOpen 매핑을 수정하세요.
+    // 버즈빌은 SignUp(=rCPA)과 Install(=rCPE 실행) 두 캠페인을 같이 운영하므로, 여기서는
+    // Objective가 'Install'인 버즈빌 행만 포함시킨다 (SignUp/Youtube_sub는 rcpa_buzzvil 쪽).
     key: 'rcpe_total',
-    label: '[rCPE] 애디슨오퍼월-네트워크/쿠키오븐, 그린피 (앱 실행)',
-    match: (row) => ['AdisonOfferwall', 'CookieOven', 'greenp'].indexOf(row[DA_RAW_COLS.CHANNEL]) !== -1,
+    label: '[rCPE] 애디슨오퍼월-네트워크/쿠키오븐, 그린피, 버즈빌 (앱 실행)',
+    match: (row) => {
+      const ch = row[DA_RAW_COLS.CHANNEL];
+      if (ch === 'Buzzvil') return row[DA_RAW_COLS.OBJECTIVE] === 'Install';
+      return ['AdisonOfferwall', 'CookieOven', 'greenp'].indexOf(ch) !== -1;
+    },
     metrics: ['spent', 'appOpen', 'cpe'],
   },
 ];
