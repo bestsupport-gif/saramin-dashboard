@@ -280,7 +280,7 @@ function buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
 
 function buildEmailHtml_(yesterday, cpiHtml, daHtml) {
   const dateText = formatMD_(yesterday);
-  return `<div style="font-family:'Malgun Gothic',Arial,sans-serif;font-size:14px;color:#202124;line-height:1.7;">
+  return `<div style="font-family:'Apple SD Gothic Neo','Malgun Gothic','Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#202124;line-height:1.7;">
   <p>안녕하세요,<br>와이즈버즈 ${htmlEscape_(CONFIG.GREETING_NAME)}입니다.</p>
   <p>📂 <a href="${CONFIG.DAILY_REPORT_LINK_URL}">사람인 데일리 리포트</a></p>
   <p>${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.</p>

@@ -6,8 +6,11 @@
  *         탭: Summary / Apple_SA / Google_AC / RAW
  *         RAW 헤더: Month, Week, Event Date, Channel, Campaign, Ad Group, Term,
  *                   Imps., Click, Install, Spent, Total Opens (App), Unique 유저 수 (App),
- *                   로그인 (App), 회원가입 (App), apply_completed (App), resume_reg (App),
- *                   onboarding_completed (App+Web), Uninstalls (App), sign_delete 유저 수 (App)
+ *                   Installs (App), 로그인 (App), 회원가입 (App), apply_completed (App),
+ *                   resume_reg (App), onboarding_completed (App+Web), Uninstalls (App),
+ *                   sign_delete 유저 수 (App)
+ *         ⚠️ "Install"(클릭귀속 단순 카운트)과 "Installs (App)"(Summary 탭 피벗과 동일한
+ *            집계 설치수)은 값이 다름 - CPI_RAW_COLS.INSTALL은 반드시 "Installs (App)" 사용
  *  - DA : 폴더 안에 'YYYY.MM' 하위 폴더 -> '(Wisebirds)사람인 DA 캠페인_Daily Report N월_YYMMDD.xlsx'
  *         탭: Summary / Meta(Install) / Meta(사람인스토어) / Appier / Inmobi / RTB house /
  *             Criteo / taboola / rCPA / rCPE / 유튜브구독캠페인 / RAW
@@ -72,7 +75,10 @@ const CPI_RAW_COLS = {
   CAMPAIGN: 'Campaign',
   IMPS: 'Imps.',
   CLICK: 'Click',
-  INSTALL: 'Install',
+  // "Install" 컬럼은 매체 원자료의 단순 클릭 귀속 설치수라 Apple_SA/Google_AC 탭의
+  // "Installs" 피벗(=집계/중복제거 반영)과 값이 다르다. Summary 탭 피벗과 동일한
+  // 수치를 내려면 "Installs (App)" 컬럼을 써야 함 (2026-09-29 실측 대조로 확인).
+  INSTALL: 'Installs(App)',
   SPENT: 'Spent',
   APP_OPEN: 'TotalOpens(App)',
   APPLY: 'apply_completed(App)',
