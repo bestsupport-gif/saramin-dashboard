@@ -64,8 +64,8 @@ const SR_CONFIG = {
   // 변환용 임시 구글시트를 만들 폴더 (미지정 시 내 드라이브 최상단에 생성 후 바로 삭제)
   TEMP_FOLDER_ID: null,
 
-  // 하이라이트 색상 (실제 리포트 양식 참고)
-  HIGHLIGHT_TITLE_BG: '#C9DAF8',  // <사람인 CPI>/<사람인 DA> 하늘색
+  // 하이라이트 색상 (2026-09-28 12:37 실제 발송 메일 기준으로 정확히 대조)
+  HIGHLIGHT_TITLE_BG: '#CFE2F3',  // <사람인 CPI>/<사람인 DA> 하늘색
   HIGHLIGHT_GROUP_BG: '#FFFF00',  // 사람인스토어/DA 노란색
 };
 
@@ -772,6 +772,7 @@ function SR_buildDaSection_(spreadsheet, yesterday, dayBefore) {
 
   const metaLines = [
     `- 메타 사람인스토어 Conversion 캠페인 전일 상품보기 ${SR_withDelta_(conv.cur.productView, conv.prev.productView, SR_commaInt_)}건 및 구매 ${SR_withDelta_(conv.cur.purchase, conv.prev.purchase, SR_commaInt_)}건 발생, 구매액 약 ${SR_manWonText_(conv.cur.revenue)}`,
+    ``,
     `- Traffic Web 캠페인 전일 광고비 약 ${SR_manWonText_(traf.cur.spent)} 소진 운영 간 CTR ${SR_withDelta_(traf.cur.ctr, traf.prev.ctr, SR_pctText_)} 기록 및 CPC ${SR_withDelta_(traf.cur.cpc, traf.prev.cpc, SR_wonText_)} 발생`,
   ];
 
@@ -796,7 +797,7 @@ function SR_buildDaSection_(spreadsheet, yesterday, dayBefore) {
     `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피, 버즈빌) 앱 실행 단가 ${SR_wonText_(rcpe.cpe)}으로 운영 중`,
   ];
 
-  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
+  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)\n\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
 }
 
 function SR_buildEmailBody_(yesterday, cpiSection, daSection) {
@@ -808,11 +809,11 @@ function SR_buildEmailBody_(yesterday, cpiSection, daSection) {
 
 ${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.
 
+
 ${cpiSection}
 
 
 ${daSection}
-
 
 감사합니다.
 ${SR_CONFIG.GREETING_NAME} 드림`;
@@ -822,20 +823,29 @@ ${SR_CONFIG.GREETING_NAME} 드림`;
 // HTML 버전 (폰트/하이라이트/줄바꿈/하이퍼링크 포함, 실제 발송용 htmlBody)
 // ---------------------------------------------------------------------------
 
+function SR_divHtml_(innerHtml) {
+  return `<div>${innerHtml}</div>`;
+}
+
+// 실제 발송 메일(2026-09-28 12:37) 기준 - 빈 줄은 CSS margin이 아니라 <div><br></div> 로 표현
+function SR_blankHtml_(count) {
+  return new Array(count || 1).fill('<div><br></div>').join('');
+}
+
 function SR_titleHtml_(text) {
-  return `<p style="margin:20px 0 6px;"><b style="background-color:${SR_CONFIG.HIGHLIGHT_TITLE_BG};padding:1px 4px;">&lt;${text}&gt;</b></p>`;
+  return `<div><b style="background-color:${SR_CONFIG.HIGHLIGHT_TITLE_BG};">&lt;${text}&gt;</b></div>`;
 }
 
 function SR_groupHtml_(text) {
-  return `<p style="margin:16px 0 2px;"><b style="background-color:${SR_CONFIG.HIGHLIGHT_GROUP_BG};padding:1px 4px;">${text}</b></p>`;
+  return `<div><b style="background-color:${SR_CONFIG.HIGHLIGHT_GROUP_BG};">${text}</b></div>`;
 }
 
 function SR_subHeaderHtml_(text) {
-  return `<p style="margin:4px 0 2px;"><b>[${SR_htmlEscape_(text)}]</b></p>`;
+  return `<div><b>[${SR_htmlEscape_(text)}]</b></div>`;
 }
 
 function SR_linesHtml_(lines) {
-  return `<p style="margin:0 0 10px;">${lines.filter((l) => l !== '').join('<br>')}</p>`;
+  return `<div>${lines.filter((l) => l !== '').join('<br>')}</div>`;
 }
 
 function SR_buildCpiSectionHtml_(spreadsheet, yesterday, dayBefore) {
@@ -860,8 +870,10 @@ function SR_buildCpiSectionHtml_(spreadsheet, yesterday, dayBefore) {
   ];
 
   return SR_titleHtml_('사람인 CPI') +
-    `<p style="margin:0 0 10px;">${budgetLine}</p>` +
+    SR_divHtml_(budgetLine) +
+    SR_blankHtml_(1) +
     SR_subHeaderHtml_('ASA') + SR_linesHtml_([asaLine]) +
+    SR_blankHtml_(1) +
     SR_subHeaderHtml_('Google AC') + SR_linesHtml_(gaLines);
 }
 
@@ -919,27 +931,41 @@ function SR_buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
   ];
 
   return SR_titleHtml_('사람인 DA') +
-    `<p style="margin:0 0 4px;">${budgetLine}</p>` +
-    `<p style="margin:0 0 10px;font-size:12px;color:#5f6368;">*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)</p>` +
+    SR_divHtml_(budgetLine) +
+    `<div><b style="font-size:x-small;">*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)</b></div>` +
+    SR_blankHtml_(2) +
     SR_groupHtml_('사람인스토어') +
-    SR_subHeaderHtml_('메타') + SR_linesHtml_(metaLines) +
+    SR_subHeaderHtml_('메타') +
+    SR_linesHtml_([metaLines[0]]) +
+    SR_blankHtml_(1) +
+    SR_linesHtml_([metaLines[1]]) +
+    SR_blankHtml_(2) +
     SR_groupHtml_('DA') +
     SR_subHeaderHtml_('머신러닝 - 앱설치 매체') +
-    SR_linesHtml_(installLines) + SR_linesHtml_(appierLines) + SR_linesHtml_(inmobiLines) +
+    SR_linesHtml_(installLines) + SR_blankHtml_(1) + SR_linesHtml_(appierLines) + SR_blankHtml_(1) + SR_linesHtml_(inmobiLines) +
+    SR_blankHtml_(1) +
     SR_subHeaderHtml_('머신러닝 - 입사지원 매체') + SR_linesHtml_(applyLines) +
+    SR_blankHtml_(1) +
     SR_subHeaderHtml_('머신러닝 - 트래픽 매체') + SR_linesHtml_([trafficLine]) +
+    SR_blankHtml_(1) +
     SR_subHeaderHtml_('rCPE/rCPA') + SR_linesHtml_(rcpLines);
 }
 
+// 2026-09-28 12:37 실제 발송 메일(Gmail, Arial 산세리프, 기본 크기)과 동일한 폰트/줄바꿈으로 맞춤
 function SR_buildEmailHtml_(yesterday, cpiHtml, daHtml) {
   const dateText = SR_formatMD_(yesterday);
-  return `<div style="font-family:'Apple SD Gothic Neo','Malgun Gothic','Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#202124;line-height:1.7;">
-  <p>안녕하세요,<br>와이즈버즈 ${SR_htmlEscape_(SR_CONFIG.GREETING_NAME)}입니다.</p>
-  <p>📂 <a href="${SR_CONFIG.DAILY_REPORT_LINK_URL}">사람인 데일리 리포트</a></p>
-  <p>${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.</p>
-  ${cpiHtml}
-  ${daHtml}
-  <p style="margin-top:24px;">감사합니다.<br>${SR_htmlEscape_(SR_CONFIG.GREETING_NAME)} 드림</p>
+  return `<div style="font-family:Arial, sans-serif;">
+${SR_divHtml_(`안녕하세요,<br>와이즈버즈 ${SR_htmlEscape_(SR_CONFIG.GREETING_NAME)}입니다.`)}
+${SR_blankHtml_(1)}
+${SR_divHtml_(`📂 <a href="${SR_CONFIG.DAILY_REPORT_LINK_URL}">사람인 데일리 리포트</a>`)}
+${SR_blankHtml_(1)}
+${SR_divHtml_(`${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.`)}
+${SR_blankHtml_(2)}
+${cpiHtml}
+${SR_blankHtml_(2)}
+${daHtml}
+${SR_blankHtml_(1)}
+${SR_divHtml_(`감사합니다.<br>${SR_htmlEscape_(SR_CONFIG.GREETING_NAME)} 드림`)}
 </div>`;
 }
 

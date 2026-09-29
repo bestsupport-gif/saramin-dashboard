@@ -119,6 +119,7 @@ function buildDaSection_(spreadsheet, yesterday, dayBefore) {
 
   const metaLines = [
     `- 메타 사람인스토어 Conversion 캠페인 전일 상품보기 ${withDelta_(conv.cur.productView, conv.prev.productView, commaInt_)}건 및 구매 ${withDelta_(conv.cur.purchase, conv.prev.purchase, commaInt_)}건 발생, 구매액 약 ${manWonText_(conv.cur.revenue)}`,
+    ``,
     `- Traffic Web 캠페인 전일 광고비 약 ${manWonText_(traf.cur.spent)} 소진 운영 간 CTR ${withDelta_(traf.cur.ctr, traf.prev.ctr, pctText_)} 기록 및 CPC ${withDelta_(traf.cur.cpc, traf.prev.cpc, wonText_)} 발생`,
   ];
 
@@ -143,7 +144,7 @@ function buildDaSection_(spreadsheet, yesterday, dayBefore) {
     `- rCPE 매체 앱 설치+실행 운영 매체(애디슨오퍼월-네트워크, 애디슨오퍼월-쿠키오븐, 그린피, 버즈빌) 앱 실행 단가 ${wonText_(rcpe.cpe)}으로 운영 중`,
   ];
 
-  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
+  return `<사람인 DA>\n${budgetLine}\n*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)\n\n\n사람인스토어\n[메타]\n${metaLines.join('\n')}\n\n\nDA\n[머신러닝 - 앱설치 매체]\n${installLines.join('\n')}\n\n[머신러닝 - 입사지원 매체]\n${applyLines.join('\n')}\n\n[머신러닝 - 트래픽 매체]\n${trafficLine}\n\n[rCPE/rCPA]\n${rcpLines.join('\n')}`;
 }
 
 function buildEmailBody_(yesterday, cpiSection, daSection) {
@@ -155,11 +156,11 @@ function buildEmailBody_(yesterday, cpiSection, daSection) {
 
 ${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.
 
+
 ${cpiSection}
 
 
 ${daSection}
-
 
 감사합니다.
 ${CONFIG.GREETING_NAME} 드림`;
@@ -169,20 +170,29 @@ ${CONFIG.GREETING_NAME} 드림`;
 // HTML 버전 (폰트/하이라이트/줄바꿈/하이퍼링크 포함, 실제 발송용 htmlBody)
 // ---------------------------------------------------------------------------
 
+function divHtml_(innerHtml) {
+  return `<div>${innerHtml}</div>`;
+}
+
+// 실제 발송 메일(2026-09-28 12:37) 기준 - 빈 줄은 CSS margin이 아니라 <div><br></div> 로 표현
+function blankHtml_(count) {
+  return new Array(count || 1).fill('<div><br></div>').join('');
+}
+
 function titleHtml_(text) {
-  return `<p style="margin:20px 0 6px;"><b style="background-color:${CONFIG.HIGHLIGHT_TITLE_BG};padding:1px 4px;">&lt;${text}&gt;</b></p>`;
+  return `<div><b style="background-color:${CONFIG.HIGHLIGHT_TITLE_BG};">&lt;${text}&gt;</b></div>`;
 }
 
 function groupHtml_(text) {
-  return `<p style="margin:16px 0 2px;"><b style="background-color:${CONFIG.HIGHLIGHT_GROUP_BG};padding:1px 4px;">${text}</b></p>`;
+  return `<div><b style="background-color:${CONFIG.HIGHLIGHT_GROUP_BG};">${text}</b></div>`;
 }
 
 function subHeaderHtml_(text) {
-  return `<p style="margin:4px 0 2px;"><b>[${htmlEscape_(text)}]</b></p>`;
+  return `<div><b>[${htmlEscape_(text)}]</b></div>`;
 }
 
 function linesHtml_(lines) {
-  return `<p style="margin:0 0 10px;">${lines.filter((l) => l !== '').join('<br>')}</p>`;
+  return `<div>${lines.filter((l) => l !== '').join('<br>')}</div>`;
 }
 
 function buildCpiSectionHtml_(spreadsheet, yesterday, dayBefore) {
@@ -207,8 +217,10 @@ function buildCpiSectionHtml_(spreadsheet, yesterday, dayBefore) {
   ];
 
   return titleHtml_('사람인 CPI') +
-    `<p style="margin:0 0 10px;">${budgetLine}</p>` +
+    divHtml_(budgetLine) +
+    blankHtml_(1) +
     subHeaderHtml_('ASA') + linesHtml_([asaLine]) +
+    blankHtml_(1) +
     subHeaderHtml_('Google AC') + linesHtml_(gaLines);
 }
 
@@ -266,26 +278,40 @@ function buildDaSectionHtml_(spreadsheet, yesterday, dayBefore) {
   ];
 
   return titleHtml_('사람인 DA') +
-    `<p style="margin:0 0 4px;">${budgetLine}</p>` +
-    `<p style="margin:0 0 10px;font-size:12px;color:#5f6368;">*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)</p>` +
+    divHtml_(budgetLine) +
+    `<div><b style="font-size:x-small;">*${month}월 예산 사람인스토어, 나인즈, 유튜브 구독 캠페인 포함된 예산입니다. (예비비 300만원 제외)</b></div>` +
+    blankHtml_(2) +
     groupHtml_('사람인스토어') +
-    subHeaderHtml_('메타') + linesHtml_(metaLines) +
+    subHeaderHtml_('메타') +
+    linesHtml_([metaLines[0]]) +
+    blankHtml_(1) +
+    linesHtml_([metaLines[1]]) +
+    blankHtml_(2) +
     groupHtml_('DA') +
     subHeaderHtml_('머신러닝 - 앱설치 매체') +
-    linesHtml_(installLines) + linesHtml_(appierLines) + linesHtml_(inmobiLines) +
+    linesHtml_(installLines) + blankHtml_(1) + linesHtml_(appierLines) + blankHtml_(1) + linesHtml_(inmobiLines) +
+    blankHtml_(1) +
     subHeaderHtml_('머신러닝 - 입사지원 매체') + linesHtml_(applyLines) +
+    blankHtml_(1) +
     subHeaderHtml_('머신러닝 - 트래픽 매체') + linesHtml_([trafficLine]) +
+    blankHtml_(1) +
     subHeaderHtml_('rCPE/rCPA') + linesHtml_(rcpLines);
 }
 
+// 2026-09-28 12:37 실제 발송 메일(Gmail, Arial 산세리프, 기본 크기)과 동일한 폰트/줄바꿈으로 맞춤
 function buildEmailHtml_(yesterday, cpiHtml, daHtml) {
   const dateText = formatMD_(yesterday);
-  return `<div style="font-family:'Apple SD Gothic Neo','Malgun Gothic','Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#202124;line-height:1.7;">
-  <p>안녕하세요,<br>와이즈버즈 ${htmlEscape_(CONFIG.GREETING_NAME)}입니다.</p>
-  <p>📂 <a href="${CONFIG.DAILY_REPORT_LINK_URL}">사람인 데일리 리포트</a></p>
-  <p>${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.</p>
-  ${cpiHtml}
-  ${daHtml}
-  <p style="margin-top:24px;">감사합니다.<br>${htmlEscape_(CONFIG.GREETING_NAME)} 드림</p>
+  return `<div style="font-family:Arial, sans-serif;">
+${divHtml_(`안녕하세요,<br>와이즈버즈 ${htmlEscape_(CONFIG.GREETING_NAME)}입니다.`)}
+${blankHtml_(1)}
+${divHtml_(`📂 <a href="${CONFIG.DAILY_REPORT_LINK_URL}">사람인 데일리 리포트</a>`)}
+${blankHtml_(1)}
+${divHtml_(`${dateText} 기준 CPI, DA 데일리 리포트 코멘트 전달드립니다.`)}
+${blankHtml_(2)}
+${cpiHtml}
+${blankHtml_(2)}
+${daHtml}
+${blankHtml_(1)}
+${divHtml_(`감사합니다.<br>${htmlEscape_(CONFIG.GREETING_NAME)} 드림`)}
 </div>`;
 }

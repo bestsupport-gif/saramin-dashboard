@@ -60,8 +60,8 @@ const CONFIG = {
   // 변환용 임시 구글시트를 만들 폴더 (미지정 시 내 드라이브 최상단에 생성 후 바로 삭제)
   TEMP_FOLDER_ID: null,
 
-  // 하이라이트 색상 (실제 리포트 양식 참고)
-  HIGHLIGHT_TITLE_BG: '#C9DAF8',  // <사람인 CPI>/<사람인 DA> 하늘색
+  // 하이라이트 색상 (2026-09-28 12:37 실제 발송 메일 기준으로 정확히 대조)
+  HIGHLIGHT_TITLE_BG: '#CFE2F3',  // <사람인 CPI>/<사람인 DA> 하늘색
   HIGHLIGHT_GROUP_BG: '#FFFF00',  // 사람인스토어/DA 노란색
 };
 
