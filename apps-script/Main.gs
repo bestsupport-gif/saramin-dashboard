@@ -10,8 +10,10 @@ function sendDailyReport() {
   Logger.log('실행 기준일: %s / 전일: %s / 직전일: %s',
     formatDateKey_(now), formatDateKey_(yesterday), formatDateKey_(dayBefore));
 
-  const cpiFile = findLatestReportFile_(CONFIG.CPI_ROOT_FOLDER_ID, now);
-  const daFile = findLatestReportFile_(CONFIG.DA_ROOT_FOLDER_ID, now);
+  // 월 초(1일)에 실행하면 "전일"은 지난달 마지막 날이므로, 리포트 파일은 실행일(now)이 아니라
+  // 전일(yesterday) 기준 월 폴더에서 찾아야 함 (예: 10/1 실행 -> "2026.09" 폴더의 9월 파일).
+  const cpiFile = findLatestReportFile_(CONFIG.CPI_ROOT_FOLDER_ID, yesterday);
+  const daFile = findLatestReportFile_(CONFIG.DA_ROOT_FOLDER_ID, yesterday);
   Logger.log('CPI 파일: %s / DA 파일: %s', cpiFile.getName(), daFile.getName());
 
   const cpiOut = withTempSheet_(cpiFile.getId(), (ss) => ({
@@ -119,8 +121,9 @@ function previewDailyReport_() {
   const yesterday = addDays_(now, -1);
   const dayBefore = addDays_(now, -2);
 
-  const cpiFile = findLatestReportFile_(CONFIG.CPI_ROOT_FOLDER_ID, now);
-  const daFile = findLatestReportFile_(CONFIG.DA_ROOT_FOLDER_ID, now);
+  // sendDailyReport() 와 동일하게 "전일" 기준 월 폴더에서 파일을 찾는다 (월 초 1일자 대응).
+  const cpiFile = findLatestReportFile_(CONFIG.CPI_ROOT_FOLDER_ID, yesterday);
+  const daFile = findLatestReportFile_(CONFIG.DA_ROOT_FOLDER_ID, yesterday);
 
   const cpiSection = withTempSheet_(cpiFile.getId(), (ss) => buildCpiSection_(ss, yesterday, dayBefore));
   const daSection = withTempSheet_(daFile.getId(), (ss) => buildDaSection_(ss, yesterday, dayBefore));

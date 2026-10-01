@@ -981,8 +981,10 @@ function SR_sendDailyReport() {
   Logger.log('실행 기준일: %s / 전일: %s / 직전일: %s',
     SR_formatDateKey_(now), SR_formatDateKey_(yesterday), SR_formatDateKey_(dayBefore));
 
-  const cpiFile = SR_findLatestReportFile_(SR_CONFIG.CPI_ROOT_FOLDER_ID, now);
-  const daFile = SR_findLatestReportFile_(SR_CONFIG.DA_ROOT_FOLDER_ID, now);
+  // 월 초(1일)에 실행하면 "전일"은 지난달 마지막 날이므로, 리포트 파일은 실행일(now)이 아니라
+  // 전일(yesterday) 기준 월 폴더에서 찾아야 함 (예: 10/1 실행 -> "2026.09" 폴더의 9월 파일).
+  const cpiFile = SR_findLatestReportFile_(SR_CONFIG.CPI_ROOT_FOLDER_ID, yesterday);
+  const daFile = SR_findLatestReportFile_(SR_CONFIG.DA_ROOT_FOLDER_ID, yesterday);
   Logger.log('CPI 파일: %s / DA 파일: %s', cpiFile.getName(), daFile.getName());
 
   const cpiOut = SR_withTempSheet_(cpiFile.getId(), (ss) => ({
@@ -1090,8 +1092,9 @@ function SR_previewDailyReport_() {
   const yesterday = SR_addDays_(now, -1);
   const dayBefore = SR_addDays_(now, -2);
 
-  const cpiFile = SR_findLatestReportFile_(SR_CONFIG.CPI_ROOT_FOLDER_ID, now);
-  const daFile = SR_findLatestReportFile_(SR_CONFIG.DA_ROOT_FOLDER_ID, now);
+  // SR_sendDailyReport() 와 동일하게 "전일" 기준 월 폴더에서 파일을 찾는다 (월 초 1일자 대응).
+  const cpiFile = SR_findLatestReportFile_(SR_CONFIG.CPI_ROOT_FOLDER_ID, yesterday);
+  const daFile = SR_findLatestReportFile_(SR_CONFIG.DA_ROOT_FOLDER_ID, yesterday);
 
   const cpiSection = SR_withTempSheet_(cpiFile.getId(), (ss) => SR_buildCpiSection_(ss, yesterday, dayBefore));
   const daSection = SR_withTempSheet_(daFile.getId(), (ss) => SR_buildDaSection_(ss, yesterday, dayBefore));
